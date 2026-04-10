@@ -46,7 +46,13 @@ const apronDetails: Record<string, ApronDetail> = {
     name: 'Lead Free Frontal Protection Apron',
     description: 'Environmentally friendly alternative using 100% lead-free materials without compromising on attenuation efficiency.',
     features: ['Environment Friendly Materials', 'Up to 20% lighter than traditional lead', 'Superior flexibility', 'BARC Approved compliance'],
-    image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2000'
+    image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2000',
+    specifications: [
+      ['Material', '100% Lead-Free (Bismuth/Tungsten/Antimony)'],
+      ['Weight', 'Reduced weight for ergonomic comfort'],
+      ['Certification', 'BARC Certified / AERB Approval'],
+      ['Usage', 'General Radiology / CT Scan / Cath Lab']
+    ]
   },
   // We can add more specific details for each as needed, using a fallback for others
 };
