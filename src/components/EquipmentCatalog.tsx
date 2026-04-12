@@ -110,111 +110,95 @@ export default function EquipmentCatalog() {
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="animate-fade-in-up delay-300" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: 'center', marginBottom: '4rem' }}>
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`btn ${selectedCategory === cat ? 'btn-primary' : 'btn-secondary'}`}
-              style={{ 
-                padding: '0.875rem 2rem', 
-                fontSize: '1.125rem', 
-                fontWeight: 700,
-                boxShadow: selectedCategory === cat ? '0 10px 20px -5px rgba(0, 86, 150, 0.4)' : 'var(--shadow-sm)'
-              }}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Category Description Section */}
-        {currentDesc && (
-          <div className="animate-fade-in-up" style={{ marginBottom: '5rem', background: 'white', padding: '3.5rem', borderRadius: '2rem', boxShadow: 'var(--shadow-soft)', border: '1px solid rgba(0, 86, 150, 0.05)' }}>
-            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-              <h3 style={{ fontSize: '2.25rem', marginBottom: '1.5rem', color: 'var(--color-primary)' }}>{currentDesc.title}</h3>
-              <p style={{ fontSize: '1.125rem', color: 'var(--color-gray-800)', marginBottom: '2rem', lineHeight: 1.8 }}>
-                {currentDesc.lead}
-              </p>
-              
-              <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontWeight: 700, marginBottom: '1rem', color: 'var(--color-gray-900)' }}>Our extensive product range includes:</p>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {currentDesc.points.map((point, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem', color: 'var(--color-gray-800)' }}>
-                      <div style={{ minWidth: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-primary)', marginTop: '0.6rem' }}></div>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <p style={{ fontSize: '1.125rem', fontStyle: 'italic', color: 'var(--color-gray-700)', marginBottom: '3rem', borderLeft: '4px solid var(--color-primary)', paddingLeft: '1.5rem' }}>
-                {currentDesc.footer}
-              </p>
-              
-              <div style={{ background: 'var(--color-primary-light)', padding: '2rem', borderRadius: '1.5rem', border: '1px solid rgba(0, 86, 150, 0.1)' }}>
-                <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Package size={20} /> Request a Quote
-                </h4>
-                <p style={{ color: 'var(--color-gray-800)', lineHeight: 1.6 }}>
-                  Please send your requirements and quantities to <a href="mailto:info@ibannihealthcare.com" style={{ fontWeight: 700, color: 'var(--color-primary)', textDecoration: 'underline' }}>info@ibannihealthcare.com</a> for our best CIF/C&F pricing.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {filteredEquipment.map((item, index) => (
-            <div 
-              key={item.id} 
-              className="product-card animate-fade-in-up"
-              style={{ animationDelay: `${(index % 6) * 100}ms` }}
-            >
-              <div className="product-image-container">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="product-image"
-                  onError={(e) => { e.currentTarget.src = fallbackImage }}
-                />
-              </div>
-              <div className="product-details">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <div style={{ background: 'var(--color-green-50)', padding: '0.5rem', borderRadius: '0.5rem' }}>
-                    {item.icon}
+        <div className="category-layout">
+          {/* Sidebar Menu */}
+          <aside className="category-sidebar animate-fade-in-up delay-300">
+            <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-gray-500)', marginBottom: '1.5rem', paddingLeft: '0.5rem' }}>
+              Equipment Categories
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`category-tab ${selectedCategory === cat ? 'active' : ''}`}
+                >
+                  <div className="icon-container">
+                    {cat === 'Hospital Furnitures' && <Bed size={20} />}
+                    {cat === 'X ray supplies' && <Shield size={20} />}
+                    {cat === 'OT Equipments' && <Sun size={20} />}
+                    {cat === 'Infant care equipment' && <HeartPulse size={20} />}
                   </div>
-                  <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#005696', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.category}</span>
-                </div>
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', minHeight: '3.5rem' }}>{item.name}</h3>
-                <p style={{ color: 'var(--color-gray-800)', fontSize: '0.9rem', marginBottom: '1.5rem', minHeight: '60px' }}>{item.description}</p>
-                
-                {item.name === 'Lead Apron' && (
-                  <Link 
-                    to="/equipment/lead-apron" 
-                    className="btn btn-secondary" 
-                    style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: '0.5rem', 
-                      fontSize: '0.85rem', 
-                      padding: '0.5rem 1rem', 
-                      width: 'fit-content',
-                      marginTop: 'auto',
-                      background: 'rgba(0, 86, 150, 0.05)',
-                      color: 'var(--color-primary)',
-                      border: '1px solid rgba(0, 86, 150, 0.2)'
-                    }}
-                  >
-                    Technical Specs <ArrowRight size={16} />
-                  </Link>
-                )}
-              </div>
+                  {cat}
+                </button>
+              ))}
             </div>
-          ))}
+
+            <div style={{ marginTop: '3rem', padding: '1.5rem', background: 'var(--color-primary-light)', borderRadius: '1.5rem', border: '1px solid rgba(0, 86, 150, 0.1)' }}>
+              <h5 style={{ fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--color-primary)' }}>Need help?</h5>
+              <p style={{ fontSize: '0.85rem', color: 'var(--color-gray-600)', marginBottom: '1rem' }}>Our specialists are ready to assist you with a custom quote.</p>
+              <a href="mailto:info@ibannihealthcare.com" style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                Email Us <ArrowRight size={14} />
+              </a>
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <div style={{ flex: 1 }}>
+            {/* Category Description Section */}
+            {currentDesc && (
+              <div className="animate-fade-in-up" style={{ marginBottom: '3rem', background: 'white', padding: '2.5rem', borderRadius: '2rem', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid rgba(0, 86, 150, 0.05)' }}>
+                <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>{currentDesc.title}</h3>
+                <p style={{ fontSize: '1rem', color: 'var(--color-gray-800)', marginBottom: '1.5rem', lineHeight: 1.7 }}>
+                  {currentDesc.lead}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredEquipment.map((item, index) => (
+                    <div 
+                      key={item.id} 
+                      className="product-card animate-fade-in-up"
+                      style={{ animationDelay: `${(index % 6) * 100}ms` }}
+                    >
+                      <div className="product-image-container" style={{ height: '200px' }}>
+                        <img 
+                          src={item.image} 
+                          alt={item.name} 
+                          className="product-image"
+                          onError={(e) => { e.currentTarget.src = fallbackImage }}
+                        />
+                      </div>
+                      <div className="product-details" style={{ padding: '1.25rem' }}>
+                        <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: 'auto' }}>{item.name}</h3>
+                        <p style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem', marginBottom: '1rem', minHeight: '40px', lineHeight: 1.5 }}>{item.description}</p>
+                        
+                        {item.name === 'Lead Apron' && (
+                          <Link 
+                            to="/equipment/lead-apron" 
+                            className="btn btn-secondary" 
+                            style={{ 
+                              display: 'flex', 
+                              alignItems: 'center', 
+                              gap: '0.5rem', 
+                              fontSize: '0.8rem', 
+                              padding: '0.4rem 0.8rem', 
+                              width: 'fit-content'
+                            }}
+                          >
+                            Tech Specs <ArrowRight size={14} />
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+          </div>
+        </div>
+      </div>
+    </section>
       </div>
     </section>
   );

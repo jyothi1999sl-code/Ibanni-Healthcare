@@ -1,5 +1,5 @@
 import { ChevronRight, Download, Package, Mail, ExternalLink, HelpCircle, FileText } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const leadApronProducts = [
@@ -14,9 +14,20 @@ const leadApronProducts = [
 ];
 
 export default function LeadApronPage() {
+  const [selectedFilter, setSelectedFilter] = useState('All Models');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const filteredProducts = leadApronProducts.filter(p => {
+    if (selectedFilter === 'All Models') return true;
+    if (selectedFilter === 'Frontal Protection') return p.id.includes('frontal');
+    if (selectedFilter === 'Vests & Skirts') return p.id.includes('vest-skirt');
+    if (selectedFilter === 'Full Wrap Around') return p.id.includes('wrap');
+    if (selectedFilter === 'Lead Free Range') return p.id.includes('lead-free');
+    return true;
+  });
 
   return (
     <div className="bg-white min-h-screen">
@@ -31,62 +42,84 @@ export default function LeadApronPage() {
           
           <div style={{ maxWidth: '1000px' }}>
             <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)' }}>Industry Leader in Radiation Protection</div>
-            <h1 className="animate-fade-in-up delay-100" style={{ fontSize: '3.5rem', marginBottom: '2rem', lineHeight: 1.1 }}>
-              Ibanni Healthcare: Premium <span style={{ color: 'var(--color-primary)' }}>Lead Apron</span> Solutions
+            <h1 className="animate-fade-in-up delay-100" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+              Premium <span style={{ color: 'var(--color-primary)' }}>Lead Apron</span> Solutions
             </h1>
-            
-            <div className="animate-fade-in-up delay-200 space-y-6" style={{ fontSize: '1.2rem', color: 'var(--color-gray-800)', lineHeight: 1.7 }}>
-              <p>
-                <strong>Ibanni Healthcare</strong>, one of the largest and most trusted manufacturers, suppliers, and exporters of lead aprons, is proud to present our extensive range of best quality products. Our collection includes Frontal Protection Lead Aprons, Frontal Protection Lead Vests & Skirts, Full Protection Wrap Around Lead Aprons, and Full Protection Wrap Around Lead Vests & Skirts. We also offer BARC (Bhabha Atomic Research Centre) certified Lead Aprons and BARC approved Lead Aprons, ensuring top-notch safety and compliance.
-              </p>
-              <p>
-                Our lead aprons are designed to provide maximum protection in hospitals, clinics, surgery centers, dental practices, and radiology departments. These products are essential for doctors, surgeons, nurses, medical students, paramedical staff, gynecologists, orthopedicians, cardiologists, and other medical professionals. Whether you need a lead apron with a thyroid collar or a custom lead apron, Ibanni Healthcare has you covered with top quality solutions.
-              </p>
-              <p>
-                We understand the importance of safety and convenience, which is why our lead aprons come with specialized designs like pregnancy lead aprons and x-ray lead aprons. For dental professionals, we offer dental lead aprons and adhere to ADA lead apron recommendations. Our lite lead aprons, ultra-lite lead aprons, and zero lead lead aprons provide lightweight yet effective protection, catering to the diverse needs of our global clientele.
-              </p>
-              <p>
-                As a top manufacturer and trusted supplier, we are committed to delivering the best quality lead aprons worldwide. Ibanni Healthcare's products are not only reliable but also comply with international standards, ensuring the safety and well-being of users. Our dedication to excellence has made us a top brand in the industry, providing top quality lead aprons to medical professionals across the globe.
-              </p>
-            </div>
+            <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.2rem', color: 'var(--color-gray-600)', maxWidth: '800px' }}>
+              Scientifically engineered radiation protection apparel designed for the highest level of safety, mobility, and operator comfort.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Product Grid Section */}
+      {/* Product Catalog Section with Sidebar */}
       <section className="section bg-gray-50">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Our Lead Apron Range</h2>
-            <p style={{ color: 'var(--color-gray-600)', maxWidth: '600px', margin: '0 auto' }}>Choose from our comprehensive selection of radiation protection apparel, designed for every clinical requirement.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadApronProducts.map((product) => (
-              <Link 
-                key={product.id} 
-                to={`/equipment/lead-apron/${product.id}`}
-                className="group product-card"
-                style={{ background: 'white', borderRadius: '1.5rem', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease' }}
-              >
-                <div style={{ height: '280px', overflow: 'hidden', background: '#f8fafc' }}>
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    className="group-hover:scale-110"
-                  />
+          <div className="category-layout">
+            {/* Sidebar Filter */}
+            <aside className="category-sidebar">
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                <h3 style={{ fontSize: '1rem', marginBottom: '1.5rem', color: 'var(--color-gray-900)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Package size={20} className="text-blue-600" /> CATEGORIES
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {[
+                    { name: 'All Models', icon: <Shield size={18} /> },
+                    { name: 'Frontal Protection', icon: <ChevronRight size={18} /> },
+                    { name: 'Vests & Skirts', icon: <ChevronRight size={18} /> },
+                    { name: 'Full Wrap Around', icon: <ChevronRight size={18} /> },
+                    { name: 'Lead Free Range', icon: <ChevronRight size={18} /> }
+                  ].map((filter) => (
+                    <button
+                      key={filter.name}
+                      onClick={() => setSelectedFilter(filter.name)}
+                      className={`category-tab ${selectedFilter === filter.name ? 'active' : ''}`}
+                    >
+                      <div className="icon-container">{filter.icon}</div>
+                      {filter.name}
+                    </button>
+                  ))}
                 </div>
-                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{ fontSize: '1.1rem', color: 'var(--color-gray-900)', lineHeight: 1.4, marginBottom: '1rem', transition: 'color 0.2s' }} className="group-hover:text-blue-600">
-                    {product.name}
-                  </h3>
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)', fontWeight: 600, fontSize: '0.9rem' }}>
-                    View Details <ChevronRight size={18} />
+
+                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid #f1f5f9' }}>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-gray-500)', marginBottom: '1rem', fontWeight: 600 }}>BARC CERTIFIED</h4>
+                  <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '1rem', fontSize: '0.8rem', color: '#475569' }}>
+                    All Ibanni models are tested and approved by BARC (Bhabha Atomic Research Centre) for maximum safety.
                   </div>
                 </div>
-              </Link>
-            ))}
+              </div>
+            </aside>
+
+            <div style={{ flex: 1 }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map((product) => (
+                  <Link 
+                    key={product.id} 
+                    to={`/equipment/lead-apron/${product.id}`}
+                    className="group product-card"
+                    style={{ background: 'white', display: 'flex', flexDirection: 'column', height: '100%' }}
+                  >
+                    <div style={{ height: '240px', overflow: 'hidden', background: '#f8fafc' }}>
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                        className="group-hover:scale-110"
+                      />
+                    </div>
+                    <div style={{ padding: '1.25rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div className="badge" style={{ marginBottom: '0.5rem', fontSize: '0.65rem' }}>Medical Grade</div>
+                      <h3 style={{ fontSize: '1rem', color: 'var(--color-gray-900)', lineHeight: 1.4, marginBottom: '1rem', fontWeight: 700 }}>
+                        {product.name}
+                      </h3>
+                      <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)', fontWeight: 600, fontSize: '0.85rem' }}>
+                        View Technical Info <ChevronRight size={16} />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
