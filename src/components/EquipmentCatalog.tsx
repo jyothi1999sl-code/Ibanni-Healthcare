@@ -195,10 +195,6 @@ export default function EquipmentCatalog() {
             )}
           </div>
         </div>
-          </div>
-        </div>
-      </div>
-    </section>
       </div>
     </section>
   );

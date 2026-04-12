@@ -1,4 +1,4 @@
-import { ChevronRight, Download, Package, Mail, ExternalLink, HelpCircle, FileText } from 'lucide-react';
+import { ChevronRight, Download, Package, Mail, ExternalLink, HelpCircle, FileText, Shield } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
