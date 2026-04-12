@@ -40,7 +40,7 @@ const apronDetails: Record<string, ApronDetail> = {
       ['Fit', 'Adjustable side straps for ergonomic comfort'],
       ['Maintenance', 'Fluid resistant and easy-to-wipe surface']
     ],
-    image: '/frontal_lead_apron_ibanni_1775835667769.png'
+    image: '/frontal_lead_apron.png'
   },
   'lead-free-frontal': {
     name: 'Lead Free Frontal Protection Apron',
