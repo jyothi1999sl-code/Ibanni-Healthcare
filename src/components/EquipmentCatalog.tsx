@@ -4,17 +4,17 @@ import { useState } from 'react';
 
 const equipmentList = [
   // Hospital Furnitures
-  { id: 1, name: 'Manual Hospital Bed', category: 'Hospital Furnitures', description: 'Standard ward bed with dual crank mechanism for height and backrest adjustment.', image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2000&auto=format&fit=crop', icon: <Bed size={24} color="var(--color-blue-600)" /> },
-  { id: 2, name: 'Electric Hospital Bed', category: 'Hospital Furnitures', description: 'Advanced motorized bed with remote control for ICU and specialty ward environments.', image: '/ecg_machine_medical.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
-  { id: 3, name: 'Orthopedic Traction Bed', category: 'Hospital Furnitures', description: 'Specialized bed equipped with overhead traction frame and pulley system for orthopedic support.', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop', icon: <Bed size={24} color="var(--color-blue-600)" /> },
-  { id: 4, name: 'Pediatric Hospital Bed', category: 'Hospital Furnitures', description: 'Safely designed child-friendly bed with drop-side railings and playful, durable finish.', image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2000&auto=format&fit=crop', icon: <Bed size={24} color="var(--color-blue-600)" /> },
-  { id: 5, name: 'Attendant Bed', category: 'Hospital Furnitures', description: 'Compact and comfortable attendant couch designed for overnight stays in patient rooms.', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop', icon: <Bed size={24} color="var(--color-blue-600)" /> },
-  { id: 6, name: 'Hospital Ward Furniture', category: 'Hospital Furnitures', description: 'Modular bedside cabinets, lockers, and ward storage units for organized patient care.', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop', icon: <Package size={24} color="var(--color-blue-600)" /> },
-  { id: 7, name: 'Blood Donor Couch', category: 'Hospital Furnitures', description: 'Ergonomically designed fully-reclining couch for donor comfort during blood collection.', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000&auto=format&fit=crop', icon: <HeartPulse size={24} color="var(--color-blue-600)" /> },
-  { id: 8, name: 'Ambulance Stretcher', category: 'Hospital Furnitures', description: 'High-strength aluminum alloy emergency stretcher with auto-loading and locking features.', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop', icon: <Shield size={24} color="var(--color-blue-600)" /> },
-  { id: 9, name: 'Hospital Trolley', category: 'Hospital Furnitures', description: 'Multi-purpose medical trolleys including medicine, dressing, and crash cart variants.', image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3b0606?q=80&w=2000&auto=format&fit=crop', icon: <Settings size={24} color="var(--color-blue-600)" /> },
-  { id: 10, name: 'Examination Table', category: 'Hospital Furnitures', description: 'Fully adjustable delivery and examination table designed for labor and general diagnostics.', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop', icon: <ClipboardCheck size={24} color="var(--color-blue-600)" /> },
-  { id: 11, name: 'Precision Wheelchair', category: 'Hospital Furnitures', description: 'Lightweight, foldable patient transport chair with high-comfort seat and safety brakes.', image: 'https://images.unsplash.com/photo-1538108149393-cefb6b00ee76?q=80&w=2000&auto=format&fit=crop', icon: <Shield size={24} color="var(--color-blue-600)" /> },
+  { id: 1, typeId: 'manual-hospital-bed', name: 'Manual Hospital Bed', category: 'Hospital Furnitures', description: 'Standard ward bed with dual crank mechanism for height and backrest adjustment.', image: '/manual_hospital_bed.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
+  { id: 2, typeId: 'electric-hospital-bed', name: 'Electric Hospital Bed', category: 'Hospital Furnitures', description: 'Advanced motorized bed with remote control for ICU and specialty ward environments.', image: '/electric_hospital_bed.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
+  { id: 3, typeId: 'orthopedic-traction-bed', name: 'Orthopedic Traction Bed', category: 'Hospital Furnitures', description: 'Specialized bed equipped with overhead traction frame and pulley system for orthopedic support.', image: '/orthopedic_traction_bed.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
+  { id: 4, typeId: 'pediatric-hospital-bed', name: 'Pediatric Hospital Bed', category: 'Hospital Furnitures', description: 'Safely designed child-friendly bed with drop-side railings and playful, durable finish.', image: '/pediatric_hospital_bed.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
+  { id: 5, typeId: 'attendant-bed', name: 'Attendant Bed', category: 'Hospital Furnitures', description: 'Compact and comfortable attendant couch designed for overnight stays in patient rooms.', image: '/attendant_bed.png', icon: <Bed size={24} color="var(--color-blue-600)" /> },
+  { id: 6, typeId: 'hospital-ward-furniture', name: 'Hospital Ward Furniture', category: 'Hospital Furnitures', description: 'Modular bedside cabinets, lockers, and ward storage units for organized patient care.', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000', icon: <Package size={24} color="var(--color-blue-600)" /> },
+  { id: 7, typeId: 'blood-donor-couch', name: 'Blood Donor Couch', category: 'Hospital Furnitures', description: 'Ergonomically designed fully-reclining couch for donor comfort during blood collection.', image: '/blood_donor_couch.png', icon: <HeartPulse size={24} color="var(--color-blue-600)" /> },
+  { id: 8, typeId: 'ambulance-stretcher', name: 'Ambulance Stretcher', category: 'Hospital Furnitures', description: 'High-strength aluminum alloy emergency stretcher with auto-loading and locking features.', image: '/ambulance_stretcher.png', icon: <Shield size={24} color="var(--color-blue-600)" /> },
+  { id: 9, typeId: 'hospital-trolley', name: 'Hospital Trolley', category: 'Hospital Furnitures', description: 'Multi-purpose medical trolleys including medicine, dressing, and crash cart variants.', image: '/hospital_trolley.png', icon: <Settings size={24} color="var(--color-blue-600)" /> },
+  { id: 10, typeId: 'examination-delivery-table', name: 'Examination Table', category: 'Hospital Furnitures', description: 'Fully adjustable delivery and examination table designed for labor and general diagnostics.', image: '/examination_delivery_table.png', icon: <ClipboardCheck size={24} color="var(--color-blue-600)" /> },
+  { id: 11, typeId: 'wheelchairs', name: 'Precision Wheelchair', category: 'Hospital Furnitures', description: 'Lightweight, foldable patient transport chair with high-comfort seat and safety brakes.', image: '/wheelchair_premium.png', icon: <Shield size={24} color="var(--color-blue-600)" /> },
 
   // X ray supplies
   { id: 12, name: 'Lead Apron', category: 'X ray supplies', description: 'Premium radiation protection apparel ensuring maximum safety for healthcare professionals.', image: '/equipment/lead_apron.png', icon: <Shield size={24} color="var(--color-blue-600)" /> },
@@ -171,6 +171,24 @@ export default function EquipmentCatalog() {
                         <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: 'auto' }}>{item.name}</h3>
                         <p style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem', marginBottom: '1rem', minHeight: '40px', lineHeight: 1.5 }}>{item.description}</p>
                         
+                        {item.category === 'Hospital Furnitures' && (item as any).typeId && (
+                          <Link 
+                            to={`/equipment/furniture/${(item as any).typeId}`} 
+                            className="btn btn-secondary" 
+                            style={{ 
+                              display: 'flex', 
+                              alignItems: 'center', 
+                              gap: '0.5rem', 
+                              fontSize: '0.8rem', 
+                              padding: '0.4rem 0.8rem', 
+                              width: 'fit-content',
+                              marginBottom: '0.5rem'
+                            }}
+                          >
+                            Product Details <ArrowRight size={14} />
+                          </Link>
+                        )}
+
                         {item.name === 'Lead Apron' && (
                           <Link 
                             to="/equipment/lead-apron" 

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import LeadApronPage from './pages/LeadApronPage';
 import LeadApronDetail from './pages/LeadApronDetail';
+import FurnitureDetail from './pages/FurnitureDetail';
 import './index.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/equipment/lead-apron" element={<LeadApronPage />} />
           <Route path="/equipment/lead-apron/:type" element={<LeadApronDetail />} />
+          <Route path="/equipment/furniture/:type" element={<FurnitureDetail />} />
         </Routes>
 
         <footer style={{ backgroundColor: 'var(--color-gray-900)', color: 'white', padding: '4rem 0 2rem' }}>
