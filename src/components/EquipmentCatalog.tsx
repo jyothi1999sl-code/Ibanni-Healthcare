@@ -171,7 +171,7 @@ export default function EquipmentCatalog() {
                         <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: 'auto' }}>{item.name}</h3>
                         <p style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem', marginBottom: '1rem', minHeight: '40px', lineHeight: 1.5 }}>{item.description}</p>
                         
-                        {(item.name === 'Lead Apron' || item.name === 'Hospital Bed' || item.name === 'Semi Fowler Bed') && (
+                        {(item.name.includes('Hospital Bed') || item.name === 'Lead Apron' || item.name === 'Semi Fowler Bed') && (
                           <Link 
                             to={item.name === 'Lead Apron' ? "/equipment/lead-apron" : "/equipment/hospital-bed"}
                             className="btn btn-secondary" 
