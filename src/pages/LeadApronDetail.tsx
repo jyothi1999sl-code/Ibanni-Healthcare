@@ -17,44 +17,169 @@ const apronDetails: Record<string, ApronDetail> = {
   'frontal-protection': {
     name: 'Frontal Protection Lead Apron',
     tagline: 'High-quality radiation protection designed for safety and professional comfort.',
-    description: 'The Ibanni Healthcare Frontal Protection Lead Apron is meticulously designed to provide comprehensive torso protection from the neck to just above the knee. It is an essential piece of equipment for radiologists, technicians, and medical specialists who are regularly exposed to radiation but do not require back-shielding or work facing the source.',
+    description: 'The Ibanni Healthcare Frontal Protection Lead Apron is meticulously designed to provide comprehensive torso protection from the neck to just above the knee. Ideal for radiologists and technicians who do not require back-shielding.',
     features: [
       'BARC Tested Core Materials: StPb®, LiPb®, and NoPb®',
       'Ergonomic Frontal Design (Neck to Knee coverage)',
-      'Secure Criss-Cross Back Fastening with adjustable closure',
-      'Heavy-duty Shoulder Padding for weight distribution',
-      'Built-in Dosimeter Badge Pocket for exposure monitoring',
-      'PU Coated Outer Fabric: Antimicrobial & Anti-odor',
-      'Sizes Available: XS to XXL'
+      'Secure Criss-Cross Back Fastening',
+      'Heavy-duty Shoulder Padding',
+      'Built-in Dosimeter Badge Pocket',
+      'PU Coated Outer Fabric: Antimicrobial & Anti-odor'
     ],
     materials: [
-      { type: 'StPb® Standard Lead', desc: 'High-grade lead vinyl. Cost-effective solution for gamma radiation and high-kV procedures (>120kV).' },
-      { type: 'LiPb® Light Lead', desc: 'Antimony and lead blend. Significant weight reduction without compromising protection levels.' },
-      { type: 'NoPb® Lead-Free', desc: 'Bismuth, Tungsten, and Antimony mixture. Lightest option & safe for regular disposal.' }
+      { type: 'StPb® Standard Lead', desc: 'High-grade lead vinyl for high-kV procedures (>120kV).' },
+      { type: 'LiPb® Light Lead', desc: 'Antimony and lead blend for significant weight reduction.' },
+      { type: 'NoPb® Lead-Free', desc: 'Environmentally safe mixture of Bismuth, Tungsten, and Antimony.' }
     ],
     protectionLevels: ['0.35mm Pb Equivalent', '0.50mm Pb Equivalent'],
     specifications: [
       ['Fastening System', 'Criss-cross back with adjustable hook & loop'],
       ['Outer Coating', 'Polyurethane (PU) antimicrobial coating'],
       ['Compliance', 'BARC Certified / ISO Standard'],
-      ['Fit', 'Adjustable side straps for ergonomic comfort'],
-      ['Maintenance', 'Fluid resistant and easy-to-wipe surface']
+      ['Fit', 'Adjustable side straps for ergonomic comfort']
     ],
     image: '/frontal_lead_apron.png'
   },
   'lead-free-frontal': {
     name: 'Lead Free Frontal Protection Apron',
-    description: 'Environmentally friendly alternative using 100% lead-free materials without compromising on attenuation efficiency.',
-    features: ['Environment Friendly Materials', 'Up to 20% lighter than traditional lead', 'Superior flexibility', 'BARC Approved compliance'],
-    image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2000',
+    tagline: 'Eco-friendly and lightweight protection without safety compromise.',
+    description: 'A 100% lead-free alternative utilizing Bismuth, Tungsten, and Antimony. Meeting European standards for safe disposal while being significantly lighter than traditional lead.',
+    features: [
+      '100% Lead-Free Core Material (NoPb®)',
+      'Up to 20% lighter than traditional lead',
+      'Environmentally friendly for easy disposal',
+      'BARC Tested & Approved',
+      'Superior flexibility for long-duration use'
+    ],
+    protectionLevels: ['0.35mm Pb Equivalent', '0.50mm Pb Equivalent'],
     specifications: [
-      ['Material', '100% Lead-Free (Bismuth/Tungsten/Antimony)'],
-      ['Weight', 'Reduced weight for ergonomic comfort'],
-      ['Certification', 'BARC Certified / AERB Approval'],
-      ['Usage', 'General Radiology / CT Scan / Cath Lab']
-    ]
+      ['Core Material', 'NoPb® (Lead-Free Bismuth/Tungsten/Antimony)'],
+      ['Compliance', 'BARC / AERB / CE Approved'],
+      ['Weight Class', 'Ultra-Lite'],
+      ['Fastening', 'Hook & Loop with Criss-cross Back']
+    ],
+    image: '/lead_free_frontal_apron.png'
   },
-  // We can add more specific details for each as needed, using a fallback for others
+  'frontal-vest-skirt': {
+    name: 'Frontal Protection Lead Vest & Skirt',
+    tagline: 'Two-piece design for enhanced weight distribution and cooling.',
+    description: 'A premium two-piece radiation protection set. The vest and skirt design distributes the weight between the shoulders and waist, making it ideal for long medical procedures.',
+    features: [
+      'Enhanced air circulation due to two-piece design',
+      'Adjustable belt for weight distribution to waist',
+      'Criss-cross back vest with hook & loop closure',
+      'BARC Tested Core Materials',
+      'Padded shoulders for maximum comfort'
+    ],
+    protectionLevels: ['0.35mm Pb Equivalent', '0.50mm Pb Equivalent'],
+    specifications: [
+      ['Set Includes', 'Frontal Vest & Frontal Skirt'],
+      ['Fastening', 'Hook & Loop (Vest) / Buckle Fastener (Skirt)'],
+      ['Certification', 'BARC Certified / ISO Standard'],
+      ['Fabric', 'PU Coated Antimicrobial Outer Fabric']
+    ],
+    image: '/frontal_vest_skirt.png'
+  },
+  'lead-free-vest-skirt': {
+    name: 'Lead Free Frontal Protection Vest & Skirt',
+    tagline: 'Lightest two-piece protection with eco-friendly core.',
+    description: 'Combining the ergonomic benefits of a two-piece set with the safety of lead-free core materials. Perfect for high-mobility environments like Cath Labs.',
+    features: [
+      '100% Lead-Free NoPb® core material',
+      'Superior weight distribution to waist',
+      'Maximum airflow for cooler operation',
+      'BARC tested and environmentally safe',
+      'High-kV protection performance'
+    ],
+    protectionLevels: ['0.35mm Pb Equivalent', '0.50mm Pb Equivalent'],
+    specifications: [
+      ['Material', 'NoPb® Lead-Free'],
+      ['Coverage', 'Adjustable overlap for optimal fit'],
+      ['Usage', 'Cath Labs, EP Labs, Dental Clinics'],
+      ['Safety', 'Complies with International Safe Disposal Standards']
+    ],
+    image: '/lead_free_vest_skirt.png'
+  },
+  'full-wrap-apron': {
+    name: 'Full Protection - Full Over Lap (Wrap Around Lead Apron)',
+    tagline: '360° protection for high-exposure environments.',
+    description: 'Designed for environments with higher levels of radiation exposure. Full overlap at the front provides double protection (axilla to axilla) while maintaining a one-piece profile.',
+    features: [
+      'Complete 360° wrap-around protection',
+      'Full front overlap for double shielding',
+      '0.25mm Pb back protection included',
+      'Waist belt to reduce shoulder strain',
+      'Ideal for Cardiac Catheterization & EP Labs'
+    ],
+    protectionLevels: ['Front: 0.35/0.50mm Pb', 'Back: 0.25mm Pb'],
+    specifications: [
+      ['Design', 'Wrap Around Full Overlap'],
+      ['Core Material', 'StPb® / LiPb® / NoPb®'],
+      ['Closure', 'Hook & Loop with Buckle Straps'],
+      ['Application', 'High-dose C-arm procedures']
+    ],
+    image: '/full_wrap_apron.png'
+  },
+  'full-wrap-vest-skirt': {
+    name: 'Full Protection - Full Over Lap (Wrap Around Lead Vest & Skirt)',
+    tagline: 'The gold standard for full-day 360° radiation safety.',
+    description: 'Provides comprehensive front and back protection in a two-piece format for maximum ergonomics. The weight is shared perfectly between waist and shoulders for all-day comfort.',
+    features: [
+      'Maximum ergonomic performance in full-protection class',
+      'Double front overlap (axilla to axilla)',
+      'Independent vest & skirt for better movement',
+      'Padded shoulders and wide lumbar support',
+      'BARC Tested materials'
+    ],
+    protectionLevels: ['Front: 0.35/0.50mm Pb', 'Back: 0.25mm Pb'],
+    specifications: [
+      ['Set Type', 'Wrap Around Vest & Skirt'],
+      ['Overlap', 'Full front-face overlap'],
+      ['Fit', 'Adjustable lumbar support belt'],
+      ['Certification', 'BARC / ISO / CE Approved']
+    ],
+    image: '/full_wrap_vest_skirt.png'
+  },
+  'partial-wrap-apron': {
+    name: 'Full Protection - Partial Over Lap (Wrap Around Lead Apron)',
+    tagline: 'Balanced 360° protection with optimized weight.',
+    description: 'A lighter wrap-around option that provides full front and back protection with a partial overlap at the front to reduce overall weight while maintaining safety standards.',
+    features: [
+      'Full front and back coverage',
+      'Reduced weight through partial overlap design',
+      'Side closure for easy movement',
+      'Integrated waist belt system',
+      'Excellent for general radiology use'
+    ],
+    protectionLevels: ['Front: 0.35/0.50mm Pb', 'Back: 0.25mm Pb'],
+    specifications: [
+      ['Type', 'Partial Overlap Wrap Around'],
+      ['Closure', 'Side fastening buckle and strap'],
+      ['Material Options', 'Standard, Lite, and Lead-Free'],
+      ['Quality', 'Fluid resistant antimicrobial fabric']
+    ],
+    image: '/partial_wrap_apron.png'
+  },
+  'partial-wrap-vest-skirt': {
+    name: 'Full Protection - Partial Over Lap (Wrap Around Lead Vest & Skirt)',
+    tagline: 'Ergonomic two-piece 360° protection at reduced weight.',
+    description: 'Offers the freedom of a two-piece vest and skirt system with full wrap-around protection. The partial overlap design significantly reduces fatiguing weight for daily operators.',
+    features: [
+      'Optimized weight for long standing hours',
+      'Full wrap protection with partial frontal overlap',
+      'Adjustable belt for skirt stability',
+      'Dosimeter pocket included as standard',
+      'Available in BARC tested NoPb® material'
+    ],
+    protectionLevels: ['Front: 0.35/0.50mm Pb', 'Back: 0.25mm Pb'],
+    specifications: [
+      ['Style', 'Two-piece Partial Overlap'],
+      ['Weight', 'Lighter than full-overlap models'],
+      ['Materials', 'StPb / LiPb / NoPb'],
+      ['Sizing', 'XS up to XXL']
+    ],
+    image: '/partial_wrap_vest_skirt.png'
+  }
 };
 
 export default function LeadApronDetail() {

@@ -3,14 +3,14 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const leadApronProducts = [
-  { id: 'frontal-protection', name: 'Frontal Protection Lead Apron', image: '/frontal_lead_apron_ibanni_1775835667769.png' },
-  { id: 'lead-free-frontal', name: 'Lead Free Frontal Protection Apron', image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2000' },
-  { id: 'vest-skirt', name: 'Frontal Protection Lead Vest & Skirt', image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2000' },
-  { id: 'lead-free-vest-skirt', name: 'Lead Free Frontal Protection Vest & Skirt', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000' },
-  { id: 'full-wrap-apron', name: 'Full Protection - Full Over Lap (Wrap Around Lead Apron)', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000' },
-  { id: 'full-wrap-vest-skirt', name: 'Full Protection - Full Over Lap (Wrap Around Lead Vest & Skirt)', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000' },
-  { id: 'partial-wrap-apron', name: 'Full Protection - Partial Over Lap (Wrap Around Lead Apron)', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000' },
-  { id: 'partial-wrap-vest-skirt', name: 'Full Protection - Partial Over Lap (Wrap Around Lead Vest & Skirt)', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000' },
+  { id: 'frontal-protection', name: 'Frontal Protection Lead Apron', image: '/frontal_lead_apron.png' },
+  { id: 'lead-free-frontal', name: 'Lead Free Frontal Protection Apron', image: '/lead_free_frontal_apron.png' },
+  { id: 'frontal-vest-skirt', name: 'Frontal Protection Lead Vest & Skirt', image: '/frontal_vest_skirt.png' },
+  { id: 'lead-free-vest-skirt', name: 'Lead Free Frontal Protection Vest & Skirt', image: '/lead_free_vest_skirt.png' },
+  { id: 'full-wrap-apron', name: 'Full Protection - Full Over Lap (Wrap Around Lead Apron)', image: '/full_wrap_apron.png' },
+  { id: 'full-wrap-vest-skirt', name: 'Full Protection - Full Over Lap (Wrap Around Lead Vest & Skirt)', image: '/full_wrap_vest_skirt.png' },
+  { id: 'partial-wrap-apron', name: 'Full Protection - Partial Over Lap (Wrap Around Lead Apron)', image: '/partial_wrap_apron.png' },
+  { id: 'partial-wrap-vest-skirt', name: 'Full Protection - Partial Over Lap (Wrap Around Lead Vest & Skirt)', image: '/partial_wrap_vest_skirt.png' },
 ];
 
 export default function LeadApronPage() {
