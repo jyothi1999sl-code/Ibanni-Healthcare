@@ -41,7 +41,7 @@ export default function Navbar() {
                   <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Surgical Lights & Tables</div>
                 </div>
               </Link>
-              <Link to="/#equipment" className="dropdown-link">
+              <Link to="/equipment/hospital-bed" className="dropdown-link">
                 <div style={{ padding: '0.5rem', background: '#fcfaf0', borderRadius: '0.5rem', color: '#854d0e' }}>
                   <Activity size={20} />
                 </div>

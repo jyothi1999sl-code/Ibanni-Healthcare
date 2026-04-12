@@ -1,0 +1,134 @@
+import { ChevronRight, Package, Shield, Bed, Activity, Sun, HeartPulse, Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { hospitalBedDetails } from '../data/hospitalBedData';
+
+const bedProducts = Object.values(hospitalBedDetails);
+
+export default function HospitalBedPage() {
+  const [selectedFilter, setSelectedFilter] = useState('All Models');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const filteredProducts = bedProducts.filter(p => {
+    if (selectedFilter === 'All Models') return true;
+    if (selectedFilter === 'ICU Beds') return p.id.includes('icu');
+    if (selectedFilter === 'Fowler Beds') return p.id.includes('fowler');
+    if (selectedFilter === 'General Beds') return p.id.includes('plain') || p.id.includes('mesh') || p.id.includes('cholera');
+    return true;
+  });
+
+  return (
+    <div className="bg-white min-h-screen">
+      {/* Page Hero */}
+      <section className="bg-gradient-hero" style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
+        <div className="container">
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.9rem', color: 'var(--color-gray-600)' }}>
+            <Link to="/" style={{ color: 'var(--color-primary)' }}>Home</Link>
+            <ChevronRight size={16} />
+            <span style={{ color: 'var(--color-gray-800)', fontWeight: 600 }}>Hospital Beds</span>
+          </nav>
+          
+          <div style={{ maxWidth: '1000px' }}>
+            <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)' }}>Global Healthcare Standards</div>
+            <h1 className="animate-fade-in-up delay-100" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+              Premium <span style={{ color: 'var(--color-primary)' }}>Hospital Bed</span> Engineering
+            </h1>
+            <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.2rem', color: 'var(--color-gray-600)', maxWidth: '800px' }}>
+              Advanced patient support systems designed for ergonomics, safety, and durability in critical care and general ward environments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Catalog Section with Sidebar */}
+      <section className="section bg-gray-50">
+        <div className="container">
+          <div className="category-layout">
+            {/* Sidebar Filter */}
+            <aside className="category-sidebar">
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                <h3 style={{ fontSize: '1rem', marginBottom: '1.5rem', color: 'var(--color-gray-900)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Package size={20} className="text-blue-600" /> CATEGORIES
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {[
+                    { name: 'All Models', icon: <Bed size={18} /> },
+                    { name: 'ICU Beds', icon: <ChevronRight size={18} /> },
+                    { name: 'Fowler Beds', icon: <ChevronRight size={18} /> },
+                    { name: 'General Beds', icon: <ChevronRight size={18} /> },
+                  ].map((filter) => (
+                    <button
+                      key={filter.name}
+                      onClick={() => setSelectedFilter(filter.name)}
+                      className={`category-tab ${selectedFilter === filter.name ? 'active' : ''}`}
+                    >
+                      <div className="icon-container">{filter.icon}</div>
+                      {filter.name}
+                    </button>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid #f1f5f9' }}>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-gray-500)', marginBottom: '1rem', fontWeight: 600 }}>ISO CERTIFIED</h4>
+                  <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '1rem', fontSize: '0.8rem', color: '#475569' }}>
+                    All Ibanni Hospital Furniture is manufactured under ISO 9001:2015 and ISO 13485:2016 quality systems.
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            {/* Product Grid */}
+            <div style={{ flex: 1 }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map((product) => (
+                  <Link 
+                    key={product.id} 
+                    to={`/equipment/hospital-bed/${product.id}`}
+                    className="group product-card"
+                    style={{ background: 'white', display: 'flex', flexDirection: 'column', height: '100%' }}
+                  >
+                    <div style={{ height: '240px', overflow: 'hidden', background: '#f8fafc' }}>
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                        className="group-hover:scale-110"
+                      />
+                    </div>
+                    <div style={{ padding: '1.25rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div className="badge" style={{ marginBottom: '0.5rem', fontSize: '0.65rem' }}>{product.category}</div>
+                      <h3 style={{ fontSize: '1rem', color: 'var(--color-gray-900)', lineHeight: 1.4, marginBottom: '1rem', fontWeight: 700 }}>
+                        {product.name}
+                      </h3>
+                      <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)', fontWeight: 600, fontSize: '0.85rem' }}>
+                        Specification Sheet <ChevronRight size={16} />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quote Section */}
+      <section className="section bg-white">
+        <div className="container">
+          <div style={{ background: 'var(--color-primary-light)', padding: '4rem', borderRadius: '3rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Equip Your Facility Today</h2>
+            <p style={{ color: 'var(--color-gray-800)', fontSize: '1.2rem', marginBottom: '2.5rem', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+              We provide customized hospital furniture solutions for clinics, surgery centers, and major medical institutions worldwide.
+            </p>
+            <a href="mailto:info@ibannihealthcare.com" className="btn btn-primary" style={{ padding: '1.25rem 3.5rem' }}>
+              Request Global Pricing <Mail size={20} className="ml-2" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
