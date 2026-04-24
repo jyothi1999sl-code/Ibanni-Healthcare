@@ -1,4 +1,4 @@
-import { Shield, Sun, Activity } from 'lucide-react';
+import { Shield, Sun, Activity, HeartPulse } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -20,13 +20,22 @@ export default function Navbar() {
               Equipment
             </Link>
             <div className="dropdown-content">
+              <Link to="/equipment/hospital-bed" className="dropdown-link">
+                <div style={{ padding: '0.5rem', background: '#fcfaf0', borderRadius: '0.5rem', color: '#854d0e' }}>
+                  <Activity size={20} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Hospital Furnitures</div>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Precision Medical Beds & Tables</div>
+                </div>
+              </Link>
               <Link to="/#equipment" className="dropdown-link">
                 <div style={{ padding: '0.5rem', background: '#f0f9ff', borderRadius: '0.5rem', color: '#0369a1' }}>
                   <Shield size={20} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Radiation Protection</div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Lead Aprons & Shields</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>X ray supplies</div>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Advanced Radiation Protection</div>
                 </div>
               </Link>
               <Link to="/#equipment" className="dropdown-link">
@@ -34,17 +43,17 @@ export default function Navbar() {
                   <Sun size={20} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>OT Equipment</div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Surgical Lights & Tables</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>OT Equipments</div>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Surgical Lighting & Systems</div>
                 </div>
               </Link>
-              <Link to="/equipment/hospital-bed" className="dropdown-link">
-                <div style={{ padding: '0.5rem', background: '#fcfaf0', borderRadius: '0.5rem', color: '#854d0e' }}>
-                  <Activity size={20} />
+              <Link to="/#equipment" className="dropdown-link">
+                <div style={{ padding: '0.5rem', background: '#f0fdf4', borderRadius: '0.5rem', color: '#166534' }}>
+                  <HeartPulse size={20} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Hospital Furniture</div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Specialized Medical Beds</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Infant care equipment</div>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Neonatal Support Solutions</div>
                 </div>
               </Link>
             </div>
