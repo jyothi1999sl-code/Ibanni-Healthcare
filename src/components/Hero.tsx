@@ -47,19 +47,7 @@ export default function Hero() {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in-up">
-            <div className="badge" style={{ 
-              background: 'rgba(255, 255, 255, 0.1)', 
-              color: 'white', 
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              padding: '0.6rem 1.5rem',
-              marginBottom: '2.5rem',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              letterSpacing: '0.1em'
-            }}>
-              ESTABLISHED IN MEDICAL EXCELLENCE
-            </div>
+
             
             <h1 style={{ fontSize: '5rem', fontWeight: 900, marginBottom: '2rem', color: 'white', letterSpacing: '-0.04em', lineHeight: 1, textShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
               Precision in <span style={{ color: 'var(--color-secondary)' }}>Imaging</span>,<br />
