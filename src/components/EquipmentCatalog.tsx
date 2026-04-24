@@ -80,131 +80,143 @@ export default function EquipmentCatalog() {
   const currentDesc = categoryDescriptions[selectedCategory];
 
   return (
-    <section id="equipment" className="section" style={{ backgroundColor: '#fdfdfd' }}>
+    <section id="equipment" className="section" style={{ backgroundColor: '#fdfdfd', perspective: '1000px' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-          <div className="badge animate-fade-in-up" style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}>
-             <Sparkles size={14} /> CATALOGUE 2024
+        <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
+          <div className="badge animate-fade-in-up" style={{ background: 'var(--color-primary-light)', padding: '0.6rem 1.5rem' }}>
+             <Sparkles size={16} /> PORTFOLIO 2024
           </div>
-          <h2 className="animate-fade-in-up delay-100" style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
-            Advanced Medical Engineering
+          <h2 className="animate-fade-in-up delay-100" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.04em' }}>
+            Advanced <span style={{ color: 'var(--color-primary)' }}>Engineering</span>
           </h2>
-          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.25rem', color: 'var(--color-gray-500)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.4rem', color: 'var(--color-gray-500)', maxWidth: '850px', margin: '0 auto', lineHeight: 1.6 }}>
             Explore our meticulously engineered range of medical supplies, built for modern hospitals with clinical precision.
           </p>
         </div>
 
         <div className="category-layout">
-          {/* Enhanced Vertical Sidebar */}
+          {/* Enhanced Vertical Sidebar with 3D Depth */}
           <aside className="category-sidebar animate-fade-in-up delay-300">
-            <div style={{ 
-              background: 'white', 
-              padding: '2.5rem', 
-              borderRadius: '2.5rem', 
-              boxShadow: 'var(--shadow-soft)',
-              border: '1px solid rgba(0,0,0,0.03)'
-            }}>
-              <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--color-gray-400)', marginBottom: '2rem', paddingLeft: '0.5rem', fontWeight: 800 }}>
-                Department Filter
+            <div className="depth-card" style={{ padding: '3rem 2.5rem' }}>
+              <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gray-400)', marginBottom: '2.5rem', fontWeight: 800 }}>
+                Specialties
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {categories.map(cat => (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
                     className={`category-tab ${selectedCategory === cat ? 'active' : ''}`}
                     style={{ 
-                      borderRadius: '1.25rem',
-                      padding: '1.25rem',
-                      border: selectedCategory === cat ? 'none' : '1px solid #f1f5f9'
+                      borderRadius: '1.5rem',
+                      padding: '1.5rem',
+                      border: selectedCategory === cat ? 'none' : '1px solid #f1f5f9',
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                     }}
                   >
                     <div className="icon-container" style={{ 
-                      background: selectedCategory === cat ? 'rgba(255,255,255,0.2)' : '#f8fafc',
-                      color: selectedCategory === cat ? 'white' : 'var(--color-primary)'
+                      background: selectedCategory === cat ? 'rgba(255,255,255,0.2)' : 'var(--color-primary-light)',
+                      color: selectedCategory === cat ? 'white' : 'var(--color-primary)',
+                      transform: selectedCategory === cat ? 'scale(1.1) translateZ(10px)' : 'scale(1)'
                     }}>
-                      {cat === 'Hospital Furnitures' && <Bed size={20} />}
-                      {cat === 'X ray supplies' && <Shield size={20} />}
-                      {cat === 'OT Equipments' && <Sun size={20} />}
-                      {cat === 'Infant care equipment' && <HeartPulse size={20} />}
+                      {cat === 'Hospital Furnitures' && <Bed size={22} />}
+                      {cat === 'X ray supplies' && <Shield size={22} />}
+                      {cat === 'OT Equipments' && <Sun size={22} />}
+                      {cat === 'Infant care equipment' && <HeartPulse size={22} />}
                     </div>
-                    <span style={{ fontWeight: 700 }}>{cat}</span>
+                    <span style={{ fontWeight: 800, fontSize: '1rem' }}>{cat}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div style={{ 
-              marginTop: '2rem', 
-              padding: '2.5rem', 
-              background: '#111827', 
-              borderRadius: '2.5rem', 
+            <div className="hover-lift" style={{ 
+              marginTop: '2.5rem', 
+              padding: '3rem', 
+              background: 'linear-gradient(135deg, #001a35 0%, #003366 100%)', 
+              borderRadius: '3rem', 
               color: 'white',
-              boxShadow: '0 20px 40px -10px rgba(0,0,0,0.2)'
+              boxShadow: '0 30px 60px -10px rgba(0, 26, 53, 0.3)',
+              transformStyle: 'preserve-3d'
             }}>
-              <h5 style={{ fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: 700 }}>Bulk Inquiry?</h5>
-              <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem', lineHeight: 1.5 }}>Dedicated support for large-scale hospital project fulfillment.</p>
-              <a href="mailto:Ibannihealthcare@gmail.com" className="btn btn-primary" style={{ width: '100%', padding: '0.75rem', borderRadius: '1rem', fontSize: '0.9rem' }}>
-                Contact Support
+              <h5 style={{ fontSize: '1.4rem', marginBottom: '1rem', fontWeight: 800 }}>Bulk Project?</h5>
+              <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', marginBottom: '2rem', lineHeight: 1.6 }}>Full turn-key hospital installation services available nationwide.</p>
+              <a href="mailto:Ibannihealthcare@gmail.com" className="btn btn-primary" style={{ width: '100%', padding: '1rem', borderRadius: '1.25rem', fontSize: '1rem', background: 'var(--color-secondary)' }}>
+                Request Proposal
               </a>
             </div>
           </aside>
 
           {/* Catalog Grid Area */}
           <div style={{ flex: 1 }}>
-            <div className="animate-fade-in-up" style={{ marginBottom: '2.5rem', background: 'var(--color-primary-light)', padding: '2rem 3rem', borderRadius: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(0, 82, 155, 0.05)' }}>
+            <div className="animate-fade-in-up depth-card" style={{ marginBottom: '4rem', padding: '3rem 4rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'white' }}>
                <div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-primary)' }}>{currentDesc.title}</h3>
-                  <p style={{ color: 'var(--color-primary)', opacity: 0.8, fontSize: '1rem', marginTop: '0.25rem' }}>{currentDesc.lead}</p>
+                  <h3 style={{ fontSize: '2rem', fontWeight: 900, color: '#111827', letterSpacing: '-0.02em' }}>{currentDesc.title}</h3>
+                  <p style={{ color: 'var(--color-gray-500)', fontSize: '1.1rem', marginTop: '0.5rem', maxWidth: '500px' }}>{currentDesc.lead}</p>
                </div>
-               <div style={{ background: 'white', padding: '0.5rem 1rem', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)' }}>
-                 {filteredEquipment.length} PRODUCTS
+               <div style={{ background: 'var(--color-primary-light)', padding: '0.75rem 1.5rem', borderRadius: '1rem', fontSize: '1rem', fontWeight: 800, color: 'var(--color-primary)' }}>
+                 {filteredEquipment.length} UNITS
                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {filteredEquipment.map((item, index) => (
                 <div 
                   key={item.id} 
-                  className="product-card hover-lift animate-fade-in-up"
+                  className="product-card hover-lift animate-fade-in-up depth-card"
                   style={{ 
                     animationDelay: `${(index % 6) * 100}ms`,
                     background: 'white',
-                    padding: '1rem',
-                    border: '1px solid rgba(0,0,0,0.02)',
-                    boxShadow: 'var(--shadow-soft)'
+                    padding: '1.5rem',
+                    border: '1px solid rgba(255,255,255,1)'
                   }}
                 >
-                  <div style={{ height: '240px', overflow: 'hidden', borderRadius: '1.75rem', background: '#f8fafc', position: 'relative' }}>
+                  <div style={{ 
+                    height: '280px', 
+                    overflow: 'hidden', 
+                    borderRadius: '2rem', 
+                    background: '#f8fafc', 
+                    position: 'relative',
+                    transformStyle: 'preserve-3d' 
+                  }}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       onError={(e) => { e.currentTarget.src = fallbackImage }}
                     />
-                    <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.9)', padding: '0.5rem', borderRadius: '0.75rem', boxShadow: 'var(--shadow-sm)' }}>
+                    <div style={{ 
+                      position: 'absolute', 
+                      top: '1.5rem', 
+                      right: '1.5rem', 
+                      background: 'rgba(255,255,255,0.95)', 
+                      padding: '0.75rem', 
+                      borderRadius: '1.25rem', 
+                      boxShadow: 'var(--shadow-md)',
+                      transform: 'translateZ(30px)'
+                    }}>
                       {item.icon}
                     </div>
                   </div>
-                  <div style={{ padding: '1.5rem 0.5rem 0.5rem' }}>
-                    <div style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-secondary)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+                  <div style={{ padding: '2rem 1rem 1rem' }}>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--color-secondary)', letterSpacing: '0.15em', marginBottom: '0.75rem' }}>
                       Premium Series
                     </div>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '0.75rem', color: '#111827', lineHeight: 1.3 }}>{item.name}</h3>
-                    <p style={{ color: 'var(--color-gray-500)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>{item.description}</p>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '1rem', color: '#111827', lineHeight: 1.25 }}>{item.name}</h3>
+                    <p style={{ color: 'var(--color-gray-500)', fontSize: '1rem', marginBottom: '2.5rem', lineHeight: 1.6, minHeight: '80px' }}>{item.description}</p>
                     
                     <Link 
                       to={item.name === 'Lead Apron' ? `/equipment/lead-apron/frontal-protection` : (item.name.includes('Hospital Bed') ? `/equipment/hospital-bed/${item.id === 1 ? 'icu-bed-ss' : 'icu-bed-abs'}` : '#')}
-                      className="btn btn-secondary" 
+                      className="btn btn-3d" 
                       style={{ 
                         width: '100%',
-                        padding: '0.75rem',
-                        borderRadius: '1.15rem',
-                        fontSize: '0.9rem',
-                        fontWeight: 700
+                        padding: '1.25rem',
+                        borderRadius: '1.5rem',
+                        fontSize: '1rem',
+                        fontWeight: 800
                       }}
                     >
-                      Technical Review <ArrowRight size={16} className="ml-2" />
+                      Technical Review <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
                     </Link>
                   </div>
                 </div>
