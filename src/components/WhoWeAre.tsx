@@ -43,15 +43,15 @@ export default function WhoWeAre() {
               }}>
                 <div style={{ fontWeight: 700, marginBottom: '0.75rem', color: 'var(--color-gray-900)' }}>Network Presence</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem' }}>
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#005696', boxShadow: '0 0 0 4px rgba(0, 86, 150, 0.1)' }}></div>
+                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', boxShadow: '0 0 0 4px rgba(0, 76, 145, 0.1)' }}></div>
                   <span style={{ color: 'var(--color-gray-700)' }}>Corporate Office (Bangalore)</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem' }}>
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#3b82f6', boxShadow: '0 0 0 4px rgba(59, 130, 246, 0.1)' }}></div>
+                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: 'var(--color-secondary)', boxShadow: '0 0 0 4px rgba(0, 140, 68, 0.1)' }}></div>
                   <span style={{ color: 'var(--color-gray-700)' }}>Manufacturing Centers</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', border: '2.5px solid #3b82f6', backgroundColor: 'transparent' }}></div>
+                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', border: '2.5px solid var(--color-secondary)', backgroundColor: 'transparent' }}></div>
                   <span style={{ color: 'var(--color-gray-700)' }}>Authorized Channel Partners</span>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function WhoWeAre() {
           <div className="animate-fade-in-up delay-100">
             <div className="badge" style={{ marginBottom: '1.5rem', background: 'var(--color-green-50)', color: 'var(--color-green-700)' }}>Who We Are</div>
             <h2 style={{ fontSize: '3rem', marginBottom: '2rem', lineHeight: 1.15, fontWeight: 800 }}>
-              Ibanni Healthcare: Leading <span style={{ color: '#005696' }}>Manufacturer & Suppliers</span> in India
+              Ibanni Healthcare: Leading <span style={{ color: 'var(--color-primary)' }}>Manufacturer & Suppliers</span> in India
             </h2>
             
             <p style={{ fontSize: '1.125rem', color: 'var(--color-gray-800)', marginBottom: '1.5rem', lineHeight: 1.75 }}>

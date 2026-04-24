@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Shield, ChevronRight, Info, CheckCircle2, Mail, Download } from 'lucide-react';
+import { Shield, ChevronRight, Info, CheckCircle2, Mail, Download, ArrowRight, Award, Zap } from 'lucide-react';
 import { useEffect } from 'react';
 
 interface ApronDetail {
@@ -184,66 +184,79 @@ const apronDetails: Record<string, ApronDetail> = {
 
 export default function LeadApronDetail() {
   const { type } = useParams();
-  const detail = apronDetails[type || ''] || {
-    name: type?.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') || 'Product Details',
-    description: 'Technical medical apparel designed for maximum radiation attenuation and operator comfort during radiological procedures.',
-    features: ['International Standard Compliance', 'Ergonomic Weight Distribution', 'Durable Exterior Fabric', 'Customizable Sizes'],
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2000',
-    specifications: [
-      ['Material', 'Premium Antimony/Lead Vinyl or Lead-Free'],
-      ['Equivalence', '0.25mm, 0.35mm, 0.50mm Pb'],
-      ['Certification', 'BARC / ISO 9001 / CE'],
-      ['Warranty', '12 Months Manufacturing Warranty']
-    ]
-  };
+  const detail = apronDetails[type || ''] || apronDetails['frontal-protection'];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [type]);
 
   return (
-    <div className="bg-white min-h-screen pt-24">
+    <div className="min-h-screen pt-24" style={{ backgroundColor: '#fcfcfd' }}>
       <div className="container py-12">
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.9rem', color: 'var(--color-gray-600)' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.9rem', fontWeight: 500 }}>
           <Link to="/" style={{ color: 'var(--color-primary)' }}>Home</Link>
-          <ChevronRight size={16} />
-          <Link to="/equipment/lead-apron" style={{ color: 'var(--color-primary)' }}>Lead Aprons</Link>
-          <ChevronRight size={16} />
-          <span style={{ color: 'var(--color-gray-800)', fontWeight: 600 }}>{detail.name}</span>
+          <ChevronRight size={14} color="var(--color-gray-400)" />
+          <Link to="/#equipment" style={{ color: 'var(--color-primary)' }}>Lead Aprons</Link>
+          <ChevronRight size={14} color="var(--color-gray-400)" />
+          <span style={{ color: 'var(--color-gray-500)' }}>{detail.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Product Image */}
-          <div className="animate-fade-in-up" style={{ position: 'sticky', top: '7rem' }}>
-            <div style={{ borderRadius: '2.5rem', overflow: 'hidden', boxShadow: '0 30px 60px -15px rgba(0,0,0,0.1)', background: '#f8fafc' }}>
+          <div className="animate-fade-in-up" style={{ position: 'sticky', top: '8rem' }}>
+            <div style={{ 
+              borderRadius: '3rem', 
+              overflow: 'hidden', 
+              boxShadow: '0 40px 80px -20px rgba(0, 82, 155, 0.12)', 
+              background: 'white',
+              padding: '2rem',
+              border: '1px solid rgba(0,0,0,0.03)'
+            }}>
               <img 
                 src={detail.image} 
                 alt={detail.name} 
-                style={{ width: '100%', height: 'auto', display: 'block' }}
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '2rem' }}
+                onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop' }}
               />
+            </div>
+            
+            {/* 3D Visual Badges */}
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem' }}>
+              <div className="glass" style={{ flex: 1, padding: '1.5rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-primary-light)' }}>
+                <Award color="var(--color-primary)" size={24} style={{ margin: '0 auto 0.5rem' }} />
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase' }}>Certified</div>
+                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)' }}>BARC Tested</div>
+              </div>
+              <div className="glass" style={{ flex: 1, padding: '1.5rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-secondary-light)' }}>
+                <Zap color="var(--color-secondary)" size={24} style={{ margin: '0 auto 0.5rem' }} />
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase' }}>Performance</div>
+                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)' }}>Max Attenuation</div>
+              </div>
             </div>
           </div>
 
           {/* Product Info */}
           <div className="animate-fade-in-up delay-100">
-            <div className="badge" style={{ background: 'var(--color-green-50)', color: 'var(--color-green-700)', marginBottom: '1.5rem' }}>Technical Specification</div>
-            <h1 style={{ fontSize: '3rem', marginBottom: '1.25rem', lineHeight: 1.1 }}>{detail.name}</h1>
+            <div className="badge" style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)', border: '1px solid rgba(0, 82, 155, 0.1)', marginBottom: '1.5rem' }}>Technical Medical Apparel</div>
+            <h1 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1, letterSpacing: '-0.03em' }}>{detail.name}</h1>
+            
             {detail.tagline && (
-              <p style={{ fontSize: '1.4rem', color: 'var(--color-primary)', fontWeight: 600, marginBottom: '1.5rem', lineHeight: 1.3 }}>
+              <p style={{ fontSize: '1.5rem', color: 'var(--color-primary)', fontWeight: 600, marginBottom: '2rem', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
                 {detail.tagline}
               </p>
             )}
-            <p style={{ fontSize: '1.15rem', color: 'var(--color-gray-700)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
+            
+            <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: '3.5rem' }}>
               {detail.description}
             </p>
 
-            {/* Protection Levels */}
+            {/* Protection Levels Chips */}
             {detail.protectionLevels && (
-              <div style={{ marginBottom: '2.5rem' }}>
-                <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-gray-500)', marginBottom: '1rem' }}>Available Protection Levels</h4>
-                <div style={{ display: 'flex', gap: '1rem' }}>
+              <div style={{ marginBottom: '3.5rem' }}>
+                <h4 style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--color-gray-400)', marginBottom: '1.5rem' }}>Equivalence Levels</h4>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                   {detail.protectionLevels.map((lvl: string) => (
-                    <div key={lvl} style={{ padding: '0.75rem 1.5rem', background: '#f0f9ff', color: '#0369a1', borderRadius: '1rem', fontWeight: 700, border: '1px solid #bae6fd' }}>
+                    <div key={lvl} style={{ padding: '0.75rem 1.75rem', background: 'white', color: 'var(--color-primary)', borderRadius: '1.25rem', fontWeight: 700, border: '1px solid var(--color-primary-light)', boxShadow: '0 4px 10px rgba(0,0,0,0.03)' }}>
                       {lvl}
                     </div>
                   ))}
@@ -251,71 +264,93 @@ export default function LeadApronDetail() {
               </div>
             )}
 
-            {/* Material Options */}
+            {/* Premium Material Cards */}
             {detail.materials && (
-              <div style={{ marginBottom: '3rem' }}>
-                <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-gray-500)', marginBottom: '1.5rem' }}>Choice of Core Materials</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ marginBottom: '4rem' }}>
+                <h4 style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--color-gray-400)', marginBottom: '2rem' }}>Material Science</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {detail.materials.map((mat: { type: string; desc: string }) => (
-                    <div key={mat.type} style={{ padding: '1.5rem', background: 'white', borderRadius: '1.25rem', border: '1px solid #f1f5f9', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.03)' }}>
-                      <div style={{ fontWeight: 700, color: 'var(--color-gray-900)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Shield size={18} className="text-blue-600" /> {mat.type}
+                    <div key={mat.type} className="hover-lift" style={{ padding: '2rem', background: 'white', borderRadius: '2rem', border: '1px solid #f1f5f9', boxShadow: 'var(--shadow-soft)' }}>
+                      <div style={{ fontWeight: 800, color: 'var(--color-primary)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '1.1rem' }}>
+                        <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--color-primary)' }}></div>
+                        {mat.type}
                       </div>
-                      <div style={{ fontSize: '0.95rem', color: 'var(--color-gray-600)', lineHeight: 1.5 }}>{mat.desc}</div>
+                      <div style={{ fontSize: '1.05rem', color: 'var(--color-gray-600)', lineHeight: 1.6 }}>{mat.desc}</div>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            <div style={{ background: '#f8fafc', padding: '2.5rem', borderRadius: '2rem', border: '1px solid #f1f5f9', marginBottom: '3rem' }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Info size={20} className="text-blue-600" /> Key Features
+            {/* Feature Grid */}
+            <div style={{ 
+              background: '#111827', 
+              padding: '3.5rem', 
+              borderRadius: '3rem', 
+              marginBottom: '4rem',
+              color: 'white',
+              boxShadow: '0 30px 60px -15px rgba(0,0,0,0.4)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '200px', background: 'var(--color-secondary)', opacity: 0.1, filter: 'blur(50px)', borderRadius: '50%' }}></div>
+              
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '2.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '0.75rem' }}>
+                  <Info size={24} className="text-secondary" />
+                </div>
+                Key Performance Indicators
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10">
                 {detail.features.map((feature: string, i: number) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <CheckCircle2 size={18} className="text-green-600 flex-shrink-0" style={{ marginTop: '0.2rem' }} />
-                    <span style={{ color: 'var(--color-gray-800)', fontSize: '1rem', lineHeight: 1.4 }}>{feature}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <CheckCircle2 size={18} className="text-secondary flex-shrink-0" style={{ marginTop: '0.3rem' }} />
+                    <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem', lineHeight: 1.5 }}>{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-4">
-              <a href="mailto:info@ibannihealthcare.com" className="btn btn-primary" style={{ width: '100%', padding: '1.25rem', display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
-                <Mail size={20} /> Request Technical Datasheet
+            {/* High-End Action Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <a href="mailto:Ibannihealthcare@gmail.com" className="btn btn-3d" style={{ padding: '1.5rem', borderRadius: '1.5rem', fontSize: '1.1rem' }}>
+                <Mail size={22} /> Request Datasheet
               </a>
-              <button className="btn btn-secondary" style={{ width: '100%', padding: '1.25rem', display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
-                <Download size={20} /> Download User Manual
+              <button className="btn btn-secondary" style={{ padding: '1.5rem', borderRadius: '1.5rem', fontSize: '1.1rem', background: 'white' }}>
+                <Download size={22} /> Quality Certificates
               </button>
             </div>
           </div>
         </div>
 
-        {/* Technical Table */}
-        <div className="animate-fade-in-up delay-200" style={{ marginTop: '5rem' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '2rem' }}>Detailed Specifications</h2>
-          <div style={{ overflowX: 'auto', borderRadius: '1.5rem', border: '1px solid #f1f5f9' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-              <thead style={{ background: '#f8fafc' }}>
-                <tr>
-                  <th style={{ padding: '1.25rem 2rem', borderBottom: '1px solid #f1f5f9' }}>Feature</th>
-                  <th style={{ padding: '1.25rem 2rem', borderBottom: '1px solid #f1f5f9' }}>Specification</th>
-                </tr>
-              </thead>
-              <tbody>
-                {detail.specifications.map(([label, val]: string[], i: number) => (
-                  <tr key={i}>
-                    <td style={{ padding: '1rem 2rem', borderBottom: '1px solid #f1f5f9', fontWeight: 600 }}>{label}</td>
-                    <td style={{ padding: '1rem 2rem', borderBottom: '1px solid #f1f5f9' }}>{val}</td>
+        {/* Technical Data Table */}
+        <div className="animate-fade-in-up delay-300" style={{ marginTop: '8rem' }}>
+          <div className="glass" style={{ padding: '4rem', borderRadius: '4rem', overflow: 'hidden', border: '1px solid rgba(0, 82, 155, 0.05)' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '3rem', letterSpacing: '-0.02em' }}>Manufacturing Specs</h2>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.75rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ color: 'var(--color-gray-400)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+                    <th style={{ padding: '1.5rem 2rem' }}>Quality Parameter</th>
+                    <th style={{ padding: '1.5rem 2rem' }}>Verified Specification</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {detail.specifications.map(([label, val]: string[], i: number) => (
+                    <tr key={i} className="hover-lift" style={{ background: 'white' }}>
+                      <td style={{ padding: '1.75rem 2rem', borderRadius: '1.5rem 0 0 1.5rem', fontWeight: 700, color: 'var(--color-gray-900)' }}>{label}</td>
+                      <td style={{ padding: '1.75rem 2rem', borderRadius: '0 1.5rem 1.5rem 0', color: 'var(--color-gray-600)', fontWeight: 500 }}>{val}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+      
+      {/* Visual Separator */}
+      <div style={{ height: '100px', background: 'linear-gradient(to bottom, #fcfcfd, white)' }}></div>
     </div>
   );
 }

@@ -5,12 +5,25 @@ import LeadApronPage from './pages/LeadApronPage';
 import LeadApronDetail from './pages/LeadApronDetail';
 import HospitalBedPage from './pages/HospitalBedPage';
 import HospitalBedDetail from './pages/HospitalBedDetail';
+import Logo from './components/Logo';
+import LoadingScreen from './components/LoadingScreen';
+import { useState, useEffect } from 'react';
 import './index.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <LoadingScreen isLoading={isLoading} />
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease' }}>
         <Navbar />
         
         <Routes>
@@ -23,11 +36,8 @@ function App() {
 
         <footer style={{ backgroundColor: 'var(--color-gray-900)', color: 'white', padding: '4rem 0 2rem' }}>
           <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', fontWeight: 700, fontSize: '1.75rem', color: 'white' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src="/logo.png" alt="Ibanni Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-              </div>
-              Ibanni Healthcare
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
+              <Logo height="60px" />
             </div>
             <p style={{ color: 'var(--color-gray-400)', textAlign: 'center', maxWidth: '600px', lineHeight: 1.6 }}>
               No.226, BDA 6th Block, Sir M Vishwaraiah Layout, Bangalore-560091.
