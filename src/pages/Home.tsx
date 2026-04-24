@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import WhoWeAre from '../components/WhoWeAre';
 import EquipmentCatalog from '../components/EquipmentCatalog';
 import ContactSection from '../components/ContactSection';
+import MapSection from '../components/MapSection';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <WhoWeAre />
       <EquipmentCatalog />
       <ContactSection />
+      <MapSection />
       <FloatingWhatsApp />
     </main>
   );
