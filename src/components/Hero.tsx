@@ -1,6 +1,34 @@
 import { ArrowRight, ShieldCheck, Award, Zap, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const slides = [
+  {
+    image: '/hero/slide1.png',
+    title: 'Future of Medical Imaging',
+    accent: 'Precision'
+  },
+  {
+    image: '/hero/slide2.png',
+    title: 'Advanced Surgical Solutions',
+    accent: 'Technology'
+  },
+  {
+    image: '/hero/slide3.png',
+    title: 'Patient-Centric Care',
+    accent: 'Excellence'
+  }
+];
 
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section 
       id="home" 
@@ -14,24 +42,27 @@ export default function Hero() {
         paddingTop: '80px'
       }}
     >
-      {/* Dynamic Background Elements */}
-      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)', opacity: 0.2, filter: 'blur(100px)', zIndex: 1 }}></div>
-      <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '800px', height: '800px', background: 'radial-gradient(circle, var(--color-secondary) 0%, transparent 70%)', opacity: 0.1, filter: 'blur(120px)', zIndex: 1 }}></div>
-      
-      {/* Parallax Background Image */}
-      <div style={{ 
-        position: 'absolute', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%', 
-        backgroundImage: 'url("https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        opacity: 0.35,
-        filter: 'grayscale(20%) brightness(0.8)',
-        zIndex: 0
-      }}></div>
+      {/* Background Slider */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url("${slide.image}")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: currentSlide === index ? 0.4 : 0,
+            transition: 'opacity 1.5s ease-in-out',
+            zIndex: 0,
+            transform: currentSlide === index ? 'scale(1.05)' : 'scale(1)',
+            transitionProperty: 'opacity, transform',
+          }}
+        />
+      ))}
 
       {/* Modern Overlay Gradient */}
       <div style={{ 
@@ -40,21 +71,15 @@ export default function Hero() {
         left: 0, 
         right: 0, 
         bottom: 0, 
-        background: 'linear-gradient(135deg, rgba(0, 26, 53, 0.95) 0%, rgba(0, 26, 53, 0.7) 40%, rgba(0, 26, 53, 0.3) 100%)',
+        background: 'linear-gradient(135deg, rgba(0, 26, 53, 0.9) 0%, rgba(0, 26, 53, 0.6) 40%, rgba(0, 26, 53, 0.2) 100%)',
         zIndex: 1 
       }}></div>
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in-up">
-
-            
-            <h1 style={{ fontSize: '5rem', fontWeight: 900, marginBottom: '2rem', color: 'white', letterSpacing: '-0.04em', lineHeight: 1, textShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-              Precision in <span style={{ color: 'var(--color-secondary)' }}>Imaging</span>,<br />
-              Excellence in <span style={{ textDecoration: 'underline', textDecorationColor: 'var(--color-primary)' }}>Care</span>.
-            </h1>
-            
-
+            {/* Heading removed per user request */}
+            <div style={{ height: '100px' }}></div> 
             
             <div style={{ display: 'flex', gap: '2rem', marginBottom: '5rem', flexWrap: 'wrap' }}>
               <a href="#equipment" className="btn btn-3d" style={{ padding: '1.4rem 3rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
@@ -99,6 +124,24 @@ export default function Hero() {
             {/* Reserved for 3D Product Render or Visual */}
           </div>
         </div>
+      </div>
+
+      {/* Slide Indicators */}
+      <div style={{ position: 'absolute', bottom: '5rem', left: '2rem', display: 'flex', gap: '1rem', zIndex: 10 }}>
+        {slides.map((_, i) => (
+          <div 
+            key={i} 
+            onClick={() => setCurrentSlide(i)}
+            style={{ 
+              width: currentSlide === i ? '40px' : '15px', 
+              height: '4px', 
+              background: currentSlide === i ? 'var(--color-secondary)' : 'rgba(255,255,255,0.3)', 
+              borderRadius: '2px',
+              transition: 'all 0.4s ease',
+              cursor: 'pointer'
+            }} 
+          />
+        ))}
       </div>
 
       {/* Floating Scroll Indicator */}
