@@ -30,19 +30,20 @@ export default function WhoWeAre() {
                 style={{ width: '85%', height: '85%', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.1))' }}
               />
               
-              {/* Floating 3D Badge */}
+              {/* Floating 3D Badge - ALIGNMENT FIXED (Reduced offset to prevent overlap) */}
               <div style={{ 
                 position: 'absolute', 
                 bottom: '3rem', 
-                right: '-2rem', 
-                backgroundColor: 'rgba(255,255,255,0.9)', 
+                right: '1rem', 
+                backgroundColor: 'rgba(255,255,255,0.95)', 
                 backdropFilter: 'blur(20px)',
                 padding: '2rem', 
                 borderRadius: '2.5rem',
                 border: '1px solid rgba(255,255,255,1)',
                 boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.15)',
                 minWidth: '280px',
-                transform: 'translateZ(60px)'
+                transform: 'translateZ(60px)',
+                zIndex: 10
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                   <div style={{ background: 'var(--color-primary-light)', padding: '0.5rem', borderRadius: '0.75rem' }}>
@@ -96,9 +97,12 @@ export default function WhoWeAre() {
               </div>
             </div>
 
-            <a href="#contact" className="btn btn-3d" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
-              Partner With Us
-            </a>
+            {/* ALIGNMENT FIXED: Button now aligns with text flow */}
+            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <a href="#contact" className="btn btn-3d" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
+                Partner With Us
+              </a>
+            </div>
           </div>
         </div>
       </div>
