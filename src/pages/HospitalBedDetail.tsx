@@ -1,4 +1,4 @@
-import { ChevronRight, Shield, Download, Mail, ExternalLink, Package, Printer, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ChevronRight, Shield, Download, Mail, Printer, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { hospitalBedDetails } from '../data/hospitalBedData';

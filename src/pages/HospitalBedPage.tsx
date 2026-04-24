@@ -1,4 +1,4 @@
-import { ChevronRight, Package, Shield, Bed, Activity, Sun, HeartPulse, Mail } from 'lucide-react';
+import { ChevronRight, Package, Bed, Mail } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { hospitalBedDetails } from '../data/hospitalBedData';

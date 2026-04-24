@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Shield, ChevronRight, Info, CheckCircle2, Mail, Download, ArrowRight, Award, Zap } from 'lucide-react';
+import { ChevronRight, Info, CheckCircle2, Mail, Download, Award, Zap } from 'lucide-react';
 import { useEffect } from 'react';
 
 interface ApronDetail {
