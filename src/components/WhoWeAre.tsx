@@ -71,11 +71,11 @@ export default function WhoWeAre() {
               Leadership in <span style={{ color: 'var(--color-primary)' }}>Medical</span> Engineering
             </h2>
             
-            <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-600)', marginBottom: '2rem', lineHeight: 1.8 }}>
+            <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-600)', marginBottom: '3rem', lineHeight: 1.8 }}>
               Founded by industry veterans with over <strong>9 years</strong> of specialized expertise, Ibanni Healthcare is dedicated to bridging the gap in medical equipment reliability and clinical transparency.
             </p>
             
-            <div className="grid grid-cols-1 gap-6 marginBottom: '3.5rem'">
+            <div className="grid grid-cols-1 gap-6" style={{ marginBottom: '4rem' }}>
               <div className="depth-card hover-lift" style={{ padding: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                 <div style={{ background: 'var(--color-green-50)', padding: '1rem', borderRadius: '1.5rem' }}>
                   <CheckCircle2 color="var(--color-green-600)" size={28} />
@@ -95,8 +95,6 @@ export default function WhoWeAre() {
                 </div>
               </div>
             </div>
-
-            <div style={{ height: '3rem' }}></div>
 
             <a href="#contact" className="btn btn-3d" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
               Partner With Us
