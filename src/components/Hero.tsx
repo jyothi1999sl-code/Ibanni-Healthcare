@@ -1,5 +1,4 @@
 import { ArrowRight, ShieldCheck, Award, Zap, ChevronDown } from 'lucide-react';
-import ibanniLogo from '../assets/Ibanni.png';
 
 export default function Hero() {
   return (

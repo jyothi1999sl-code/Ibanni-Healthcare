@@ -1,5 +1,4 @@
-import React from 'react';
-import ibanniLogo from '../assets/Ibanni.png';
+
 
 export default function LoadingScreen({ isLoading }: { isLoading: boolean }) {
   return (

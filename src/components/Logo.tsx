@@ -1,4 +1,3 @@
-import React from 'react';
 import ibanniLogo from '../assets/Ibanni.png';
 
 interface LogoProps {
