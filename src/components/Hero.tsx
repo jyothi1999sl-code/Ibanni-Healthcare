@@ -54,9 +54,7 @@ export default function Hero() {
               Excellence in <span style={{ textDecoration: 'underline', textDecorationColor: 'var(--color-primary)' }}>Care</span>.
             </h1>
             
-            <p style={{ fontSize: '1.4rem', color: 'rgba(255, 255, 255, 0.85)', marginBottom: '3.5rem', maxWidth: '650px', lineHeight: 1.5, fontWeight: 400 + 100 }}>
-              Ibanni conceptualizes and manufactures state-of-the-art medical equipment designed for reliability and clinical precision.
-            </p>
+
             
             <div style={{ display: 'flex', gap: '2rem', marginBottom: '5rem', flexWrap: 'wrap' }}>
               <a href="#equipment" className="btn btn-3d" style={{ padding: '1.4rem 3rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
