@@ -11,54 +11,58 @@ export default function WhoWeAre() {
           <div className="animate-fade-in-up" style={{ perspective: '1200px' }}>
             <div className="hover-lift" style={{ 
               position: 'relative', 
-              borderRadius: '2.5rem', 
-              boxShadow: '0 50px 100px -20px rgba(0, 0, 0, 0.12)',
+              borderRadius: '3rem', 
+              boxShadow: '0 50px 100px -20px rgba(0, 0, 0, 0.15)',
               backgroundColor: 'white',
-              padding: '0.5rem', // REDUCED PADDING
-              border: '1px solid rgba(255,255,255,0.8)',
+              padding: '1rem',
+              border: '8px solid white', // OUTER GOOD LOOKING FRAME
               width: '100%',
               aspectRatio: '1 / 1',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transform: 'rotateY(-5deg) rotateX(2deg)',
-              overflow: 'hidden' // ENSURE FIT
+              overflow: 'hidden'
             }}>
-              <img 
-                src="/india_map.png" 
-                alt="Ibanni Healthcare India Locations" 
-                style={{ width: '100%', height: '100%', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.1))' }}
-              />
+              {/* Inner Map Container for hover effect */}
+              <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: '2rem', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img 
+                  src="/india_map.png" 
+                  alt="Ibanni Healthcare India Locations" 
+                  className="map-image-zoom"
+                  style={{ width: '100%', height: '100%', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.1))', transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }}
+                />
+              </div>
               
-              {/* Floating 3D Badge - MOVED INSIDE THE FRAME */}
+              {/* Floating 3D Badge - MOVED FURTHER INSIDE */}
               <div style={{ 
                 position: 'absolute', 
-                bottom: '1.5rem', 
-                right: '1.5rem', 
-                backgroundColor: 'rgba(255,255,255,0.92)', 
+                bottom: '2.5rem', 
+                right: '2.5rem', 
+                backgroundColor: 'rgba(255,255,255,0.95)', 
                 backdropFilter: 'blur(20px)',
-                padding: '1.25rem', 
-                borderRadius: '1.5rem',
+                padding: '1.5rem', 
+                borderRadius: '1.75rem',
                 border: '1px solid rgba(255,255,255,1)',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-                minWidth: '180px',
-                transform: 'translateZ(50px)',
+                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15)',
+                minWidth: '200px',
+                transform: 'translateZ(80px)',
                 zIndex: 10
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  <div style={{ background: 'var(--color-primary-light)', padding: '0.4rem', borderRadius: '0.6rem' }}>
-                    <MapPin size={16} color="var(--color-primary)" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <div style={{ background: 'var(--color-primary-light)', padding: '0.5rem', borderRadius: '0.75rem' }}>
+                    <MapPin size={20} color="var(--color-primary)" />
                   </div>
-                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--color-gray-900)' }}>National Network</div>
+                  <div style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-gray-900)' }}>National Network</div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', boxShadow: '0 0 8px var(--color-primary)' }}></div>
-                    <span style={{ color: 'var(--color-gray-700)', fontSize: '0.85rem', fontWeight: 700 }}>HQ: Bangalore</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', boxShadow: '0 0 10px var(--color-primary)' }}></div>
+                    <span style={{ color: 'var(--color-gray-700)', fontSize: '1rem', fontWeight: 700 }}>HQ: Bangalore</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-secondary)', boxShadow: '0 0 8px var(--color-secondary)' }}></div>
-                    <span style={{ color: 'var(--color-gray-700)', fontSize: '0.85rem', fontWeight: 700 }}>Manufacturing Hubs</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-secondary)', boxShadow: '0 0 10px var(--color-secondary)' }}></div>
+                    <span style={{ color: 'var(--color-gray-700)', fontSize: '1rem', fontWeight: 700 }}>Manufacturing Hubs</span>
                   </div>
                 </div>
               </div>
