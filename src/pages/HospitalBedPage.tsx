@@ -31,14 +31,44 @@ export default function HospitalBedPage() {
             <span style={{ color: 'var(--color-gray-800)', fontWeight: 600 }}>Hospital Beds</span>
           </nav>
           
-          <div style={{ maxWidth: '100% ' }}>
-            <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)', marginBottom: '1rem', fontSize: '0.75rem' }}>Global Healthcare Standards</div>
-            <h1 className="animate-fade-in-up delay-100" style={{ marginBottom: '1rem' }}>
-              Premium <span style={{ color: 'var(--color-primary)' }}>Hospital Bed</span> Engineering
-            </h1>
-            <p className="animate-fade-in-up delay-200" style={{ fontSize: '1rem', color: 'var(--color-gray-600)', maxWidth: '800px', lineHeight: 1.6 }}>
-              Advanced patient support systems designed for ergonomics, safety, and durability in critical care and general ward environments.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div style={{ maxWidth: '100%' }}>
+              <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)', marginBottom: '1rem', fontSize: '0.75rem' }}>Global Healthcare Standards</div>
+              <h1 className="animate-fade-in-up delay-100" style={{ marginBottom: '1.5rem', lineHeight: 1.1 }}>
+                Premium <span style={{ color: 'var(--color-primary)' }}>Hospital Bed</span> Engineering
+              </h1>
+              <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.1rem', color: 'var(--color-gray-600)', maxWidth: '800px', lineHeight: 1.6, marginBottom: '2rem' }}>
+                Advanced patient support systems designed for ergonomics, safety, and durability in critical care and general ward environments. Explore our range of highly specialized beds engineered for modern medical facilities worldwide.
+              </p>
+              
+              <div className="animate-fade-in-up delay-300 grid grid-cols-2 gap-4" style={{ maxWidth: '400px' }}>
+                <div style={{ background: 'white', padding: '1rem', borderRadius: '1rem', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-primary)' }}>10+</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-gray-500)', fontWeight: 600 }}>ICU Models</div>
+                </div>
+                <div style={{ background: 'white', padding: '1rem', borderRadius: '1rem', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-primary)' }}>100%</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-gray-500)', fontWeight: 600 }}>ISO Certified</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="animate-fade-in-up delay-200" style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '300px', height: '300px', background: 'var(--color-primary-light)', borderRadius: '50%', filter: 'blur(60px)', zIndex: 0 }}></div>
+              <img 
+                src="/hospital_bed_premium.png" 
+                alt="Premium ICU Hospital Bed" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  borderRadius: '2rem', 
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                  position: 'relative',
+                  zIndex: 1,
+                  border: '4px solid white'
+                }} 
+              />
+            </div>
           </div>
         </div>
       </section>

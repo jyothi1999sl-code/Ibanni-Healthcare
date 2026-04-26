@@ -177,7 +177,8 @@ export default function Hero() {
               display: 'flex', 
               gap: '1.5rem', 
               justifyContent: 'center',
-              width: '100%'
+              width: '100%',
+              marginBottom: '3rem'
             }}>
               <a href="#equipment" className="btn btn-3d" style={{ 
                 padding: '1.25rem 2.5rem', 
@@ -200,6 +201,23 @@ export default function Hero() {
                 Strategic Consultation
               </a>
             </div>
+
+            {/* COLORFUL CATEGORY MENU */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', width: '100%' }}>
+              <a href="#equipment" onClick={() => window.location.href='/equipment/hospital-bed'} className="hover-lift" style={{ background: 'linear-gradient(135deg, #00529b 0%, #0082d6 100%)', padding: '1rem', borderRadius: '1rem', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', fontWeight: '600', boxShadow: '0 4px 15px rgba(0, 82, 155, 0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                Hospital Beds
+              </a>
+              <a href="#equipment" onClick={() => window.location.href='/equipment/ot-equipments'} className="hover-lift" style={{ background: 'linear-gradient(135deg, var(--color-secondary) 0%, #00ecc0 100%)', padding: '1rem', borderRadius: '1rem', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', fontWeight: '600', boxShadow: '0 4px 15px rgba(0, 192, 181, 0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                OT Equipments
+              </a>
+              <a href="#equipment" onClick={() => window.location.href='/equipment/infant-care'} className="hover-lift" style={{ background: 'linear-gradient(135deg, #00a651 0%, #00e06d 100%)', padding: '1rem', borderRadius: '1rem', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', fontWeight: '600', boxShadow: '0 4px 15px rgba(0, 166, 81, 0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                Infant Care
+              </a>
+              <a href="#equipment" onClick={() => window.location.href='/equipment/x-ray-supplies'} className="hover-lift" style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)', padding: '1rem', borderRadius: '1rem', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', fontWeight: '600', boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                X-Ray Supplies
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
