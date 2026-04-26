@@ -23,20 +23,20 @@ export default function HospitalBedPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Page Hero */}
-      <section className="bg-gradient-hero" style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
+      <section className="bg-gradient-hero" style={{ paddingTop: '6rem', paddingBottom: '3rem' }}>
         <div className="container">
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.9rem', color: 'var(--color-gray-600)' }}>
+          <nav className="category-scroll" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.85rem', color: 'var(--color-gray-600)', overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }}>
             <Link to="/" style={{ color: 'var(--color-primary)' }}>Home</Link>
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
             <span style={{ color: 'var(--color-gray-800)', fontWeight: 600 }}>Hospital Beds</span>
           </nav>
           
-          <div style={{ maxWidth: '1000px' }}>
-            <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)' }}>Global Healthcare Standards</div>
-            <h1 className="animate-fade-in-up delay-100" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+          <div style={{ maxWidth: '100% ' }}>
+            <div className="badge animate-fade-in-up" style={{ background: 'var(--color-blue-50)', color: 'var(--color-blue-700)', marginBottom: '1rem', fontSize: '0.75rem' }}>Global Healthcare Standards</div>
+            <h1 className="animate-fade-in-up delay-100" style={{ marginBottom: '1rem' }}>
               Premium <span style={{ color: 'var(--color-primary)' }}>Hospital Bed</span> Engineering
             </h1>
-            <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.2rem', color: 'var(--color-gray-600)', maxWidth: '800px' }}>
+            <p className="animate-fade-in-up delay-200" style={{ fontSize: '1rem', color: 'var(--color-gray-600)', maxWidth: '800px', lineHeight: 1.6 }}>
               Advanced patient support systems designed for ergonomics, safety, and durability in critical care and general ward environments.
             </p>
           </div>
@@ -46,14 +46,14 @@ export default function HospitalBedPage() {
       {/* Product Catalog Section with Sidebar */}
       <section className="section bg-gray-50">
         <div className="container">
-          <div className="category-layout">
+          <div className="flex-mobile-col" style={{ gap: '2.5rem' }}>
             {/* Sidebar Filter */}
             <aside className="category-sidebar">
               <div style={{ background: 'white', padding: '1.5rem', borderRadius: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.05)' }}>
                 <h3 style={{ fontSize: '1rem', marginBottom: '1.5rem', color: 'var(--color-gray-900)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Package size={20} className="text-blue-600" /> CATEGORIES
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div className="category-scroll lg:flex-col">
                   {[
                     { name: 'All Models', icon: <Bed size={18} /> },
                     { name: 'ICU Beds', icon: <ChevronRight size={18} /> },
@@ -64,9 +64,10 @@ export default function HospitalBedPage() {
                       key={filter.name}
                       onClick={() => setSelectedFilter(filter.name)}
                       className={`category-tab ${selectedFilter === filter.name ? 'active' : ''}`}
+                      style={{ flexShrink: 0 }}
                     >
                       <div className="icon-container">{filter.icon}</div>
-                      {filter.name}
+                      <span style={{ whiteSpace: 'nowrap' }}>{filter.name}</span>
                     </button>
                   ))}
                 </div>
@@ -118,13 +119,13 @@ export default function HospitalBedPage() {
       {/* Quote Section */}
       <section className="section bg-white">
         <div className="container">
-          <div style={{ background: 'var(--color-primary-light)', padding: '4rem', borderRadius: '3rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Equip Your Facility Today</h2>
-            <p style={{ color: 'var(--color-gray-800)', fontSize: '1.2rem', marginBottom: '2.5rem', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+          <div style={{ background: 'var(--color-primary-light)', padding: '2rem 1rem', borderRadius: '1.5rem', textAlign: 'center' }}>
+            <h2 style={{ marginBottom: '1rem' }}>Equip Your Facility Today</h2>
+            <p style={{ color: 'var(--color-gray-800)', fontSize: '1rem', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
               We provide customized hospital furniture solutions for clinics, surgery centers, and major medical institutions worldwide.
             </p>
-            <a href="mailto:info@ibannihealthcare.com" className="btn btn-primary" style={{ padding: '1.25rem 3.5rem' }}>
-              Request Global Pricing <Mail size={20} className="ml-2" />
+            <a href="mailto:info@ibannihealthcare.com" className="btn btn-primary" style={{ padding: '1.125rem 2rem', width: '100%', maxWidth: '350px', fontSize: '1rem' }}>
+              Request Global Pricing <Mail size={20} style={{ marginLeft: '0.5rem' }} />
             </a>
           </div>
         </div>

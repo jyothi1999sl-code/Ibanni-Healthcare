@@ -13,7 +13,9 @@ export default function Logo({ height = "40px", className = "" }: LogoProps) {
         display: 'flex', 
         alignItems: 'center', 
         height,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        maxWidth: '100%',
+        overflow: 'hidden'
       }}
     >
       <img 
@@ -21,6 +23,7 @@ export default function Logo({ height = "40px", className = "" }: LogoProps) {
         alt="Ibanni Healthcare" 
         style={{ 
           height: '100%', 
+          maxWidth: '100%',
           width: 'auto', 
           display: 'block',
           objectFit: 'contain'

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Settings, Sun, HeartPulse, Shield, Bed, Layers, Package, ClipboardCheck, ArrowRight, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const equipmentList = [
   // Hospital Furnitures
@@ -72,8 +73,27 @@ const categoryDescriptions: Record<string, { title: string, lead: string, points
 };
 
 export default function EquipmentCatalog() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const categories = Array.from(new Set(equipmentList.map(item => item.category)));
-  const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]);
+  
+  // Initialize from search param or first category
+  const initialCategory = searchParams.get('category') || categories[0];
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categories.includes(initialCategory) ? initialCategory : categories[0]
+  );
+
+  // Sync state if search param changes
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && categories.includes(cat) && cat !== selectedCategory) {
+      setSelectedCategory(cat);
+    }
+  }, [searchParams, categories, selectedCategory]);
+
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCategory(cat);
+    setSearchParams({ category: cat });
+  };
 
   const fallbackImage = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop';
   const filteredEquipment = equipmentList.filter(item => item.category === selectedCategory);
@@ -82,14 +102,14 @@ export default function EquipmentCatalog() {
   return (
     <section id="equipment" className="section" style={{ backgroundColor: '#fdfdfd', perspective: '1000px' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
-          <div className="badge animate-fade-in-up" style={{ background: 'var(--color-primary-light)', padding: '0.6rem 1.5rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div className="badge animate-fade-in-up" style={{ background: 'var(--color-primary-light)', padding: '0.5rem 1.25rem', marginBottom: '1.5rem' }}>
              <Sparkles size={16} /> PORTFOLIO 2024
           </div>
-          <h2 className="animate-fade-in-up delay-100" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.04em' }}>
+          <h2 className="animate-fade-in-up delay-100" style={{ fontWeight: 900, marginBottom: '1.5rem', letterSpacing: '-0.04em' }}>
             Advanced <span style={{ color: 'var(--color-primary)' }}>Engineering</span>
           </h2>
-          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.4rem', color: 'var(--color-gray-500)', maxWidth: '850px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.1rem', color: 'var(--color-gray-500)', maxWidth: '850px', margin: '0 auto', lineHeight: 1.6 }}>
             Explore our meticulously engineered range of medical supplies, built for modern hospitals with clinical precision.
           </p>
         </div>
@@ -97,34 +117,37 @@ export default function EquipmentCatalog() {
         <div className="category-layout">
           {/* Enhanced Vertical Sidebar with 3D Depth */}
           <aside className="category-sidebar animate-fade-in-up delay-300">
-            <div className="depth-card" style={{ padding: '3rem 2.5rem' }}>
-              <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gray-400)', marginBottom: '2.5rem', fontWeight: 800 }}>
+            <div className="depth-card" style={{ padding: '1.5rem', lgPadding: '3rem 2.5rem' }}>
+              <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gray-400)', marginBottom: '1.25rem', fontWeight: 800 }}>
                 Specialties
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <div className="category-scroll lg:flex-col" style={{ gap: '0.5rem' }}>
                 {categories.map(cat => (
                   <button
                     key={cat}
-                    onClick={() => setSelectedCategory(cat)}
+                    onClick={() => handleCategoryChange(cat)}
                     className={`category-tab ${selectedCategory === cat ? 'active' : ''}`}
                     style={{ 
-                      borderRadius: '1.5rem',
-                      padding: '1.5rem',
+                      borderRadius: '1rem',
+                      padding: '0.75rem 1rem',
+                      lgPadding: '1.5rem',
                       border: selectedCategory === cat ? 'none' : '1px solid #f1f5f9',
-                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                      flexShrink: 0
                     }}
                   >
                     <div className="icon-container" style={{ 
                       background: selectedCategory === cat ? 'rgba(255,255,255,0.2)' : 'var(--color-primary-light)',
                       color: selectedCategory === cat ? 'white' : 'var(--color-primary)',
-                      transform: selectedCategory === cat ? 'scale(1.1) translateZ(10px)' : 'scale(1)'
+                      transform: selectedCategory === cat ? 'scale(1.1) translateZ(10px)' : 'scale(1)',
+                      padding: '0.5rem'
                     }}>
-                      {cat === 'Hospital Furnitures' && <Bed size={22} />}
-                      {cat === 'X ray supplies' && <Shield size={22} />}
-                      {cat === 'OT Equipments' && <Sun size={22} />}
-                      {cat === 'Infant care equipment' && <HeartPulse size={22} />}
+                      {cat === 'Hospital Furnitures' && <Bed size={20} />}
+                      {cat === 'X ray supplies' && <Shield size={20} />}
+                      {cat === 'OT Equipments' && <Sun size={20} />}
+                      {cat === 'Infant care equipment' && <HeartPulse size={20} />}
                     </div>
-                    <span style={{ fontWeight: 800, fontSize: '1rem' }}>{cat}</span>
+                    <span style={{ fontWeight: 800, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>{cat}</span>
                   </button>
                 ))}
               </div>
@@ -148,13 +171,13 @@ export default function EquipmentCatalog() {
           </aside>
 
           {/* Catalog Grid Area */}
-          <div style={{ flex: 1 }}>
-            <div className="animate-fade-in-up depth-card" style={{ marginBottom: '4rem', padding: '3rem 4rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'white' }}>
-               <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: 900, color: '#111827', letterSpacing: '-0.02em' }}>{currentDesc.title}</h3>
-                  <p style={{ color: 'var(--color-gray-500)', fontSize: '1.1rem', marginTop: '0.5rem', maxWidth: '500px' }}>{currentDesc.lead}</p>
+          <div style={{ flex: 1, width: '100%', minWidth: 0 }}>
+            <div className="animate-fade-in-up depth-card" style={{ marginBottom: '2.5rem', padding: '1.5rem', lgPadding: '3rem 4rem', display: 'flex', flexDirection: 'column', mdFlexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', background: 'white', gap: '1.5rem' }}>
+               <div style={{ textAlign: 'center', mdTextAlign: 'left' }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#111827', letterSpacing: '-0.02em' }}>{currentDesc.title}</h3>
+                  <p style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem', marginTop: '0.5rem', maxWidth: '500px' }}>{currentDesc.lead}</p>
                </div>
-               <div style={{ background: 'var(--color-primary-light)', padding: '0.75rem 1.5rem', borderRadius: '1rem', fontSize: '1rem', fontWeight: 800, color: 'var(--color-primary)' }}>
+               <div style={{ background: 'var(--color-primary-light)', padding: '0.5rem 1.25rem', borderRadius: '1rem', fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-primary)', whiteSpace: 'nowrap' }}>
                  {filteredEquipment.length} UNITS
                </div>
             </div>

@@ -2,20 +2,19 @@ import { CheckCircle2, MapPin } from 'lucide-react';
 
 export default function WhoWeAre() {
   return (
-    <section id="about" className="section" style={{ padding: '12rem 0', backgroundColor: '#fcfcfd', overflow: 'hidden' }}>
+    <section id="about" className="section" style={{ backgroundColor: '#fcfcfd', overflow: 'hidden' }}>
       <div className="container">
         <div 
-          className="grid gap-y-16 lg:gap-x-24 items-center" 
-          style={{ gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)' }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center" 
         >
           {/* Map Column - 3D Perspective */}
           <div className="animate-fade-in-up" style={{ perspective: '1200px' }}>
             <div className="hover-lift" style={{ 
               position: 'relative', 
-              borderRadius: '4rem', 
+              borderRadius: '2rem', 
               boxShadow: '0 50px 100px -20px rgba(0, 0, 0, 0.12)',
               backgroundColor: 'white',
-              padding: '2.5rem',
+              padding: '1.5rem',
               border: '1px solid rgba(255,255,255,0.8)',
               width: '100%',
               aspectRatio: '1 / 1',
@@ -33,15 +32,15 @@ export default function WhoWeAre() {
               {/* Floating 3D Badge - ALIGNMENT FIXED (Reduced offset to prevent overlap) */}
               <div style={{ 
                 position: 'absolute', 
-                bottom: '3rem', 
-                right: '1rem', 
+                bottom: window.innerWidth < 1024 ? '0.5rem' : '-1rem', 
+                right: window.innerWidth < 1024 ? '0.5rem' : '-1rem', 
                 backgroundColor: 'rgba(255,255,255,0.95)', 
                 backdropFilter: 'blur(20px)',
-                padding: '2rem', 
-                borderRadius: '2.5rem',
+                padding: '1.5rem', 
+                borderRadius: '1.5rem',
                 border: '1px solid rgba(255,255,255,1)',
                 boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.15)',
-                minWidth: '280px',
+                minWidth: '200px',
                 transform: 'translateZ(60px)',
                 zIndex: 10
               }}>
@@ -67,8 +66,8 @@ export default function WhoWeAre() {
 
           {/* Content Column */}
           <div className="animate-fade-in-up delay-100">
-            <div className="badge" style={{ marginBottom: '2rem', background: 'var(--color-primary-light)', color: 'var(--color-primary)', padding: '0.6rem 1.5rem', fontWeight: 700 }}>ESTABLISHED EXCELLENCE</div>
-            <h2 style={{ fontSize: '3.5rem', marginBottom: '2.5rem', lineHeight: 1.1, fontWeight: 900, letterSpacing: '-0.03em' }}>
+            <div className="badge" style={{ marginBottom: '1.5rem', background: 'var(--color-primary-light)', color: 'var(--color-primary)', padding: '0.4rem 1rem', fontWeight: 700 }}>ESTABLISHED EXCELLENCE</div>
+            <h2 style={{ marginBottom: '1.5rem', lineHeight: 1.1, fontWeight: 900, letterSpacing: '-0.03em' }}>
               Leadership in <span style={{ color: 'var(--color-primary)' }}>Medical</span> Engineering
             </h2>
             
@@ -98,8 +97,8 @@ export default function WhoWeAre() {
             </div>
 
             {/* ALIGNMENT FIXED: Button now aligns with text flow */}
-            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-              <a href="#contact" className="btn btn-3d" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', mdJustifyContent: 'flex-start' }}>
+              <a href="#contact" className="btn btn-3d" style={{ padding: '1rem 3rem', fontSize: '1rem', borderRadius: '1rem' }}>
                 Partner With Us
               </a>
             </div>

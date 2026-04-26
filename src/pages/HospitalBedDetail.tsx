@@ -23,33 +23,33 @@ export default function HospitalBedDetail() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#fcfcfd' }}>
       {/* Product Hero */}
-      <section className="bg-gradient-hero" style={{ paddingTop: '9rem', paddingBottom: '6rem', position: 'relative', overflow: 'hidden' }}>
+      <section className="bg-gradient-hero" style={{ paddingTop: '6rem', paddingBottom: '3rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '500px', height: '500px', background: 'var(--color-primary)', opacity: 0.03, borderRadius: '50%', filter: 'blur(80px)' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '400px', height: '400px', background: 'var(--color-secondary)', opacity: 0.03, borderRadius: '50%', filter: 'blur(80px)' }}></div>
         
         <div className="container">
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.9rem', fontWeight: 500 }}>
+          <nav className="category-scroll" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.85rem', fontWeight: 500, overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }}>
             <Link to="/" style={{ color: 'var(--color-primary)', transition: 'opacity 0.2s' }}>Home</Link>
             <ChevronRight size={14} color="var(--color-gray-400)" />
-            <Link to="/equipment/hospital-bed" style={{ color: 'var(--color-primary)', transition: 'opacity 0.2s' }}>Hospital Beds</Link>
+            <Link to="/#equipment" style={{ color: 'var(--color-primary)', transition: 'opacity 0.2s' }}>Hospital Beds</Link>
             <ChevronRight size={14} color="var(--color-gray-400)" />
             <span style={{ color: 'var(--color-gray-500)' }}>{product.name}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="animate-fade-in-up">
-              <div className="badge" style={{ background: 'var(--color-green-50)', color: 'var(--color-green-700)', padding: '0.5rem 1.25rem', marginBottom: '2rem', border: '1px solid var(--color-green-100)' }}>Certified Medical Engineering</div>
-              <h1 style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '2rem', lineHeight: 1.05, letterSpacing: '-0.04em', color: 'var(--color-gray-900)' }}>
+              <div className="badge" style={{ background: 'var(--color-green-50)', color: 'var(--color-green-700)', padding: '0.5rem 1rem', marginBottom: '1.5rem', border: '1px solid var(--color-green-100)', fontSize: '0.75rem' }}>Certified Medical Engineering</div>
+              <h1 style={{ fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1, letterSpacing: '-0.04em', color: 'var(--color-gray-900)' }}>
                 {product.name}
               </h1>
-              <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-600)', marginBottom: '3rem', lineHeight: 1.6, maxWidth: '90%' }}>
+              <p style={{ fontSize: '1.1rem', color: 'var(--color-gray-600)', marginBottom: '2.5rem', lineHeight: 1.6, maxWidth: '100%' }}>
                 {product.description}
               </p>
-              <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <a href="#quote" className="btn btn-3d" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem' }}>
+              <div className="flex-mobile-col" style={{ gap: '1rem' }}>
+                <a href="mailto:info@ibannihealthcare.com" className="btn btn-3d" style={{ padding: '1rem 1.5rem', fontSize: '0.95rem', flex: '1 1 auto', textAlign: 'center' }}>
                   Get Technical Quote <ArrowRight size={20} />
                 </a>
-                <button className="btn btn-secondary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem', background: 'white' }} onClick={() => window.print()}>
+                <button className="btn btn-secondary" style={{ padding: '1rem 1.5rem', fontSize: '0.95rem', background: 'white', flex: '1 1 auto', textAlign: 'center' }} onClick={() => window.print()}>
                   <Printer size={20} /> Print Specs
                 </button>
               </div>
@@ -58,9 +58,9 @@ export default function HospitalBedDetail() {
             <div className="animate-fade-in-up delay-200" style={{ position: 'relative' }}>
               <div className="animate-float" style={{ 
                 background: 'white', 
-                padding: '2rem', 
-                borderRadius: '4rem', 
-                boxShadow: '0 50px 100px -20px rgba(0, 82, 155, 0.15), 0 30px 60px -30px rgba(0,0,0,0.1)', 
+                padding: '1.5rem', 
+                borderRadius: '2.5rem', 
+                boxShadow: '0 40px 80px -20px rgba(0, 82, 155, 0.15)', 
                 position: 'relative',
                 zIndex: 2,
                 border: '1px solid rgba(255,255,255,1)'
@@ -68,7 +68,7 @@ export default function HospitalBedDetail() {
                 <img 
                   src={product.image} 
                   alt={product.name} 
-                  style={{ width: '100%', height: 'auto', borderRadius: '3rem', display: 'block' }} 
+                  style={{ width: '100%', height: 'auto', borderRadius: '1.5rem', display: 'block' }} 
                   onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop' }}
                 />
               </div>
@@ -87,29 +87,29 @@ export default function HospitalBedDetail() {
             {/* Main Detail Content */}
             <div className="lg:col-span-2 space-y-16">
               <div className="animate-fade-in-up">
-                <h3 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.85rem', fontWeight: 700, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', letterSpacing: '-0.02em' }}>
                   <div style={{ background: 'var(--color-primary-light)', padding: '0.75rem', borderRadius: '1rem', color: 'var(--color-primary)' }}>
                     <Shield size={28} />
                   </div>
                   Clinical Applications
                 </h3>
-                <div style={{ background: 'white', padding: '3rem', borderRadius: '3rem', border: '1px solid var(--color-gray-100)', boxShadow: 'var(--shadow-soft)' }}>
-                  <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-800)', lineHeight: 1.8 }}>
+                <div style={{ background: 'white', padding: '1.5rem', borderRadius: '2rem', border: '1px solid var(--color-gray-100)', boxShadow: 'var(--shadow-soft)' }}>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--color-gray-800)', lineHeight: 1.7 }}>
                     {product.uses}
                   </p>
                 </div>
               </div>
 
-              <div className="animate-fade-in-up" style={{ background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)', padding: '4rem', borderRadius: '4rem', color: 'white', boxShadow: '0 40px 80px -20px rgba(0,0,0,0.3)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
-                  <h3 style={{ fontSize: '2rem', fontWeight: 700 }}>Technical Specifications</h3>
-                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem 1.5rem', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>DATA SHEET V2.4</div>
+              <div className="animate-fade-in-up" style={{ background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)', padding: '2.5rem 1.5rem', lgPadding: '4rem', borderRadius: '2.5rem', lgBorderRadius: '4rem', color: 'white', boxShadow: '0 40px 80px -20px rgba(0,0,0,0.3)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', mdFlexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', mdItemsCenter: 'center', marginBottom: '2.5rem', gap: '1rem' }}>
+                  <h3 style={{ fontSize: '1.75rem', fontWeight: 700 }}>Technical Specifications</h3>
+                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.4rem 1.25rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>DATA SHEET V2.4</div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {product.specifications.map((spec, i) => (
-                    <div key={i} className="hover-lift" style={{ display: 'flex', gap: '1.25rem', background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '1.5rem' }}>
-                      <CheckCircle2 color="var(--color-secondary)" size={24} className="flex-shrink-0" />
-                      <span style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', fontWeight: 500 }}>{spec}</span>
+                    <div key={i} className="hover-lift" style={{ display: 'flex', gap: '1rem', background: 'rgba(255,255,255,0.05)', padding: '1.25rem', borderRadius: '1.25rem' }}>
+                      <CheckCircle2 color="var(--color-secondary)" size={20} className="flex-shrink-0" />
+                      <span style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem', fontWeight: 500 }}>{spec}</span>
                     </div>
                   ))}
                 </div>
@@ -118,13 +118,13 @@ export default function HospitalBedDetail() {
 
             {/* Sidebar Features */}
             <aside className="animate-fade-in-up delay-300">
-              <div className="glass" style={{ padding: '3rem', borderRadius: '3rem', position: 'sticky', top: '8rem', border: '1px solid rgba(0, 82, 155, 0.1)' }}>
-                <h4 style={{ fontSize: '1.5rem', marginBottom: '2rem', fontWeight: 800, color: 'var(--color-primary)' }}>Key Innovations</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="glass" style={{ padding: '2rem 1.5rem', borderRadius: '2rem', border: '1px solid rgba(0, 82, 155, 0.1)' }}>
+                <h4 style={{ fontSize: '1.35rem', marginBottom: '1.5rem', fontWeight: 800, color: 'var(--color-primary)' }}>Key Innovations</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {product.features.map((feature, i) => (
-                    <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                      <div style={{ minWidth: '10px', height: '10px', borderRadius: '50%', background: 'var(--color-secondary)', marginTop: '0.6rem', boxShadow: '0 0 10px var(--color-secondary)' }}></div>
-                      <p style={{ color: 'var(--color-gray-700)', fontSize: '1.05rem', fontWeight: 500, lineHeight: 1.5 }}>
+                    <div key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                      <div style={{ minWidth: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-secondary)', marginTop: '0.5rem' }}></div>
+                      <p style={{ color: 'var(--color-gray-700)', fontSize: '0.95rem', fontWeight: 500, lineHeight: 1.5 }}>
                         {feature}
                       </p>
                     </div>

@@ -191,25 +191,25 @@ export default function LeadApronDetail() {
   }, [type]);
 
   return (
-    <div className="min-h-screen pt-24" style={{ backgroundColor: '#fcfcfd' }}>
-      <div className="container py-12">
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.9rem', fontWeight: 500 }}>
+    <div className="min-h-screen pt-20 lg:pt-24" style={{ backgroundColor: '#fcfcfd' }}>
+      <div className="container py-8 lg:py-12">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', lgMarginBottom: '3rem', fontSize: '0.9rem', fontWeight: 500, overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }} className="category-scroll">
           <Link to="/" style={{ color: 'var(--color-primary)' }}>Home</Link>
           <ChevronRight size={14} color="var(--color-gray-400)" />
           <Link to="/#equipment" style={{ color: 'var(--color-primary)' }}>Lead Aprons</Link>
           <ChevronRight size={14} color="var(--color-gray-400)" />
-          <span style={{ color: 'var(--color-gray-500)' }}>{detail.name}</span>
+          <span style={{ color: 'var(--color-gray-500)', whiteSpace: 'nowrap' }}>{detail.name}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Product Image */}
-          <div className="animate-fade-in-up" style={{ position: 'sticky', top: '8rem' }}>
-            <div style={{ 
-              borderRadius: '3rem', 
+          <div className="animate-fade-in-up" style={{ lgPosition: 'sticky', top: '8rem' }}>
+            <div className="depth-card" style={{ 
+              borderRadius: '2rem', 
               overflow: 'hidden', 
               boxShadow: '0 40px 80px -20px rgba(0, 82, 155, 0.12)', 
               background: 'white',
-              padding: '2rem',
+              padding: '1rem',
               border: '1px solid rgba(0,0,0,0.03)'
             }}>
               <img 
@@ -221,32 +221,32 @@ export default function LeadApronDetail() {
             </div>
             
             {/* 3D Visual Badges */}
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem' }}>
-              <div className="glass" style={{ flex: 1, padding: '1.5rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-primary-light)' }}>
+            <div className="flex-mobile-col" style={{ gap: '1rem', marginTop: '2rem' }}>
+              <div className="glass" style={{ flex: 1, padding: '1.25rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-primary-light)' }}>
                 <Award color="var(--color-primary)" size={24} style={{ margin: '0 auto 0.5rem' }} />
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase' }}>Certified</div>
-                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)' }}>BARC Tested</div>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Certified</div>
+                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)', fontSize: '0.9rem' }}>BARC Tested</div>
               </div>
-              <div className="glass" style={{ flex: 1, padding: '1.5rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-secondary-light)' }}>
+              <div className="glass" style={{ flex: 1, padding: '1.25rem', borderRadius: '1.5rem', textAlign: 'center', border: '1px solid var(--color-secondary-light)' }}>
                 <Zap color="var(--color-secondary)" size={24} style={{ margin: '0 auto 0.5rem' }} />
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase' }}>Performance</div>
-                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)' }}>Max Attenuation</div>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Performance</div>
+                <div style={{ fontWeight: 700, color: 'var(--color-gray-900)', fontSize: '0.9rem' }}>Max Attenuation</div>
               </div>
             </div>
           </div>
 
           {/* Product Info */}
           <div className="animate-fade-in-up delay-100">
-            <div className="badge" style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)', border: '1px solid rgba(0, 82, 155, 0.1)', marginBottom: '1.5rem' }}>Technical Medical Apparel</div>
-            <h1 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1, letterSpacing: '-0.03em' }}>{detail.name}</h1>
+            <div className="badge" style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)', border: '1px solid rgba(0, 82, 155, 0.1)', marginBottom: '1rem', fontSize: '0.75rem' }}>Technical Medical Apparel</div>
+            <h1 style={{ fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1, letterSpacing: '-0.03em' }}>{detail.name}</h1>
             
             {detail.tagline && (
-              <p style={{ fontSize: '1.5rem', color: 'var(--color-primary)', fontWeight: 600, marginBottom: '2rem', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+              <p style={{ fontSize: '1.25rem', color: 'var(--color-primary)', fontWeight: 600, marginBottom: '1.5rem', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
                 {detail.tagline}
               </p>
             )}
             
-            <p style={{ fontSize: '1.2rem', color: 'var(--color-gray-700)', lineHeight: 1.8, marginBottom: '3.5rem' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--color-gray-700)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
               {detail.description}
             </p>
 
@@ -285,9 +285,9 @@ export default function LeadApronDetail() {
             {/* Feature Grid */}
             <div style={{ 
               background: '#111827', 
-              padding: '3.5rem', 
-              borderRadius: '3rem', 
-              marginBottom: '4rem',
+              padding: '2rem 1.25rem', 
+              borderRadius: '2rem', 
+              marginBottom: '3rem',
               color: 'white',
               boxShadow: '0 30px 60px -15px rgba(0,0,0,0.4)',
               position: 'relative',
@@ -295,17 +295,17 @@ export default function LeadApronDetail() {
             }}>
               <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '200px', background: 'var(--color-secondary)', opacity: 0.1, filter: 'blur(50px)', borderRadius: '50%' }}></div>
               
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '2.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '0.75rem' }}>
                   <Info size={24} className="text-secondary" />
                 </div>
                 Key Performance Indicators
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
                 {detail.features.map((feature: string, i: number) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                    <CheckCircle2 size={18} className="text-secondary flex-shrink-0" style={{ marginTop: '0.3rem' }} />
-                    <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem', lineHeight: 1.5 }}>{feature}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                    <CheckCircle2 size={18} className="text-secondary flex-shrink-0" style={{ marginTop: '0.2rem' }} />
+                    <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.5 }}>{feature}</span>
                   </div>
                 ))}
               </div>
@@ -324,22 +324,22 @@ export default function LeadApronDetail() {
         </div>
 
         {/* Technical Data Table */}
-        <div className="animate-fade-in-up delay-300" style={{ marginTop: '8rem' }}>
-          <div className="glass" style={{ padding: '4rem', borderRadius: '4rem', overflow: 'hidden', border: '1px solid rgba(0, 82, 155, 0.05)' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '3rem', letterSpacing: '-0.02em' }}>Manufacturing Specs</h2>
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.75rem', textAlign: 'left' }}>
+        <div className="animate-fade-in-up delay-300" style={{ marginTop: '4rem' }}>
+          <div className="glass" style={{ padding: '2rem 1rem', borderRadius: '2rem', overflow: 'hidden', border: '1px solid rgba(0, 82, 155, 0.05)' }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '2rem', letterSpacing: '-0.02em' }}>Manufacturing Specs</h2>
+            <div className="table-responsive">
+              <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.5rem', textAlign: 'left' }}>
                 <thead>
-                  <tr style={{ color: 'var(--color-gray-400)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
-                    <th style={{ padding: '1.5rem 2rem' }}>Quality Parameter</th>
-                    <th style={{ padding: '1.5rem 2rem' }}>Verified Specification</th>
+                  <tr style={{ color: 'var(--color-gray-400)', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
+                    <th style={{ padding: '1rem 1rem' }}>Quality Parameter</th>
+                    <th style={{ padding: '1rem 1rem' }}>Verified Specification</th>
                   </tr>
                 </thead>
                 <tbody>
                   {detail.specifications.map(([label, val]: string[], i: number) => (
                     <tr key={i} className="hover-lift" style={{ background: 'white' }}>
-                      <td style={{ padding: '1.75rem 2rem', borderRadius: '1.5rem 0 0 1.5rem', fontWeight: 700, color: 'var(--color-gray-900)' }}>{label}</td>
-                      <td style={{ padding: '1.75rem 2rem', borderRadius: '0 1.5rem 1.5rem 0', color: 'var(--color-gray-600)', fontWeight: 500 }}>{val}</td>
+                      <td style={{ padding: '1rem 1rem', borderRadius: '0.75rem 0 0 0.75rem', fontWeight: 700, color: 'var(--color-gray-900)', fontSize: '0.85rem' }}>{label}</td>
+                      <td style={{ padding: '1rem 1rem', borderRadius: '0 0.75rem 0.75rem 0', color: 'var(--color-gray-600)', fontWeight: 500, fontSize: '0.85rem' }}>{val}</td>
                     </tr>
                   ))}
                 </tbody>

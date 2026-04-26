@@ -53,37 +53,37 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section" style={{ backgroundColor: '#fcfcfd', padding: '12rem 0', position: 'relative', overflow: 'hidden' }}>
+    <section id="contact" className="section" style={{ backgroundColor: '#fcfcfd', position: 'relative', overflow: 'hidden' }}>
       {/* Aesthetic Background Elements */}
       <div style={{ position: 'absolute', top: '10%', right: '-5%', width: '400px', height: '400px', background: 'var(--color-primary-light)', borderRadius: '50%', opacity: 0.15, filter: 'blur(80px)', zIndex: 0 }}></div>
       <div style={{ position: 'absolute', bottom: '5%', left: '-5%', width: '500px', height: '500px', background: 'var(--color-secondary)', borderRadius: '50%', opacity: 0.05, filter: 'blur(100px)', zIndex: 0 }}></div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
-          <div className="badge animate-fade-in-up" style={{ letterSpacing: '0.2em' }}>INQUIRY HUB</div>
-          <h2 className="animate-fade-in-up delay-100" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.04em' }}>Global Engineering <span style={{ color: 'var(--color-primary)' }}>Solutions</span></h2>
-          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1.4rem', color: 'var(--color-gray-500)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div className="badge animate-fade-in-up" style={{ letterSpacing: '0.15em', fontSize: '0.7rem' }}>INQUIRY HUB</div>
+          <h2 className="animate-fade-in-up delay-100" style={{ fontWeight: 900, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>Global Engineering <span style={{ color: 'var(--color-primary)' }}>Solutions</span></h2>
+          <p className="animate-fade-in-up delay-200" style={{ fontSize: '1rem', color: 'var(--color-gray-500)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
             Ready to upgrade your medical facility? Contact our sales engineering team for pricing, demonstrations, and turn-key project support.
           </p>
         </div>
 
-        <div className="animate-fade-in-up" style={{ perspective: '2000px' }}>
+        <div className="animate-fade-in-up">
           <div className="depth-card" style={{ padding: '0', background: 'white', overflow: 'hidden', border: '1px solid rgba(255,255,255,1)', boxShadow: '0 50px 100px -20px rgba(0, 82, 155, 0.15)' }}>
-            <div className="grid md:grid-cols-2" style={{ gap: '0', alignItems: 'stretch' }}>
+            <div className="flex-mobile-col" style={{ gap: '0', alignItems: 'stretch' }}>
               {/* Contact Details Panel */}
-              <div style={{ padding: '6rem 4rem', background: '#001a35', color: 'white', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ padding: '3rem 1.25rem', background: '#001a35', color: 'white', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: '-20%', right: '-20%', width: '300px', height: '300px', background: 'var(--color-primary)', opacity: 0.1, borderRadius: '50%', filter: 'blur(50px)' }}></div>
                 
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '4rem', letterSpacing: '-0.02em', position: 'relative' }}>Contact Information</h3>
+                <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '3rem', letterSpacing: '-0.02em', position: 'relative' }}>Contact Information</h3>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ display: 'flex', gap: '2rem', textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '1.5rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                      <MapPin size={32} color="var(--color-secondary)" />
+                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ display: 'flex', gap: '1.5rem', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1rem', borderRadius: '1rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+                      <MapPin size={24} color="var(--color-secondary)" />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.3rem', marginBottom: '0.6rem', fontWeight: 800 }}>Corporate HQ</h4>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontSize: '1.1rem' }}>No.226, BDA 6th Block,<br/>Sir M Vishwaraiah Layout,<br/>Bangalore-560091</p>
+                      <h4 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', fontWeight: 800 }}>Corporate HQ</h4>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, fontSize: '0.95rem' }}>No.226, BDA 6th Block,<br/>Sir M Vishwaraiah Layout,<br/>Bangalore-560091</p>
                     </div>
                   </a>
 
@@ -111,8 +111,8 @@ export default function ContactSection() {
               </div>
 
               {/* Contact Form Area */}
-              <div style={{ padding: '6rem 4rem', background: '#fcfcfd' }}>
-                <h3 style={{ fontSize: '2rem', marginBottom: '3rem', fontWeight: 900, color: '#111827' }}>Send Technical Brief</h3>
+              <div style={{ padding: '3rem 1.25rem', background: '#fcfcfd' }}>
+                <h3 style={{ fontSize: '1.75rem', marginBottom: '2.5rem', fontWeight: 900, color: '#111827' }}>Send Technical Brief</h3>
                 
                 {isSuccess ? (
                     <div className="animate-fade-in-up" style={{ padding: '4rem 3rem', textAlign: 'center', backgroundColor: 'var(--color-green-50)', borderRadius: '2.5rem', border: '1px solid var(--color-green-100)', boxShadow: '0 20px 40px rgba(0, 140, 68, 0.05)' }}>
@@ -122,14 +122,14 @@ export default function ContactSection() {
                     </div>
                 ) : (
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '2rem' }}>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <label htmlFor="firstName" style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827', textTransform: 'uppercase', letterSpacing: '0.05em' }}>First Name</label>
-                        <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} required style={{ padding: '1.2rem', borderRadius: '1.25rem', border: '2px solid #edf2f7', outline: 'none', transition: 'all 0.3s', fontSize: '1rem', background: 'white' }} placeholder="Dr. Alex" />
+                        <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} required style={{ padding: '1rem', borderRadius: '1rem', border: '2px solid #edf2f7', outline: 'none', transition: 'all 0.3s', fontSize: '1rem', background: 'white' }} placeholder="Dr. Alex" />
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <label htmlFor="lastName" style={{ fontSize: '0.9rem', fontWeight: 800, color: '#111827', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Last Name</label>
-                        <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} required style={{ padding: '1.2rem', borderRadius: '1.25rem', border: '2px solid #edf2f7', outline: 'none', fontSize: '1rem', background: 'white' }} placeholder="Rivers" />
+                        <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} required style={{ padding: '1rem', borderRadius: '1rem', border: '2px solid #edf2f7', outline: 'none', fontSize: '1rem', background: 'white' }} placeholder="Rivers" />
                       </div>
                     </div>
                     
@@ -157,8 +157,8 @@ export default function ContactSection() {
                       <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows={4} style={{ padding: '1.2rem', borderRadius: '1.25rem', border: '2px solid #edf2f7', outline: 'none', resize: 'vertical', fontSize: '1rem', background: 'white' }} placeholder="Please describe your hospital requirements..."></textarea>
                     </div>
 
-                    <button type="submit" disabled={isSubmitting} className="btn btn-3d" style={{ width: '100%', padding: '1.5rem', marginTop: '1rem', fontSize: '1.2rem', borderRadius: '1.5rem', letterSpacing: '0.05em' }}>
-                      {isSubmitting ? 'PROCESSING...' : <><Send size={24} style={{ marginRight: '1rem' }} /> DISPATCH INQUIRY</>}
+                    <button type="submit" disabled={isSubmitting} className="btn btn-3d" style={{ width: '100%', padding: '1.25rem', marginTop: '1rem', fontSize: '1.1rem', borderRadius: '1.25rem', letterSpacing: '0.05em' }}>
+                      {isSubmitting ? 'PROCESSING...' : <><Send size={22} style={{ marginRight: '1rem' }} /> DISPATCH INQUIRY</>}
                     </button>
                   </form>
                 )}

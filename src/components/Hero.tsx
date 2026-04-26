@@ -44,7 +44,7 @@ export default function Hero() {
         position: 'relative',
         backgroundColor: '#000',
         overflow: 'hidden',
-        paddingTop: '80px',
+        paddingTop: '60px',
         perspective: '1500px'
       }}
     >
@@ -98,61 +98,85 @@ export default function Hero() {
         position: 'relative', 
         zIndex: 3,
         transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-        transition: 'transform 0.1s ease-out'
+        transition: 'transform 0.1s ease-out',
+        width: '100%',
+        maxWidth: '100vw'
       }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in-up" style={{ transformStyle: 'preserve-3d' }}>
             {/* Header Area */}
             <div style={{ height: '50px' }}></div>
             
-            <div style={{ 
+            <div className="hero-buttons" style={{ 
               display: 'flex', 
-              gap: '2rem', 
-              marginBottom: '5rem', 
+              gap: '1rem', 
+              marginBottom: '2rem', 
               flexWrap: 'wrap',
-              transform: 'translateZ(40px)'
+              transform: 'translateZ(40px)',
+              width: '100%'
             }}>
-              <a href="#equipment" className="btn btn-3d" style={{ padding: '1.4rem 3rem', fontSize: '1.1rem', borderRadius: '1.25rem' }}>
-                Explore Products <ArrowRight size={22} style={{ marginLeft: '0.5rem' }} />
+              <a href="#equipment" className="btn btn-3d" style={{ padding: '0.875rem 1.5rem', fontSize: '1rem', borderRadius: '1rem', flex: '1 1 140px', textAlign: 'center', minWidth: 'fit-content' }}>
+                Explore Products <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
               </a>
               <a href="#contact" className="btn btn-secondary" style={{ 
-                padding: '1.4rem 3rem', 
-                fontSize: '1.1rem', 
-                borderRadius: '1.25rem',
+                padding: '0.875rem 1.5rem', 
+                fontSize: '1rem', 
+                borderRadius: '1rem',
                 background: 'rgba(255, 255, 255, 0.2)', 
                 color: 'white', 
                 borderColor: 'rgba(255,255,255,0.4)',
-                backdropFilter: 'blur(15px)'
+                backdropFilter: 'blur(15px)',
+                flex: '1 1 140px',
+                textAlign: 'center',
+                minWidth: 'fit-content'
               }}>
                 Consult an Expert
               </a>
             </div>
 
-            <div style={{ 
-              display: 'flex', 
-              gap: '4rem', 
-              color: 'white', 
-              flexWrap: 'wrap',
-              transform: 'translateZ(20px)'
-            }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.8rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
-                  <ShieldCheck color="var(--color-secondary)" size={28} /> 100+
-                </div>
-                <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.8, fontWeight: 700 }}>Certified Products</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Statistics Bar */}
+      <div style={{ 
+        position: 'absolute', 
+        bottom: '6rem', 
+        left: '0', 
+        width: '100%', 
+        zIndex: 5,
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <div className="container">
+          <div className="stats-grid" style={{ 
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '1.25rem', 
+            color: 'white', 
+            alignItems: 'center',
+            justifyContent: 'center',
+            transform: 'translateZ(20px)',
+            width: '100%',
+            maxWidth: '100%'
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', alignItems: 'center', flex: '1 1 140px', minWidth: '130px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.1rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
+                <ShieldCheck color="var(--color-secondary)" size={20} /> 100+
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.8rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
-                  <Award color="var(--color-secondary)" size={28} /> 500+
-                </div>
-                <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.8, fontWeight: 700 }}>Hospitals Trusted</div>
+              <div style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.8, fontWeight: 700, textAlign: 'center' }}>Certified Products</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', alignItems: 'center', flex: '1 1 140px', minWidth: '130px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.1rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
+                <Award color="var(--color-secondary)" size={20} /> 500+
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.8rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
-                  <Zap color="var(--color-secondary)" size={28} /> 24/7
-                </div>
-                <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.8, fontWeight: 700 }}>Technical Support</div>
+              <div style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.8, fontWeight: 700, textAlign: 'center' }}>Hospitals Trusted</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', alignItems: 'center', flex: '1 1 140px', minWidth: '130px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.1rem', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
+                <Zap color="var(--color-secondary)" size={20} /> 24/7
               </div>
+              <div style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.8, fontWeight: 700, textAlign: 'center' }}>Technical Support</div>
             </div>
           </div>
         </div>

@@ -5,7 +5,8 @@ export default function MapSection() {
       <div className="container" style={{ maxWidth: '100%', padding: '0' }}>
         <div className="animate-fade-in-up" style={{ perspective: '1500px' }}>
           <div className="depth-card" style={{ 
-            height: '500px', 
+            height: '400px', 
+            lgHeight: '500px', 
             width: '100%', 
             borderRadius: '0', 
             border: 'none', 
@@ -25,7 +26,7 @@ export default function MapSection() {
             ></iframe>
             
             {/* 3D Floating Overlay */}
-            <div className="hover-lift" style={{ 
+            <div className="hover-lift hidden md:block" style={{ 
               position: 'absolute', 
               top: '4rem', 
               left: '4rem', 
