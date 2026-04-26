@@ -81,22 +81,23 @@ export default function Hero() {
         zIndex: 1
       }}></div>
 
-      {/* ── CATEGORY MENU BAR — above hero content ── */}
+      {/* ── CATEGORY MENU BAR — pinned to BOTTOM of hero ── */}
       <div style={{
-        position: 'relative',
-        zIndex: 5,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
         width: '100%',
+        zIndex: 6,
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: '2rem',
-        paddingBottom: '1.5rem',
+        padding: '1.5rem 1rem',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)'
       }}>
         <div style={{
           display: 'flex',
-          gap: '0.75rem',
+          gap: '1rem',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          padding: '0 1rem'
         }}>
           {categoryLinks.map((cat) => (
             <a
@@ -106,25 +107,25 @@ export default function Hero() {
               style={{
                 background: cat.color,
                 color: 'white',
-                padding: '0.65rem 1.6rem',
+                padding: '0.75rem 2rem',
                 borderRadius: '9999px',
                 fontWeight: 700,
-                fontSize: '0.9rem',
-                boxShadow: `0 4px 15px ${cat.shadow}`,
-                border: '2px solid rgba(255,255,255,0.25)',
+                fontSize: '0.95rem',
+                boxShadow: `0 4px 20px ${cat.shadow}`,
+                border: '2px solid rgba(255,255,255,0.3)',
                 transition: 'transform 0.25s ease, box-shadow 0.25s ease',
                 cursor: 'pointer',
-                letterSpacing: '0.01em',
+                letterSpacing: '0.02em',
                 textDecoration: 'none',
                 display: 'inline-block',
               }}
               onMouseOver={e => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = `0 8px 25px ${cat.shadow}`;
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = `0 10px 30px ${cat.shadow}`;
               }}
               onMouseOut={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = `0 4px 15px ${cat.shadow}`;
+                e.currentTarget.style.boxShadow = `0 4px 20px ${cat.shadow}`;
               }}
             >
               {cat.label}
