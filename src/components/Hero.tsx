@@ -1,4 +1,4 @@
-import { ArrowRight, ShieldCheck, Award, Zap, ChevronDown } from 'lucide-react';
+import { ShieldCheck, Award, Zap, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 const slides = [
@@ -134,96 +134,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── HERO CONTENT — fully transparent, no blur ── */}
-      <div className="container" style={{
-        position: 'relative',
-        zIndex: 4,
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        transform: `rotateY(${tilt.x / 3}deg) rotateX(${tilt.y / 3}deg)`,
-        transition: 'transform 0.15s ease-out',
-        padding: '2rem 1rem',
-      }}>
-        <div className="animate-fade-in-up" style={{ maxWidth: '900px', width: '100%' }}>
-          <div className="badge" style={{
-            background: 'rgba(0, 192, 181, 0.2)',
-            color: '#00ecc0',
-            border: '1px solid rgba(0, 236, 192, 0.4)',
-            padding: '0.5rem 1.5rem',
-            fontSize: '0.8rem',
-            letterSpacing: '0.25em',
-            marginBottom: '1.5rem',
-            display: 'inline-block'
-          }}>PIONEERING GLOBAL HEALTHCARE</div>
-
-          <h1 style={{
-            fontSize: 'clamp(2.8rem, 8vw, 6rem)',
-            color: 'white',
-            fontWeight: 900,
-            lineHeight: 1.0,
-            letterSpacing: '-0.03em',
-            marginBottom: '1.5rem',
-            textShadow: '0 2px 20px rgba(0,0,0,0.4)'
-          }}>
-            The Future of{' '}
-            <span className="text-gradient" style={{ display: 'inline-block' }}>Medical Excellence</span>
-          </h1>
-
-          <p style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-            color: 'rgba(255,255,255,0.85)',
-            maxWidth: '700px',
-            margin: '0 auto 2.5rem',
-            lineHeight: 1.7,
-            fontWeight: 400,
-            textShadow: '0 1px 8px rgba(0,0,0,0.5)'
-          }}>
-            Premium diagnostic systems and surgical infrastructure engineered for the world's most advanced clinical environments.
-          </p>
-
-          <div className="hero-buttons" style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            width: '100%',
-            flexWrap: 'wrap'
-          }}>
-            <a href="#equipment" className="btn btn-3d" style={{
-              padding: '1rem 2.25rem',
-              fontSize: '1.05rem',
-              borderRadius: '1rem',
-            }}>
-              Explore Systems <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
-            </a>
-            <a
-              href="#contact"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '1rem 2.25rem',
-                fontSize: '1.05rem',
-                borderRadius: '1rem',
-                background: 'transparent',
-                color: 'white',
-                border: '2px solid rgba(255,255,255,0.5)',
-                fontWeight: 600,
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                textDecoration: 'none',
-              }}
-              onMouseOver={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; }}
-              onMouseOut={e => { e.currentTarget.style.background = 'transparent'; }}
-            >
-              Strategic Consultation
-            </a>
-          </div>
-        </div>
-      </div>
+      {/* ── HERO CONTENT — REMOVED, showing clean images ── */}
+      <div style={{ flex: 1 }}></div>
 
       {/* Statistics Bar */}
       <div style={{
