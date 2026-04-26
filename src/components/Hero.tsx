@@ -52,7 +52,7 @@ export default function Hero() {
         position: 'relative',
         backgroundColor: '#000',
         overflow: 'hidden',
-        paddingTop: '60px',
+        paddingTop: '100px',
       }}
     >
       {/* Background Slides */}

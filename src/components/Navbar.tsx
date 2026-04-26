@@ -90,6 +90,46 @@ export default function Navbar() {
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
+      {/* ── SECONDARY HEADER CATEGORY BAR ── */}
+      <div className="hidden lg:flex" style={{
+        width: '100%',
+        background: 'linear-gradient(135deg, #001a35 0%, #002d5a 100%)',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '0', padding: '0' }}>
+          {[
+            { label: 'Hospital Beds', sub: 'ICU & General Beds', href: '/equipment/hospital-bed', color: '#0082d6', bg: 'rgba(0,130,214,0.12)', icon: '🛏️' },
+            { label: 'OT Equipments', sub: 'Surgical Lighting & Systems', href: '/equipment/ot-equipments', color: '#00ecc0', bg: 'rgba(0,192,181,0.12)', icon: '🔬' },
+            { label: 'Infant Care', sub: 'Neonatal Support', href: '/equipment/infant-care', color: '#00e06d', bg: 'rgba(0,166,81,0.12)', icon: '👶' },
+            { label: 'X-Ray Supplies', sub: 'Radiation Protection', href: '/equipment/x-ray-supplies', color: '#fbbf24', bg: 'rgba(245,158,11,0.12)', icon: '🩻' },
+          ].map((cat, i) => (
+            <Link
+              key={cat.label}
+              to={cat.href}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.65rem 1.5rem',
+                flex: 1,
+                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                background: 'transparent',
+                transition: 'background 0.2s ease',
+                textDecoration: 'none',
+                cursor: 'pointer',
+              }}
+              onMouseOver={e => { (e.currentTarget as HTMLElement).style.background = cat.bg; }}
+              onMouseOut={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+            >
+              <span style={{ fontSize: '1.25rem' }}>{cat.icon}</span>
+              <div>
+                <div style={{ color: cat.color, fontWeight: 700, fontSize: '0.82rem', lineHeight: 1.2 }}>{cat.label}</div>
+                <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.7rem', lineHeight: 1.2 }}>{cat.sub}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'open' : ''}`}>
