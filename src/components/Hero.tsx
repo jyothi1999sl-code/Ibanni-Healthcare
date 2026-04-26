@@ -80,60 +80,126 @@ export default function Hero() {
         zIndex: 1 
       }}></div>
 
-      {/* 3D Floating Decorative Elements */}
+      {/* Floating 3D Abstract Shapes - GLASS DESIGN */}
       <div style={{ 
         position: 'absolute', 
-        top: '20%', 
-        right: '10%', 
-        width: '300px', 
-        height: '300px', 
-        border: '1px solid rgba(255,255,255,0.2)', 
-        borderRadius: '50%', 
+        top: '15%', 
+        left: '15%', 
+        width: '180px', 
+        height: '180px', 
+        background: 'rgba(255,255,255,0.03)', 
+        border: '1px solid rgba(255,255,255,0.1)', 
+        borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+        backdropFilter: 'blur(10px)',
         zIndex: 2,
-        transform: `translate3d(${tilt.x * 2}px, ${tilt.y * 2}px, 50px)`,
-        transition: 'transform 0.1s ease-out'
+        transform: `translate3d(${tilt.x * 3}px, ${tilt.y * 3}px, 60px) rotate(${tilt.x}deg)`,
+        transition: 'transform 0.1s ease-out',
+        animation: 'float 12s infinite alternate ease-in-out'
+      }}></div>
+
+      <div style={{ 
+        position: 'absolute', 
+        bottom: '25%', 
+        right: '15%', 
+        width: '120px', 
+        height: '120px', 
+        background: 'rgba(0,192,181,0.05)', 
+        border: '1px solid rgba(0,192,181,0.1)', 
+        borderRadius: '50%', 
+        backdropFilter: 'blur(5px)',
+        zIndex: 2,
+        transform: `translate3d(${tilt.x * -2}px, ${tilt.y * -2}px, 40px)`,
+        transition: 'transform 0.1s ease-out',
+        animation: 'float 8s infinite alternate-reverse ease-in-out'
       }}></div>
 
       <div className="container" style={{ 
         position: 'relative', 
-        zIndex: 3,
-        transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-        transition: 'transform 0.1s ease-out',
-        width: '100%',
-        maxWidth: '100vw'
+        zIndex: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        transform: `rotateY(${tilt.x / 2}deg) rotateX(${tilt.y / 2}deg)`,
+        transition: 'transform 0.1s ease-out'
       }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Main Glass Content Card */}
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.03)',
+          backdropFilter: 'blur(25px)',
+          padding: '4rem 2rem',
+          borderRadius: '4rem',
+          border: '1px solid rgba(255,255,255,0.1)',
+          boxShadow: '0 50px 100px -20px rgba(0,0,0,0.5)',
+          maxWidth: '1000px',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2.5rem',
+          transform: 'translateZ(100px)'
+        }}>
           <div className="animate-fade-in-up" style={{ transformStyle: 'preserve-3d' }}>
-            {/* Header Area */}
-            <div style={{ height: '50px' }}></div>
+            <div className="badge" style={{ 
+              background: 'rgba(0, 192, 181, 0.15)', 
+              color: 'var(--color-secondary)', 
+              border: '1px solid rgba(0, 192, 181, 0.3)',
+              padding: '0.6rem 1.5rem',
+              fontSize: '0.85rem',
+              letterSpacing: '0.2em',
+              marginBottom: '2rem'
+            }}>PIONEERING GLOBAL HEALTHCARE</div>
+
+            <h1 style={{ 
+              fontSize: 'clamp(2.5rem, 8vw, 5.5rem)', 
+              color: 'white', 
+              fontWeight: 900, 
+              lineHeight: 1.05, 
+              letterSpacing: '-0.04em', 
+              marginBottom: '2rem'
+            }}>
+              The Future of <span className="text-gradient" style={{ display: 'inline-block' }}>Medical Excellence</span>
+            </h1>
             
+            <p style={{ 
+              fontSize: 'clamp(1rem, 2.5vw, 1.4rem)', 
+              color: 'rgba(255,255,255,0.7)', 
+              maxWidth: '750px', 
+              margin: '0 auto 3.5rem', 
+              lineHeight: 1.6,
+              fontWeight: 500
+            }}>
+              Premium diagnostic systems and surgical infrastructure engineered for the world's most advanced clinical environments.
+            </p>
+
             <div className="hero-buttons" style={{ 
               display: 'flex', 
-              gap: '1rem', 
-              marginBottom: '2rem', 
-              flexWrap: 'wrap',
-              transform: 'translateZ(40px)',
+              gap: '1.5rem', 
+              justifyContent: 'center',
               width: '100%'
             }}>
-              <a href="#equipment" className="btn btn-3d" style={{ padding: '0.875rem 1.5rem', fontSize: '1rem', borderRadius: '1rem', flex: '1 1 140px', textAlign: 'center', minWidth: 'fit-content' }}>
-                Explore Products <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
+              <a href="#equipment" className="btn btn-3d" style={{ 
+                padding: '1.25rem 2.5rem', 
+                fontSize: '1.1rem', 
+                borderRadius: '1.25rem',
+                minWidth: '220px'
+              }}>
+                Explore Systems <ArrowRight size={22} style={{ marginLeft: '0.75rem' }} />
               </a>
               <a href="#contact" className="btn btn-secondary" style={{ 
-                padding: '0.875rem 1.5rem', 
-                fontSize: '1rem', 
-                borderRadius: '1rem',
-                background: 'rgba(255, 255, 255, 0.2)', 
+                padding: '1.25rem 2.5rem', 
+                fontSize: '1.1rem', 
+                borderRadius: '1.25rem',
+                background: 'rgba(255, 255, 255, 0.05)', 
                 color: 'white', 
-                borderColor: 'rgba(255,255,255,0.4)',
-                backdropFilter: 'blur(15px)',
-                flex: '1 1 140px',
-                textAlign: 'center',
-                minWidth: 'fit-content'
+                border: '1px solid rgba(255,255,255,0.2)',
+                backdropFilter: 'blur(10px)',
+                minWidth: '220px'
               }}>
-                Consult an Expert
+                Strategic Consultation
               </a>
             </div>
-
           </div>
         </div>
       </div>

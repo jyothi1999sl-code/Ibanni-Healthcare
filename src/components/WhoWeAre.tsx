@@ -34,35 +34,35 @@ export default function WhoWeAre() {
                 />
               </div>
               
-              {/* Floating 3D Badge - MOVED FURTHER INSIDE */}
+              {/* Floating 3D Badge - MADE SMALLER */}
               <div style={{ 
                 position: 'absolute', 
-                bottom: '2.5rem', 
-                right: '2.5rem', 
-                backgroundColor: 'rgba(255,255,255,0.95)', 
+                bottom: '2rem', 
+                right: '2rem', 
+                backgroundColor: 'rgba(255,255,255,0.96)', 
                 backdropFilter: 'blur(20px)',
-                padding: '1.5rem', 
-                borderRadius: '1.75rem',
+                padding: '1rem', 
+                borderRadius: '1.25rem',
                 border: '1px solid rgba(255,255,255,1)',
-                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15)',
-                minWidth: '200px',
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.1)',
+                minWidth: '160px',
                 transform: 'translateZ(80px)',
                 zIndex: 10
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                  <div style={{ background: 'var(--color-primary-light)', padding: '0.5rem', borderRadius: '0.75rem' }}>
-                    <MapPin size={20} color="var(--color-primary)" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  <div style={{ background: 'var(--color-primary-light)', padding: '0.4rem', borderRadius: '0.6rem' }}>
+                    <MapPin size={16} color="var(--color-primary)" />
                   </div>
-                  <div style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-gray-900)' }}>National Network</div>
+                  <div style={{ fontWeight: 800, fontSize: '0.85rem', color: 'var(--color-gray-900)' }}>National Network</div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', boxShadow: '0 0 10px var(--color-primary)' }}></div>
-                    <span style={{ color: 'var(--color-gray-700)', fontSize: '1rem', fontWeight: 700 }}>HQ: Bangalore</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', boxShadow: '0 0 8px var(--color-primary)' }}></div>
+                    <span style={{ color: 'var(--color-gray-700)', fontSize: '0.8rem', fontWeight: 700 }}>HQ: Bangalore</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-secondary)', boxShadow: '0 0 10px var(--color-secondary)' }}></div>
-                    <span style={{ color: 'var(--color-gray-700)', fontSize: '1rem', fontWeight: 700 }}>Manufacturing Hubs</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-secondary)', boxShadow: '0 0 8px var(--color-secondary)' }}></div>
+                    <span style={{ color: 'var(--color-gray-700)', fontSize: '0.8rem', fontWeight: 700 }}>Manufacturing Hubs</span>
                   </div>
                 </div>
               </div>
@@ -72,8 +72,8 @@ export default function WhoWeAre() {
           {/* Content Column */}
           <div className="animate-fade-in-up delay-100">
             <div className="badge" style={{ marginBottom: '1.5rem', background: 'var(--color-primary-light)', color: 'var(--color-primary)', padding: '0.4rem 1rem', fontWeight: 700 }}>ESTABLISHED EXCELLENCE</div>
-            <h2 style={{ marginBottom: '1.5rem', lineHeight: 1.1, fontWeight: 900, letterSpacing: '-0.03em' }}>
-              Leadership in <span style={{ color: 'var(--color-primary)' }}>Medical</span> Engineering
+            <h2 className="text-gradient" style={{ marginBottom: '1.5rem', lineHeight: 1.1, fontWeight: 900, letterSpacing: '-0.03em' }}>
+              Leadership in Medical Engineering
             </h2>
             
             <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-600)', marginBottom: '3rem', lineHeight: 1.8 }}>
