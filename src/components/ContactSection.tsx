@@ -55,8 +55,8 @@ export default function ContactSection() {
   return (
     <section id="contact" className="section" style={{ backgroundColor: '#fcfcfd', position: 'relative', overflow: 'hidden' }}>
       {/* Aesthetic Background Elements */}
-      <div style={{ position: 'absolute', top: '10%', right: '-5%', width: '400px', height: '400px', background: 'var(--color-primary-light)', borderRadius: '50%', opacity: 0.15, filter: 'blur(80px)', zIndex: 0 }}></div>
-      <div style={{ position: 'absolute', bottom: '5%', left: '-5%', width: '500px', height: '500px', background: 'var(--color-secondary)', borderRadius: '50%', opacity: 0.05, filter: 'blur(100px)', zIndex: 0 }}></div>
+      <div style={{ position: 'absolute', top: '10%', right: '-5%', width: '400px', height: '400px', background: 'var(--color-primary-light)', borderRadius: '50%', opacity: 0.1, filter: 'blur(80px)', zIndex: 0 }}></div>
+      <div style={{ position: 'absolute', bottom: '5%', left: '-5%', width: '500px', height: '500px', background: 'var(--color-secondary)', borderRadius: '50%', opacity: 0.03, filter: 'blur(100px)', zIndex: 0 }}></div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -71,7 +71,7 @@ export default function ContactSection() {
           <div className="depth-card" style={{ padding: '0', background: 'white', overflow: 'hidden', border: '1px solid rgba(255,255,255,1)', boxShadow: '0 50px 100px -20px rgba(0, 82, 155, 0.15)' }}>
             <div className="flex-mobile-col" style={{ gap: '0', alignItems: 'stretch' }}>
               {/* Contact Details Panel */}
-              <div style={{ padding: '3rem 1.25rem', background: '#001a35', color: 'white', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ padding: '3rem 1.25rem', background: 'var(--color-primary)', color: 'white', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: '-20%', right: '-20%', width: '300px', height: '300px', background: 'var(--color-primary)', opacity: 0.1, borderRadius: '50%', filter: 'blur(50px)' }}></div>
                 
                 <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '3rem', letterSpacing: '-0.02em', position: 'relative' }}>Contact Information</h3>

@@ -7,32 +7,32 @@ const specialties = [
     description: 'Precision medical beds, tables, and ward furniture engineered for ergonomics.',
     icon: <Bed size={32} />,
     link: '/equipment/hospital-bed',
-    color: '#3b82f6',
-    bg: '#eff6ff'
+    color: 'var(--color-primary)',
+    bg: 'var(--color-primary-light)'
   },
   {
     title: 'X ray supplies',
     description: 'Advanced radiation protection apparel and diagnostic imaging accessories.',
     icon: <Shield size={32} />,
     link: '/equipment/xray-supplies',
-    color: '#0ea5e9',
-    bg: '#f0f9ff'
+    color: 'var(--color-secondary)',
+    bg: 'var(--color-secondary-light)'
   },
   {
     title: 'OT Equipments',
     description: 'Shadowless LED lighting and precision surgical tables for the modern OT.',
     icon: <Sun size={32} />,
     link: '/equipment/ot-equipments',
-    color: '#f43f5e',
-    bg: '#fff1f2'
+    color: 'var(--color-accent)',
+    bg: 'var(--color-accent-light)'
   },
   {
     title: 'Infant care equipment',
     description: 'Neonatal warmers and incubators providing safe micro-environments.',
     icon: <HeartPulse size={32} />,
     link: '/equipment/infant-care',
-    color: '#10b981',
-    bg: '#f0fdf4'
+    color: '#008f87',
+    bg: '#f0fcfc'
   }
 ];
 
@@ -40,7 +40,7 @@ export default function SpecialtyHighlights() {
   return (
     <section className="section" style={{ backgroundColor: '#fff', position: 'relative', overflow: 'hidden' }}>
       {/* Decorative Background Elements */}
-      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: 0 }}></div>
+      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0, 26, 53, 0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: 0 }}></div>
       
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

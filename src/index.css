@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Primary Color - Blue from Logo */
-  --color-primary: #00529b;
-  --color-primary-light: #e6eff8;
-  --color-primary-dark: #003e75;
+  /* Primary Color - Midnight Navy from Logo Text */
+  --color-primary: #001a35;
+  --color-primary-light: #e6ebf0;
+  --color-primary-dark: #000c1a;
   
   --color-blue-50: #f0f7ff;
   --color-blue-100: #e0effe;
@@ -12,16 +12,20 @@
   --color-blue-500: var(--color-primary);
   --color-blue-600: var(--color-primary-dark);
   
-  /* Secondary Color - Green from Logo */
-  --color-secondary: #00a651;
-  --color-secondary-light: #e6f6f0;
-  --color-secondary-dark: #008541;
+  /* Secondary Color - Electric Teal from Logo Globe */
+  --color-secondary: #00c0b5;
+  --color-secondary-light: #e6fcfb;
+  --color-secondary-dark: #008f87;
 
-  --color-green-50: var(--color-secondary-light);
-  --color-green-100: #d1f2e0;
-  --color-green-200: #a3e6c2;
+  --color-green-50: #e6fcfb;
+  --color-green-100: #def9e4;
   --color-green-500: var(--color-secondary);
   --color-green-600: var(--color-secondary-dark);
+
+  /* Accent Color - Spring Green from Logo Globe */
+  --color-accent: #54d87a;
+  --color-accent-light: #effcf2;
+  --color-accent-dark: #3ca95a;
 
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
@@ -44,9 +48,9 @@
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 20px 40px rgba(0, 82, 155, 0.15);
+  --shadow-hover: 0 20px 40px rgba(0, 26, 53, 0.15);
   --shadow-3d: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 82, 155, 0.08);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 26, 53, 0.08);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -118,14 +122,22 @@ img {
 /* Gradients */
 .bg-gradient-hero {
   background: linear-gradient(135deg, var(--color-primary-light) 0%, #ffffff 100%);
+  position: relative;
+  border-bottom: 1px solid var(--color-primary-light);
 }
 
 .bg-gradient-section {
   background: linear-gradient(180deg, var(--color-white) 0%, var(--color-primary-light) 100%);
 }
 
-.bg-gradient-text {
-  color: var(--color-primary);
+.brand-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Typography Utilities */
@@ -176,47 +188,45 @@ a {
 .btn-primary {
   background: var(--color-primary);
   color: white;
-  box-shadow: 0 4px 14px 0 rgba(0, 86, 150, 0.3);
+  box-shadow: 0 4px 14px 0 rgba(0, 26, 53, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 82, 155, 0.4);
-  filter: brightness(1.1);
+  box-shadow: 0 12px 24px rgba(0, 26, 53, 0.4);
+  filter: brightness(1.2);
 }
 
 .btn-secondary {
-  background-color: white;
-  color: var(--color-gray-900);
-  border: 1px solid var(--color-gray-200);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px 0 rgba(0, 192, 181, 0.2);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-white);
+  background: var(--color-secondary-dark);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  box-shadow: 0 12px 24px rgba(0, 192, 181, 0.4);
+  color: white;
 }
 
 .btn-3d {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   color: white;
-  box-shadow: 0 6px 0px var(--color-primary-dark), 0 15px 25px rgba(0, 82, 155, 0.3);
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 0px var(--color-primary-dark), 0 15px 25px rgba(0, 26, 53, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-3d:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 0px var(--color-primary-dark), 0 20px 30px rgba(0, 82, 155, 0.4);
+  box-shadow: 0 10px 0px var(--color-primary-dark), 0 20px 30px rgba(0, 26, 53, 0.4);
+  filter: brightness(1.1);
 }
 
 .btn-3d:active {
   transform: translateY(4px);
-  box-shadow: 0 2px 0px var(--color-primary-dark), 0 5px 10px rgba(0, 82, 155, 0.2);
+  box-shadow: 0 2px 0px var(--color-primary-dark), 0 5px 10px rgba(0, 26, 53, 0.2);
 }
 
 .btn-nav-3d {
