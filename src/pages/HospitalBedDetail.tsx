@@ -100,8 +100,8 @@ export default function HospitalBedDetail() {
                 </div>
               </div>
 
-              <div className="animate-fade-in-up" style={{ background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)', padding: '2.5rem 1.5rem', lgPadding: '4rem', borderRadius: '2.5rem', lgBorderRadius: '4rem', color: 'white', boxShadow: '0 40px 80px -20px rgba(0,0,0,0.3)' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', mdFlexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', mdItemsCenter: 'center', marginBottom: '2.5rem', gap: '1rem' }}>
+              <div className="animate-fade-in-up" style={{ background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)', padding: '2.5rem 1.5rem', borderRadius: '2.5rem', color: 'white', boxShadow: '0 40px 80px -20px rgba(0,0,0,0.3)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2.5rem', gap: '1rem' }}>
                   <h3 style={{ fontSize: '1.75rem', fontWeight: 700 }}>Technical Specifications</h3>
                   <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.4rem 1.25rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>DATA SHEET V2.4</div>
                 </div>

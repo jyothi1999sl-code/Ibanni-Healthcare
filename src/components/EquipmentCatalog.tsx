@@ -117,7 +117,7 @@ export default function EquipmentCatalog() {
         <div className="category-layout">
           {/* Enhanced Vertical Sidebar with 3D Depth */}
           <aside className="category-sidebar animate-fade-in-up delay-300">
-            <div className="depth-card" style={{ padding: '1.5rem', lgPadding: '3rem 2.5rem' }}>
+            <div className="depth-card" style={{ padding: '1.5rem' }}>
               <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gray-400)', marginBottom: '1.25rem', fontWeight: 800 }}>
                 Specialties
               </h4>
@@ -130,7 +130,6 @@ export default function EquipmentCatalog() {
                     style={{ 
                       borderRadius: '1rem',
                       padding: '0.75rem 1rem',
-                      lgPadding: '1.5rem',
                       border: selectedCategory === cat ? 'none' : '1px solid #f1f5f9',
                       transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                       flexShrink: 0
@@ -155,9 +154,9 @@ export default function EquipmentCatalog() {
 
             <div className="hover-lift" style={{ 
               marginTop: '2.5rem', 
-              padding: '3rem', 
+              padding: '2rem', 
               background: 'linear-gradient(135deg, #001a35 0%, #003366 100%)', 
-              borderRadius: '3rem', 
+              borderRadius: '2rem', 
               color: 'white',
               boxShadow: '0 30px 60px -10px rgba(0, 26, 53, 0.3)',
               transformStyle: 'preserve-3d'
@@ -172,8 +171,8 @@ export default function EquipmentCatalog() {
 
           {/* Catalog Grid Area */}
           <div style={{ flex: 1, width: '100%', minWidth: 0 }}>
-            <div className="animate-fade-in-up depth-card" style={{ marginBottom: '2.5rem', padding: '1.5rem', lgPadding: '3rem 4rem', display: 'flex', flexDirection: 'column', mdFlexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', background: 'white', gap: '1.5rem' }}>
-               <div style={{ textAlign: 'center', mdTextAlign: 'left' }}>
+            <div className="animate-fade-in-up depth-card" style={{ marginBottom: '2.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'white', gap: '1.5rem' }}>
+               <div style={{ textAlign: 'center' }}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#111827', letterSpacing: '-0.02em' }}>{currentDesc.title}</h3>
                   <p style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem', marginTop: '0.5rem', maxWidth: '500px' }}>{currentDesc.lead}</p>
                </div>

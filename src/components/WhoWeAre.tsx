@@ -97,7 +97,7 @@ export default function WhoWeAre() {
             </div>
 
             {/* ALIGNMENT FIXED: Button now aligns with text flow */}
-            <div style={{ display: 'flex', justifyContent: 'center', mdJustifyContent: 'flex-start' }}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
               <a href="#contact" className="btn btn-3d" style={{ padding: '1rem 3rem', fontSize: '1rem', borderRadius: '1rem' }}>
                 Partner With Us
               </a>

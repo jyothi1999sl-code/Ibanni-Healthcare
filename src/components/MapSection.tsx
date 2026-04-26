@@ -6,7 +6,6 @@ export default function MapSection() {
         <div className="animate-fade-in-up" style={{ perspective: '1500px' }}>
           <div className="depth-card" style={{ 
             height: '400px', 
-            lgHeight: '500px', 
             width: '100%', 
             borderRadius: '0', 
             border: 'none', 

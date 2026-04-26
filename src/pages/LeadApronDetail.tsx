@@ -193,7 +193,7 @@ export default function LeadApronDetail() {
   return (
     <div className="min-h-screen pt-20 lg:pt-24" style={{ backgroundColor: '#fcfcfd' }}>
       <div className="container py-8 lg:py-12">
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', lgMarginBottom: '3rem', fontSize: '0.9rem', fontWeight: 500, overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }} className="category-scroll">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', fontSize: '0.85rem', fontWeight: 500, overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }} className="category-scroll">
           <Link to="/" style={{ color: 'var(--color-primary)' }}>Home</Link>
           <ChevronRight size={14} color="var(--color-gray-400)" />
           <Link to="/#equipment" style={{ color: 'var(--color-primary)' }}>Lead Aprons</Link>
@@ -203,7 +203,7 @@ export default function LeadApronDetail() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Product Image */}
-          <div className="animate-fade-in-up" style={{ lgPosition: 'sticky', top: '8rem' }}>
+          <div className="animate-fade-in-up" style={{ position: 'relative' }}>
             <div className="depth-card" style={{ 
               borderRadius: '2rem', 
               overflow: 'hidden', 
