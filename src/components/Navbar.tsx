@@ -19,6 +19,14 @@ export default function Navbar() {
           <Logo className="navbar-logo" height="45px" />
         </Link>
 
+        {/* ── CENTER: Colorful Category Pills ── */}
+        <div className="hidden lg:flex" style={{ gap: '0.6rem', alignItems: 'center', flex: 1, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link to="/equipment/hospital-bed" style={{ background: 'linear-gradient(135deg, #00529b, #0082d6)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,82,155,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>Hospital Beds</Link>
+          <Link to="/equipment/ot-equipments" style={{ background: 'linear-gradient(135deg, #00c0b5, #00ecc0)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,192,181,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>OT Equipments</Link>
+          <Link to="/equipment/infant-care" style={{ background: 'linear-gradient(135deg, #00a651, #00e06d)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,166,81,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>Infant Care</Link>
+          <Link to="/equipment/x-ray-supplies" style={{ background: 'linear-gradient(135deg, #f59e0b, #fbbf24)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(245,158,11,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>X-Ray Supplies</Link>
+        </div>
+
         {/* Desktop Menu */}
         <div style={{ gap: '1.5rem', alignItems: 'center' }} className="hidden lg:flex">
           <Link to="/" className="btn-nav-3d">Home</Link>
