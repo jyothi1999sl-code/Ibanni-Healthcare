@@ -145,13 +145,14 @@ h1 {
   font-size: 2.25rem;
   font-weight: 800;
   line-height: 1.1;
-  color: var(--color-gray-900);
+  color: #00529b; /* Brand heading color */
 }
 
 h2 {
   font-size: 1.85rem;
   font-weight: 800;
   line-height: 1.2;
+  color: #001a35; /* Primary Dark heading color */
 }
 
 @media (min-width: 1024px) {
@@ -186,71 +187,92 @@ a {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #00529b 0%, #0082d6 100%);
   color: white;
+  box-shadow: 0 4px 6px rgba(0, 82, 155, 0.2), 0 2px 0px #003e75;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
+  background: linear-gradient(135deg, #0082d6 0%, #00529b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 82, 155, 0.3), 0 3px 0px #003e75;
 }
 
 .btn-secondary {
-  background: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #00ecc0 100%);
   color: white;
+  box-shadow: 0 4px 6px rgba(0, 192, 181, 0.2), 0 2px 0px var(--color-secondary-dark);
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-secondary:hover {
-  background: var(--color-secondary-dark);
+  background: linear-gradient(135deg, #00ecc0 0%, var(--color-secondary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 192, 181, 0.3), 0 3px 0px var(--color-secondary-dark);
 }
 
 .btn-3d {
-  background: #00529b;
+  background: linear-gradient(135deg, #00529b 0%, #00a651 100%);
   color: white;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 82, 155, 0.2), 0 2px 0px #003e75;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-3d:hover {
-  background: #003e75;
+  background: linear-gradient(135deg, #00a651 0%, #00529b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 82, 155, 0.3), 0 3px 0px #003e75;
 }
 
 .btn-3d:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 82, 155, 0.2), 0 1px 0px #003e75;
 }
 
 .btn-nav-3d {
   padding: 0.6rem 1.4rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
-  background: transparent;
+  background: white;
   color: var(--color-gray-800);
   border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 0px var(--color-gray-200);
+  transition: all 0.3s ease-in-out;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .btn-nav-3d:hover {
-  background: var(--color-gray-100);
-  color: var(--color-primary);
+  background: var(--color-gray-50);
+  color: #00529b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 3px 0px var(--color-gray-200);
 }
 
 .btn-nav-3d:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 1px 0px var(--color-gray-200);
 }
 
 .btn-secondary-3d {
-  background: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
   color: white;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 192, 181, 0.2), 0 2px 0px var(--color-secondary-dark);
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-secondary-3d:hover {
-  background: var(--color-secondary-dark);
+  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, var(--color-secondary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 192, 181, 0.3), 0 3px 0px var(--color-secondary-dark);
 }
 
 .btn-secondary-3d:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 192, 181, 0.2), 0 1px 0px var(--color-secondary-dark);
 }
 
 /* Layout Utilities */
