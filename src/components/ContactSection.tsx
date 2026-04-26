@@ -71,42 +71,66 @@ export default function ContactSection() {
           <div className="depth-card" style={{ padding: '0', background: 'white', overflow: 'hidden', border: '1px solid rgba(255,255,255,1)', boxShadow: '0 50px 100px -20px rgba(0, 82, 155, 0.15)' }}>
             <div className="flex-mobile-col" style={{ gap: '0', alignItems: 'stretch' }}>
               {/* Contact Details Panel */}
-              <div style={{ padding: '3rem 1.25rem', background: 'var(--color-primary)', color: 'white', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: '-20%', right: '-20%', width: '300px', height: '300px', background: 'var(--color-primary)', opacity: 0.1, borderRadius: '50%', filter: 'blur(50px)' }}></div>
+              <div style={{ flex: '1', padding: '2.5rem 1.5rem', background: 'var(--color-primary)', color: 'white', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '200px', height: '200px', background: 'var(--color-secondary)', opacity: 0.1, borderRadius: '50%', filter: 'blur(40px)' }}></div>
                 
-                <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '3rem', letterSpacing: '-0.02em', position: 'relative' }}>Contact Information</h3>
+                <h3 style={{ fontSize: '1.75rem', fontWeight: 900, marginBottom: '2.5rem', letterSpacing: '-0.02em', position: 'relative' }}>Contact Information</h3>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ display: 'flex', gap: '1.5rem', textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1rem', borderRadius: '1rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                      <MapPin size={24} color="var(--color-secondary)" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', position: 'relative', marginBottom: '2.5rem' }}>
+                  <div style={{ display: 'flex', gap: '1.25rem' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '1rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+                      <MapPin size={20} color="var(--color-secondary)" />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', fontWeight: 800 }}>Corporate HQ</h4>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, fontSize: '0.95rem' }}>No.226, BDA 6th Block,<br/>Sir M Vishwaraiah Layout,<br/>Bangalore-560091</p>
+                      <h4 style={{ fontSize: '1rem', marginBottom: '0.3rem', fontWeight: 800 }}>Corporate HQ</h4>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.4, fontSize: '0.9rem' }}>No.226, BDA 6th Block, Sir M Vishwaraiah Layout, Bangalore-91</p>
+                    </div>
+                  </div>
+
+                  <a href="tel:+918970876560" style={{ display: 'flex', gap: '1.25rem', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '1rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+                      <Phone size={20} color="var(--color-secondary)" />
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1rem', marginBottom: '0.3rem', fontWeight: 800 }}>Support Line</h4>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>+91 98451 35909</p>
+                      <div style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(0, 192, 181, 0.2)', color: 'var(--color-secondary)', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 800, marginTop: '0.5rem', border: '1px solid rgba(0, 192, 181, 0.3)' }}>ONLINE</div>
                     </div>
                   </a>
 
-                  <a href="tel:+918970876560" className="hover-lift" style={{ display: 'flex', gap: '2rem', textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '1.5rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                      <Phone size={32} color="var(--color-secondary)" />
+                  <a href="mailto:Ibannihealthcare@gmail.com" style={{ display: 'flex', gap: '1.25rem', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '1rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+                      <Mail size={20} color="var(--color-secondary)" />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.3rem', marginBottom: '0.6rem', fontWeight: 800 }}>Support Line</h4>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontSize: '1.1rem' }}>+91 98451 35909</p>
-                      <div style={{ display: 'inline-block', padding: '0.4rem 1rem', background: 'rgba(0, 140, 68, 0.2)', color: 'var(--color-secondary)', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', marginTop: '0.75rem', border: '1px solid rgba(0, 140, 68, 0.3)' }}>Available 24/7</div>
+                      <h4 style={{ fontSize: '1rem', marginBottom: '0.3rem', fontWeight: 800 }}>Email Response</h4>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', wordBreak: 'break-all' }}>Ibannihealthcare@gmail.com</p>
                     </div>
                   </a>
+                </div>
 
-                  <a href="mailto:Ibannihealthcare@gmail.com" className="hover-lift" style={{ display: 'flex', gap: '2rem', textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '1.5rem', height: 'fit-content', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                      <Mail size={32} color="var(--color-secondary)" />
-                    </div>
-                    <div>
-                      <h4 style={{ fontSize: '1.3rem', marginBottom: '0.6rem', fontWeight: 800 }}>Digital Response</h4>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem' }}>Ibannihealthcare@gmail.com</p>
-                    </div>
-                  </a>
+                {/* Mini 3D Map Integration */}
+                <div style={{ marginTop: 'auto', position: 'relative', perspective: '1000px' }}>
+                  <div className="hover-lift" style={{ 
+                    height: '140px', 
+                    borderRadius: '1.5rem', 
+                    overflow: 'hidden', 
+                    border: '4px solid rgba(255,255,255,0.1)',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                    transform: 'rotateX(5deg)'
+                  }}>
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.971597500353!2d77.487002!3d12.97364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d842cbdb3a1%3A0xc3b5ae2e3e9d8d67!2sSir%20M%20Visvesvaraya%20Layout%206th%20Block!5e0!3m2!1sen!2sin!4v1714045000000!5m2!1sen!2sin" 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0, filter: 'grayscale(0.4) invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(1.2)' }} 
+                      allowFullScreen={false} 
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                  <div style={{ position: 'absolute', bottom: '-0.5rem', right: '-0.5rem', background: 'var(--color-secondary)', padding: '0.5rem', borderRadius: '50%', color: 'white', boxShadow: '0 10px 20px rgba(0, 192, 181, 0.4)' }}>
+                    <MapPin size={16} />
+                  </div>
                 </div>
               </div>
 
