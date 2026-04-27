@@ -17,7 +17,6 @@ const categoryLinks = [
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,24 +25,10 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left) / width - 0.5;
-    const y = (e.clientY - top) / height - 0.5;
-    setTilt({ x: x * 6, y: -y * 6 });
-  };
-
-  const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
-  };
-
   return (
     <section
       id="home"
       ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       style={{
         minHeight: '100vh',
         display: 'flex',
