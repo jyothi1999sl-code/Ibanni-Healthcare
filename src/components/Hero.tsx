@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 const slides = [
   { image: '/hero/slide1.png', label: 'Hospital Beds' },
   { image: '/hero/slide2.png', label: 'OT Equipments' },
-  { image: '/hero/slide3.png', label: 'Lab Equipment' }
+  { image: '/hero/slide3.png', label: 'Infant Care' },
+  { image: '/hero/slide4.png', label: 'X-Ray Supplies' }
 ];
 
 const categoryLinks = [

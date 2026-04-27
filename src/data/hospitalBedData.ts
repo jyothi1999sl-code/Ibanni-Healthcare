@@ -30,7 +30,7 @@ export const hospitalBedDetails: Record<string, HospitalBedDetail> = {
       'O2 cylinder cage and X-ray cassette holder integrated',
       'Pre-treated and epoxy powder coated finish'
     ],
-    image: 'https://images.unsplash.com/photo-1538108197017-c13466739317?auto=format&fit=crop&q=80&w=1200'
+    image: '/equipment/hospital_bed_clean.png'
   },
   'icu-bed-abs': {
     id: 'icu-bed-abs',
@@ -49,7 +49,7 @@ export const hospitalBedDetails: Record<string, HospitalBedDetail> = {
       'Drainage bag hooks',
       'IV pole sockets'
     ],
-    image: 'https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&q=80&w=1200'
+    image: '/equipment/hospital_bed_clean.png'
   },
   'fowler-bed-abs': {
     id: 'fowler-bed-abs',
@@ -67,7 +67,7 @@ export const hospitalBedDetails: Record<string, HospitalBedDetail> = {
       'Stainless steel IV pole',
       'Perforated mattress area'
     ],
-    image: 'https://images.unsplash.com/photo-1516549655169-df84a0774514?auto=format&fit=crop&q=80&w=1200'
+    image: '/equipment/hospital_bed_clean.png'
   },
   'hospital-plain-bed': {
     id: 'hospital-plain-bed',
@@ -85,6 +85,6 @@ export const hospitalBedDetails: Record<string, HospitalBedDetail> = {
       'Provisions for IV rod',
       'Standard sizes'
     ],
-    image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce2?auto=format&fit=crop&q=80&w=1200'
+    image: '/equipment/hospital_bed_clean.png'
   }
 };
