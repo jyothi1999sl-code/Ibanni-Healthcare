@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from './Logo';
 
+const categoryLinks = [
+  { label: 'Hospital Beds', href: '/equipment/hospital-bed', color: 'linear-gradient(135deg, #00529b, #0082d6)', shadow: 'rgba(0,82,155,0.4)' },
+  { label: 'OT Equipments', href: '/equipment/ot-equipments', color: 'linear-gradient(135deg, #00c0b5, #00ecc0)', shadow: 'rgba(0,192,181,0.4)' },
+  { label: 'Infant Care', href: '/equipment/infant-care', color: 'linear-gradient(135deg, #00a651, #00e06d)', shadow: 'rgba(0,166,81,0.4)' },
+  { label: 'X-Ray Supplies', href: '/equipment/x-ray-supplies', color: 'linear-gradient(135deg, #f59e0b, #fbbf24)', shadow: 'rgba(245,158,11,0.4)' },
+];
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -15,16 +22,47 @@ export default function Navbar() {
   return (
     <nav className="glass-nav" style={{ position: 'fixed', width: '100%', top: 0, zIndex: 1000 }}>
       <div className="container nav-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem 0' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', minWidth: '0', flexShrink: 0 }} onClick={() => setIsMenuOpen(false)}>
-          <Logo className="navbar-logo" height="45px" />
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', minWidth: '0', flexShrink: 0 }} onClick={() => setIsMenuOpen(false)}>
+            <Logo className="navbar-logo" height="45px" />
+          </Link>
 
-        {/* ── CENTER: Colorful Category Pills ── */}
-        <div className="hidden lg:flex" style={{ gap: '0.6rem', alignItems: 'center', flex: 1, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/equipment/hospital-bed" style={{ background: 'linear-gradient(135deg, #00529b, #0082d6)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,82,155,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>Hospital Beds</Link>
-          <Link to="/equipment/ot-equipments" style={{ background: 'linear-gradient(135deg, #00c0b5, #00ecc0)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,192,181,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>OT Equipments</Link>
-          <Link to="/equipment/infant-care" style={{ background: 'linear-gradient(135deg, #00a651, #00e06d)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(0,166,81,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>Infant Care</Link>
-          <Link to="/equipment/x-ray-supplies" style={{ background: 'linear-gradient(135deg, #f59e0b, #fbbf24)', color: 'white', padding: '0.4rem 1.1rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.82rem', boxShadow: '0 2px 10px rgba(245,158,11,0.3)', textDecoration: 'none', whiteSpace: 'nowrap', display: 'inline-block', transition: 'transform 0.2s ease' }} onMouseOver={e => e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform='translateY(0)'}>X-Ray Supplies</Link>
+          {/* ── HEADER CATEGORY PILLS ── */}
+          <div className="navbar-category-pills" style={{ 
+            gap: '0.75rem', 
+            alignItems: 'center',
+          }}>
+            {categoryLinks.map((cat) => (
+              <Link
+                key={cat.label}
+                to={cat.href}
+                style={{
+                  background: cat.color,
+                  color: 'white',
+                  padding: '0.5rem 1.25rem',
+                  borderRadius: '9999px',
+                  fontWeight: 700,
+                  fontSize: '0.85rem',
+                  boxShadow: `0 4px 12px ${cat.shadow}`,
+                  border: '1px solid rgba(255,255,255,0.3)',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                  display: 'inline-block',
+                }}
+                onMouseOver={e => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = `0 6px 15px ${cat.shadow}`;
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = `0 4px 12px ${cat.shadow}`;
+                }}
+              >
+                {cat.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Desktop Menu */}
@@ -90,46 +128,6 @@ export default function Navbar() {
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
-      {/* ── SECONDARY HEADER CATEGORY BAR ── */}
-      <div className="hidden lg:flex" style={{
-        width: '100%',
-        background: 'linear-gradient(135deg, #001a35 0%, #002d5a 100%)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '0', padding: '0' }}>
-          {[
-            { label: 'Hospital Beds', sub: 'ICU & General Beds', href: '/equipment/hospital-bed', color: '#0082d6', bg: 'rgba(0,130,214,0.12)', icon: '🛏️' },
-            { label: 'OT Equipments', sub: 'Surgical Lighting & Systems', href: '/equipment/ot-equipments', color: '#00ecc0', bg: 'rgba(0,192,181,0.12)', icon: '🔬' },
-            { label: 'Infant Care', sub: 'Neonatal Support', href: '/equipment/infant-care', color: '#00e06d', bg: 'rgba(0,166,81,0.12)', icon: '👶' },
-            { label: 'X-Ray Supplies', sub: 'Radiation Protection', href: '/equipment/x-ray-supplies', color: '#fbbf24', bg: 'rgba(245,158,11,0.12)', icon: '🩻' },
-          ].map((cat, i) => (
-            <Link
-              key={cat.label}
-              to={cat.href}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.75rem',
-                padding: '0.65rem 1.5rem',
-                flex: 1,
-                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                background: 'transparent',
-                transition: 'background 0.2s ease',
-                textDecoration: 'none',
-                cursor: 'pointer',
-              }}
-              onMouseOver={e => { (e.currentTarget as HTMLElement).style.background = cat.bg; }}
-              onMouseOut={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
-            >
-              <span style={{ fontSize: '1.25rem' }}>{cat.icon}</span>
-              <div>
-                <div style={{ color: cat.color, fontWeight: 700, fontSize: '0.82rem', lineHeight: 1.2 }}>{cat.label}</div>
-                <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.7rem', lineHeight: 1.2 }}>{cat.sub}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
 
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'open' : ''}`}>
@@ -151,6 +149,21 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+          
+          <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {categoryLinks.map((cat) => (
+              <Link
+                key={cat.label}
+                to={cat.href}
+                className="mobile-nav-link"
+                style={{ fontSize: '1.1rem', padding: '1rem', background: cat.color, color: 'white', borderRadius: '1rem', border: 'none' }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {cat.label}
+              </Link>
+            ))}
+          </div>
+
           <a 
             href="/#contact" 
             className="btn btn-3d" 

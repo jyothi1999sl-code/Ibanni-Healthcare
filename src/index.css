@@ -104,6 +104,16 @@ img {
   width: 100%;
 }
 
+.navbar-category-pills {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .navbar-category-pills {
+    display: flex;
+  }
+}
+
 .nav-container {
   position: relative;
   width: 100%;

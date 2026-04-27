@@ -8,12 +8,6 @@ const slides = [
   { image: '/hero/slide4.png', label: 'X-Ray Supplies' }
 ];
 
-const categoryLinks = [
-  { label: 'Hospital Beds', href: '/equipment/hospital-bed', color: 'linear-gradient(135deg, #00529b, #0082d6)', shadow: 'rgba(0,82,155,0.4)' },
-  { label: 'OT Equipments', href: '/equipment/ot-equipments', color: 'linear-gradient(135deg, #00c0b5, #00ecc0)', shadow: 'rgba(0,192,181,0.4)' },
-  { label: 'Infant Care', href: '/equipment/infant-care', color: 'linear-gradient(135deg, #00a651, #00e06d)', shadow: 'rgba(0,166,81,0.4)' },
-  { label: 'X-Ray Supplies', href: '/equipment/x-ray-supplies', color: 'linear-gradient(135deg, #f59e0b, #fbbf24)', shadow: 'rgba(245,158,11,0.4)' },
-];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -67,58 +61,6 @@ export default function Hero() {
         zIndex: 1
       }}></div>
 
-      {/* ── CATEGORY MENU BAR — pinned to BOTTOM of hero ── */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        zIndex: 6,
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '1.5rem 1rem',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)'
-      }}>
-        <div style={{
-          display: 'flex',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}>
-          {categoryLinks.map((cat) => (
-            <a
-              key={cat.label}
-              href={cat.href}
-              onClick={(e) => { e.preventDefault(); window.location.href = cat.href; }}
-              style={{
-                background: cat.color,
-                color: 'white',
-                padding: '0.75rem 2rem',
-                borderRadius: '9999px',
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                boxShadow: `0 4px 20px ${cat.shadow}`,
-                border: '2px solid rgba(255,255,255,0.3)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                cursor: 'pointer',
-                letterSpacing: '0.02em',
-                textDecoration: 'none',
-                display: 'inline-block',
-              }}
-              onMouseOver={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = `0 10px 30px ${cat.shadow}`;
-              }}
-              onMouseOut={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = `0 4px 20px ${cat.shadow}`;
-              }}
-            >
-              {cat.label}
-            </a>
-          ))}
-        </div>
-      </div>
 
       {/* ── HERO CONTENT — REMOVED, showing clean images ── */}
       <div style={{ flex: 1 }}></div>
