@@ -70,9 +70,6 @@ export default function ProductDetail() {
           </div>
           
           <div className="w-full lg:w-1/2 flex flex-col pb-4 h-full">
-            <div className="text-sm font-bold text-blue-600 tracking-wider mb-4 flex items-center gap-2 uppercase">
-              <span className="font-mono bg-blue-50 px-2 py-1 rounded-md text-blue-700">SKU: {product.sku}</span>
-            </div>
             
             <h1 className="text-4xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
               {product.name}
@@ -82,13 +79,7 @@ export default function ProductDetail() {
               {product.description}
             </p>
 
-            <div className="mb-10 flex gap-3 flex-wrap">
-               {product.certifications.map(cert => (
-                 <span key={cert} className="px-4 py-2 bg-green-50 border border-green-100 rounded-full text-xs font-bold text-green-700 uppercase tracking-wide flex items-center gap-1.5">
-                   <ShieldCheck size={14} className="text-green-600" /> {cert}
-                 </span>
-               ))}
-            </div>
+
             
             <div className="mt-auto flex flex-col sm:flex-row gap-4 pt-8 border-t border-slate-100">
               <button 

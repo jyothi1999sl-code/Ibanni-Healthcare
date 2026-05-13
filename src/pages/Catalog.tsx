@@ -118,8 +118,8 @@ export default function Catalog() {
                       className="bg-white border border-slate-100 rounded-[2rem] p-3 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all flex flex-col group"
                     >
                       {product.isSubcategoryCard ? (
-                        <button onClick={() => handleCategoryClick(product.targetCategoryId || '')} className="block text-left relative">
-                          <div className="aspect-[4/3] bg-slate-50 rounded-[1.5rem] flex items-center justify-center relative overflow-hidden mb-4">
+                        <button onClick={() => handleCategoryClick(product.targetCategoryId || '')} className="block text-left relative h-full flex flex-col">
+                          <div className="aspect-[4/5] bg-slate-50 rounded-[1.5rem] flex items-center justify-center relative overflow-hidden mb-4">
                             <div className="absolute top-3 left-3 bg-white/90 backdrop-blur border border-slate-100 text-slate-800 text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-full z-10 shadow-sm">
                               {product.categoryName}
                             </div>
@@ -131,15 +131,14 @@ export default function Catalog() {
                             />
                           </div>
                           
-                          <div className="px-3">
+                          <div className="px-3 pb-4">
                             <div className="text-xs font-semibold text-blue-600 mb-2 font-mono uppercase tracking-wide">Category</div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">{product.name}</h3>
-                            <p className="text-sm text-slate-500 mb-4 line-clamp-2 leading-relaxed">{product.description}</p>
+                            <h3 className="text-xl font-bold text-slate-900 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">{product.name}</h3>
                           </div>
                         </button>
                       ) : (
-                        <Link to={`/product/${product.id}`} className="block">
-                          <div className="aspect-[4/3] bg-slate-50 rounded-[1.5rem] flex items-center justify-center relative overflow-hidden mb-4">
+                        <Link to={`/product/${product.id}`} className="block h-full flex flex-col">
+                          <div className="aspect-[4/5] bg-slate-50 rounded-[1.5rem] flex items-center justify-center relative overflow-hidden mb-4">
                             <div className="absolute top-3 left-3 bg-white/90 backdrop-blur border border-slate-100 text-slate-800 text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-full z-10 shadow-sm">
                               {product.categoryName}
                             </div>
@@ -151,50 +150,11 @@ export default function Catalog() {
                             />
                           </div>
                           
-                          <div className="px-3">
-                            <div className="text-xs font-semibold text-blue-600 mb-2 font-mono uppercase tracking-wide">SKU: {product.sku}</div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">{product.name}</h3>
-                            <p className="text-sm text-slate-500 mb-4 line-clamp-2 leading-relaxed">{product.description}</p>
+                          <div className="px-3 pb-4">
+                            <h3 className="text-xl font-bold text-slate-900 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">{product.name}</h3>
                           </div>
                         </Link>
                       )}
-
-                      <div className="mt-auto px-3 pb-3">
-                        <div className="flex gap-2 flex-wrap mb-5">
-                          {product.certifications.slice(0, 2).map((cert, i) => (
-                             <span key={i} className="text-[10px] font-bold bg-green-50 text-green-700 px-2.5 py-1 rounded-full border border-green-100 uppercase mt-2">
-                               {cert}
-                             </span>
-                          ))}
-                        </div>
-                        
-                        {product.isSubcategoryCard ? (
-                          <div className="flex gap-2">
-                            <button 
-                              onClick={() => handleCategoryClick(product.targetCategoryId || '')}
-                              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 flex justify-center items-center rounded-xl font-bold text-sm transition-colors shadow-sm"
-                            >
-                              View More
-                              <ChevronRight size={16} className="ml-1" />
-                            </button>
-                          </div>
-                        ) : (
-                          <div className="flex gap-2">
-                            <button 
-                              onClick={() => openEnquiry(product)}
-                              className="flex-1 bg-slate-900 hover:bg-slate-800 text-white py-3 justify-center rounded-xl font-bold text-sm transition-colors shadow-sm text-center"
-                            >
-                              Enquire
-                            </button>
-                            <Link 
-                              to={`/product/${product.id}`}
-                              className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 flex justify-center items-center py-3 rounded-xl font-bold text-sm transition-colors text-center shadow-sm"
-                            >
-                              Details
-                            </Link>
-                          </div>
-                        )}
-                      </div>
                     </motion.div>
                   ))}
                 </motion.div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Globe2, Factory, Microscope, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Globe2, Factory, Microscope, ArrowRight, CheckCircle2, Mail } from 'lucide-react';
 import { products } from '../data/products';
 import { useState } from 'react';
 import EnquiryModal from '../components/EnquiryModal';
@@ -56,7 +56,7 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg md:text-xl text-slate-600 mb-8 max-w-xl leading-relaxed"
             >
-              Equipping hospitals globally with robust, ISO-certified, and technologically advanced medical supplies. From ICU solutions to Neonatal Care.
+              Equipping hospitals globally with robust, high-quality, and technologically advanced medical supplies. From ICU solutions to Neonatal Care.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ export default function Home() {
         {/* Soft Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
           {[
-            { icon: ShieldCheck, title: "Globally Certified", subtitle: "CE, FDA, and ISO compliant" },
+            { icon: ShieldCheck, title: "Global Standards", subtitle: "Reliable and high-performance equipment" },
             { icon: Factory, title: "Direct Manufacturer", subtitle: "Quality controlled production" },
             { icon: Globe2, title: "Worldwide Export", subtitle: "Supplying 50+ countries" }
           ].map((item, i) => (
@@ -125,38 +125,50 @@ export default function Home() {
                 View all Catalog <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {featuredProducts.map((product, idx) => (
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  transition={{ delay: idx * 0.1, duration: 0.6, ease: "easeOut" }}
                   key={product.id} 
-                  className="bg-white border border-slate-100 rounded-[2rem] p-3 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all group flex flex-col"
+                  className="bg-white border border-slate-100 rounded-[2.5rem] p-4 shadow-sm hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-500 group flex flex-col relative overflow-hidden"
                 >
-                  <Link to={`/product/${product.id}`} className="block relative aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-4 bg-slate-50">
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm border border-white/50 text-slate-800 text-xs px-3 py-1 font-semibold rounded-full z-10 shadow-sm">
+                  {/* Category Badge - Glassmorphism */}
+                  <div className="absolute top-6 left-6 z-20">
+                    <span className="bg-white/80 backdrop-blur-md border border-white/50 text-blue-800 text-[10px] uppercase tracking-wider px-3 py-1.5 font-bold rounded-full shadow-sm">
                       {product.categoryName}
-                    </div>
-                    <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" />
+                    </span>
+                  </div>
+
+                  {/* Product Image */}
+                  <Link to={`/product/${product.id}`} className="block relative aspect-[4/5] rounded-[1.8rem] overflow-hidden mb-6 bg-slate-50">
+                    <img 
+                      src={product.images[0]} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </Link>
-                  <div className="px-3 pb-3 flex flex-col flex-1">
-                    <p className="text-xs font-semibold text-blue-600 mb-1 font-mono uppercase">SKU: {product.sku}</p>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2 leading-snug line-clamp-2 group-hover:text-blue-700 transition-colors">{product.name}</h4>
-                    <p className="text-sm text-slate-500 mb-6 line-clamp-2 leading-relaxed">{product.description}</p>
-                    <div className="mt-auto flex justify-between items-center pt-4 border-t border-slate-50">
-                      <Link to={`/product/${product.id}`} className="text-sm font-semibold text-blue-700 hover:text-blue-800">
-                        Details & Specs
-                      </Link>
-                      <button 
-                        onClick={() => openEnquiry(product.categoryName, product)}
-                        className="bg-slate-50 hover:bg-slate-100 text-slate-800 px-4 py-2 rounded-full text-sm font-medium transition-colors"
-                      >
-                        Enquire
-                      </button>
+
+                  {/* Product Content */}
+                  <div className="px-4 pb-6 flex flex-col flex-1">
+                    <h4 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-700 transition-colors">
+                      {product.name}
+                    </h4>
+
+                    {/* Quick Specs Grid - Strong Details */}
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      {Object.entries(product.specs || {}).slice(0, 2).map(([key, value]) => (
+                        <div key={key} className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                          <p className="text-[10px] text-slate-400 uppercase font-bold mb-1">{key}</p>
+                          <p className="text-xs font-bold text-slate-700 truncate">{value}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
+
                 </motion.div>
               ))}
             </div>
@@ -167,32 +179,6 @@ export default function Home() {
           </div>
           
           <aside className="w-full xl:w-[35%] flex flex-col gap-6 xl:sticky xl:top-28">
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm"
-            >
-              <h3 className="text-xl font-bold text-slate-900 mb-6">Latest Installations</h3>
-              <div className="space-y-3">
-                {[
-                  { name: "Apollo Multispecialty", desc: "15x Neonatal Warmers", logo: "A", color: "bg-orange-100 text-orange-600" },
-                  { name: "Fortis Escorts Lab", desc: "X-Ray Shielding Portfolio", logo: "F", color: "bg-blue-100 text-blue-600" },
-                  { name: "Max Healthcare", desc: "OT Suite Modernization", logo: "M", color: "bg-emerald-100 text-emerald-600" }
-                ].map((inst, i) => (
-                  <div key={i} className="flex gap-4 items-center p-4 rounded-[1.5rem] hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100 group">
-                    <div className={`w-14 h-14 ${inst.color} rounded-2xl flex-shrink-0 flex items-center justify-center font-bold text-xl shadow-inner group-hover:scale-105 transition-transform`}>
-                      {inst.logo}
-                    </div>
-                    <div>
-                      <div className="text-base font-bold text-slate-900">{inst.name}</div>
-                      <div className="text-sm text-slate-500 mt-0.5">{inst.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button className="w-full mt-6 text-sm font-semibold text-blue-700 py-3.5 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors shadow-sm">View All Portfolios</button>
-            </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, x: 20 }}

@@ -15,316 +15,264 @@ export interface Product {
 }
 
 export const categories = [
-  { id: 'hospital-furniture', name: 'Hospital Furniture', description: 'Durable and ergonomic furniture for patient care and ward management.' },
-  { id: 'x-ray-supplies', name: 'X-Ray Supplies', description: 'Radiation protection and imaging supplies adhering to strict safety standards.' },
-  { id: 'ot-equipments', name: 'OT Equipments', description: 'Precision surgical equipment for modern operation theaters.' },
-  { id: 'infant-care', name: 'Infant Care Equipment', description: 'Sensitive, life-saving technology for neonatal intensive care.' },
-  { id: 'infant-radiant-warmer', name: 'Infant Radiant Warmer', description: 'Various models of radiant warmers for neonates.', hidden: true }
+  { id: 'x-ray-accessories', name: 'X Ray-Accessories', description: 'Comprehensive radiation protection and imaging accessories.', image: '/images/products/lead_sheet.png' },
+  { id: 'surgical-ot-equipments', name: 'Surgical OT Equipments', description: 'Advanced equipment for modern surgical environments.', image: '/images/products/ot_lights.png' },
+  { id: 'hospital-furnitures', name: 'Hospital Furnitures', description: 'Durable and ergonomic furniture solutions for healthcare facilities.', image: '/images/products/icu_bed.png' },
+  { id: 'global-products', name: 'Global Products', description: 'International-standard medical devices for diagnostics and therapy.', image: '/images/products/ecg_machine.png' },
+  { id: 'infant-care', name: 'Infant Care', description: 'Sensitive, life-saving technology for neonatal and infant care.', image: '/images/products/baby_incubator.png' },
+  { id: 'ot-tables', name: 'OT Tables', description: 'High-precision operating tables for various surgical disciplines.', image: '/images/products/ot_table.png' }
 ];
 
 export const products: Product[] = [
+  // X Ray-Accessories
   {
-    id: 'p-1',
-    sku: 'HF-ICU-001',
-    name: 'Advanced 5-Function ICU Bed',
-    categoryId: 'hospital-furniture',
-    categoryName: 'Hospital Furniture',
-    description: 'A fully motorized ICU bed designed for critical care environments. Features an ergonomic design with ABS head and foot boards, split rails, and central locking castors to ensure patient safety and ease of use for healthcare professionals.',
-    material: 'Mild Steel / ABS',
-    images: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop', // Bed placeholder
-    ],
-    specs: {
-      'Overall Dimensions': '2140mm L x 1050mm W',
-      'Height Adjustment': '450mm to 750mm',
-      'Backrest Angle': '0-75°',
-      'Knee Rest Angle': '0-40°',
-      'Trendelenburg / Rev. Trend.': '±12°',
-      'Safe Working Load': '250 kg'
-    },
-    certifications: ['ISO 9001:2015', 'CE Certified', 'ISO 13485:2016'],
-    features: [
-      'Four advanced linear actuators',
-      'Nurse control panel with lock-out function',
-      'CPR release mechanism',
-      'Angle indicators for backrest and Trendelenburg'
-    ]
+    id: 'xr-1',
+    sku: 'XR-ACC-001',
+    name: 'Lead Sheet',
+    categoryId: 'x-ray-accessories',
+    categoryName: 'X Ray-Accessories',
+    description: 'High-purity lead sheets for radiation shielding in diagnostic and therapeutic environments.',
+    images: ['/images/products/lead_sheet.png'],
+    specs: { 'Material': '99.9% Pure Lead', 'Thickness': '0.5mm - 3.0mm' },
+    certifications: ['AERB Approved'],
+    features: ['Uniform thickness', 'High density', 'Corrosion resistant']
   },
   {
-    id: 'p-2',
-    sku: 'XR-APRON-025',
-    name: 'Premium Lead Apron (0.5mmPb)',
-    categoryId: 'x-ray-supplies',
-    categoryName: 'X-Ray Supplies',
-    description: 'High-grade radiation protection apron providing comprehensive coverage. Engineered with multi-layer core material that ensures maximum flexibility and uniform weight distribution to reduce fatigue during extended procedures.',
-    material: 'Lead / Nylon',
-    images: [
-      'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Lead Equivalency': '0.5mmPb',
-      'Core Material': 'Lightweight Lead',
-      'Outer Fabric': 'Waterproof, antimicrobial Nylon',
-      'Closure System': 'Velcro with buckle support',
-      'Weight': 'Approx 2.8 kg (Size L)'
-    },
-    certifications: ['CE Certified', 'AERB Approved', 'ISO 13485:2016'],
-    features: [
-      'Ergonomic thyroid collar included',
-      'Padded shoulders for extra comfort',
-      'Stain-resistant and easy to clean',
-      'Available in multiple sizes (S, M, L, XL)'
-    ]
-  },
-  {
-    id: 'p-3',
-    sku: 'OT-LED-900',
-    name: 'Shadowless LED OT Light (Ceiling Mount)',
-    categoryId: 'ot-equipments',
-    categoryName: 'OT Equipments',
-    description: 'State-of-the-art shadowless surgical light utilizing advanced LED technology to provide bright, cool, and natural color illumination. Designed for deep cavity procedures with exceptional tissue differentiation.',
-    material: 'Aerospace Grade Aluminum',
-    images: [
-      'https://images.unsplash.com/photo-1551076805-e1869043e560?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Illumination Intensity': '160,000 + 160,000 Lux',
-      'Color Temperature': '3500K - 5000K (Adjustable)',
-      'Color Rendering Index (CRI)': '≥ 95',
-      'LED Lifespan': '> 50,000 Hours',
-      'Focus Diameter': '150 - 300 mm'
-    },
-    certifications: ['CE Certified', 'FDA Approved', 'ISO 9001:2015'],
-    features: [
-      'Endoscopy mode for minimally invasive surgery',
-      'Sterilizable handle',
-      'Touch screen control panel',
-      'Aerodynamic design for laminar flow compatibility'
-    ]
-  },
-  {
-    id: 'p-4',
-    sku: 'IC-WARM-GRP',
-    name: 'Infant Radiant Warmer',
-    categoryId: 'infant-care',
-    categoryName: 'Infant Care Equipment',
-    description: 'Microprocessor-controlled infant radiant warmer models designed to provide stable thermal environments for neonates.',
-    material: 'Stainless Steel / Acrylic',
-    images: [
-      'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {},
-    certifications: [],
-    features: [],
-    isSubcategoryCard: true,
-    targetCategoryId: 'infant-radiant-warmer'
-  },
-  {
-    id: 'p-4-1',
-    sku: 'IC-WARM-INNWDX',
-    name: 'Infant Radiant Warmer - INNWDX',
-    categoryId: 'infant-radiant-warmer',
-    categoryName: 'Infant Radiant Warmer',
-    description: 'Advanced infant radiant warmer INNWDX model with phototherapy unit, swiveling heater assembly, and comprehensive monitoring.',
-    images: ['https://www.indosurgicals.com/images/products/Infant-Radiant-Warmer.jpg'],
-    specs: {
-      'Control Modes': 'Manual and Servo modes for flexible operation',
-      'Electrical Specifications': '220V/50Hz, 650 Watts, 5 Amp Fuse',
-      'Dimensions': 'Height - 1920mm, Length - 890mm, Width - 860mm',
-      'Heater Assembly': 'Radiant heater with inbuilt LED examination lamp',
-      'Storage': 'One drawer system for consumables'
-    },
-    certifications: ['CE Certified', 'ISO 9001'],
-    features: [
-      'Comprehensive audible and visual alarms (probe, skin temp, power)',
-      'Swiveling heater assembly for precise positioning',
-      'Spacious baby bed with easy drop-down glasses',
-      'High-quality 4" castors with brakes on front two',
-      'Antistatic castors available as an option'
-    ]
-  },
-  {
-    id: 'p-4-2',
-    sku: 'IC-WARM-INDX',
-    name: 'Infant Radiant Warmer - INDX',
-    categoryId: 'infant-radiant-warmer',
-    categoryName: 'Infant Radiant Warmer',
-    description: 'Advanced infant radiant warmer INDX model with automatic, manual, and servo control modes for precise neonatal care.',
-    images: ['https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop'],
-    specs: {
-      'Control Modes': 'Automatic, Manual, and Servo modes',
-      'Display': 'Large skin/air temperature display (°C and °F)',
-      'Air Mode': 'Optional air sensor with 39°C cut-off',
-      'Bed Design': 'Spacious oval bed with drop-down/fold-down glasses',
-      'Storage': 'Two trays below the baby bed for consumables'
-    },
+    id: 'xr-2',
+    sku: 'XR-ACC-002',
+    name: 'Lead Protection Screen',
+    categoryId: 'x-ray-accessories',
+    categoryName: 'X Ray-Accessories',
+    description: 'Mobile radiation protection screens with lead glass viewing windows for medical staff safety.',
+    images: ['/images/products/lead_protection_screen.png'],
+    specs: { 'Lead Equivalence': '1.0mmPb / 2.0mmPb', 'Frame': 'Powder Coated Steel' },
     certifications: ['CE Certified'],
-    features: [
-      'Programmable user settings for count timer and pre-warming',
-      'Comprehensive audio/visual alarms',
-      'Adjustable heating 40% to 100% in manual mode',
-      'Optional LED or CFL under-surface phototherapy unit',
-      'High-quality 4" castors with brakes'
-    ]
+    features: ['Heavy-duty castors', 'Panoramic view', 'Durable construction']
   },
   {
-    id: 'p-4-3',
-    sku: 'IC-WARM-INIRW',
-    name: 'Infant Radiant Warmer - INIRW',
-    categoryId: 'infant-radiant-warmer',
-    categoryName: 'Infant Radiant Warmer',
-    description: 'Advanced microprocessor-controlled infant radiant warmer system with self-check, featuring manual and servo modes, and comprehensive thermal monitoring for neonatal intensive care.',
-    images: ['https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop'],
-    specs: {
-      'Control System': 'Advanced microprocessor-controlled system with self-check',
-      'Control Modes': 'Manual and Servo modes',
-      'Heater Assembly': '650-watt heating system (Silica, Quartz, or Ceramic)',
-      'Dimensions': '1850mm(H) x 1050mm(L) x 650mm(W)',
-      'Electrical': '220V/50Hz, 650 Watts, 5 Amp Fuse'
-    },
+    id: 'xr-3',
+    sku: 'XR-ACC-003',
+    name: 'Lead Glass & Lead Goggles',
+    categoryId: 'x-ray-accessories',
+    categoryName: 'X Ray-Accessories',
+    description: 'Specialized leaded glass for viewing windows and protective eyewear for radiation environments.',
+    images: ['/images/products/lead_glass_goggles.png'],
+    specs: { 'Lead Equivalence (Glass)': '2.0mmPb', 'Lead Equivalence (Goggles)': '0.75mmPb' },
+    certifications: ['ISO 13485'],
+    features: ['High transparency', 'Scratch resistant', 'Lightweight eyewear']
+  },
+  {
+    id: 'xr-4',
+    sku: 'XR-ACC-004',
+    name: 'Thyroid Guard & Gonald Shield',
+    categoryId: 'x-ray-accessories',
+    categoryName: 'X Ray-Accessories',
+    description: 'Essential protective gear for sensitive organs during radiological procedures.',
+    images: ['/images/products/thyroid_shield.png'],
+    specs: { 'Lead Equivalence': '0.5mmPb', 'Fabric': 'Nylon/PU Coated' },
+    certifications: ['AERB Approved'],
+    features: ['Adjustable fit', 'Comfortable padding', 'Skin-friendly material']
+  },
+  {
+    id: 'xr-5',
+    sku: 'XR-ACC-005',
+    name: 'LED Film View Box',
+    categoryId: 'x-ray-accessories',
+    categoryName: 'X Ray-Accessories',
+    description: 'Ultra-slim LED X-ray film illuminators with uniform brightness and flicker-free technology.',
+    images: ['/images/products/led_view_box.png'],
+    specs: { 'Brightness': '4000 cd/m2', 'Lifespan': '50,000 Hours' },
     certifications: ['CE Certified'],
-    features: [
-      'Large skin/air temperature display (Celsius/Fahrenheit)',
-      'Audible and visual alarms for probe, skin temp, power, and heater fail',
-      'Drop-down/fold-down glasses on baby bed with optional X-ray facility',
-      'Swiveling main control system for accessibility',
-      '4" castors with brakes on front two'
-    ]
+    features: ['Automatic film sensing', 'Variable dimming', 'Slim design']
   },
+
+  // Surgical OT Equipments
   {
-    id: 'p-4-4',
-    sku: 'IC-WARM-INS',
-    name: 'Infant Radiant Warmer - INS',
-    categoryId: 'infant-radiant-warmer',
-    categoryName: 'Infant Radiant Warmer',
-    description: 'Digital, microprocessor-based infant radiant warmer INS model with automatic manual, Servo and Air modes.',
-    images: ['https://www.indosurgicals.com/images/products/Infant%20Radiant%20Warmer%20-%20INS.jpg'],
-    specs: {
-      'Control System': 'Digital, microprocessor-based',
-      'Control Modes': 'Automatic manual / baby (Servo) / Air modes',
-      'Heater Assembly': 'Parabolic heater with 650-watt heating system (Silica, Quartz, Ceramic)',
-      'Dimensions': '1850mm(H) x 1050mm(L) x 650mm(W)',
-      'Electrical': '220V/50Hz, 650 Watts, 5 Amp Fuse'
-    },
-    certifications: ['CE Certified', 'ISO 9001'],
-    features: [
-      'Large skin/air temperature display (Celsius/Fahrenheit)',
-      'Adjustable heating 40% to 100% in manual mode',
-      'Spacious baby bed with drop-down/fold-down glasses',
-      'Swiveling heater assembly for procedures and X-rays',
-      'User-programmable settings for timers and pre-warming mode'
-    ]
-  },
-  {
-    id: 'p-4-5',
-    sku: 'IC-WARM-INNW',
-    name: 'Infant Radiant Warmer - INNW',
-    categoryId: 'infant-radiant-warmer',
-    categoryName: 'Infant Radiant Warmer',
-    description: 'Infant radiant warmer INNW model offering simple controls and reliable heating.',
-    images: ['https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop'],
-    specs: { 'Control': 'Manual', 'Bed': 'Fixed' },
+    id: 'ot-1',
+    sku: 'OT-EQU-001',
+    name: 'OT Table Attachments',
+    categoryId: 'surgical-ot-equipments',
+    categoryName: 'Surgical OT Equipments',
+    description: 'Comprehensive range of specialized attachments for versatile patient positioning during surgery.',
+    images: ['/images/products/ot_attachments.png'],
+    specs: { 'Material': 'Stainless Steel 304', 'Compatibility': 'Universal Side Rails' },
     certifications: ['ISO 9001'],
-    features: ['Economical model', 'Easy to move']
+    features: ['Ortho attachments', 'Neuro headrest', 'Lithotomy poles']
   },
   {
-    id: 'p-5',
-    sku: 'HF-WL-002',
-    name: 'Deluxe Ward Locker',
-    categoryId: 'hospital-furniture',
-    categoryName: 'Hospital Furniture',
-    description: 'Sturdy bedside medicine and personal item locker for patient wards. Constructed from high-quality CRCA steel to ensure durability.',
-    material: 'CRCA Steel',
-    images: [
-      'https://images.unsplash.com/photo-1629399222453-677ff8cedc2a?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Dimensions': '400mm L x 400mm W x 800mm H',
-      'Drawers': '1 top drawer',
-      'Cabinet': '1 bottom cabinet with shelf',
-      'Finish': 'Epoxy powder coated'
-    },
-    certifications: ['ISO 9001:2015'],
-    features: [
-      'Ventilation louvers',
-      'Stainless steel top',
-      'Recessed safe handles'
-    ]
+    id: 'ot-2',
+    sku: 'OT-EQU-002',
+    name: 'OT Lights & Spot Lights',
+    categoryId: 'surgical-ot-equipments',
+    categoryName: 'Surgical OT Equipments',
+    description: 'High-intensity shadowless surgical LED lights for optimal visibility during procedures.',
+    images: ['/images/products/ot_lights.png'],
+    specs: { 'Intensity': '160,000 Lux', 'Color Temp': '4500K' },
+    certifications: ['CE Certified'],
+    features: ['Shadowless technology', 'Cold light', 'Long-life LEDs']
+  },
+
+  // Hospital Furnitures
+  {
+    id: 'hf-1',
+    sku: 'HF-FUR-001',
+    name: 'Manual & Electrical Patient Beds',
+    categoryId: 'hospital-furnitures',
+    categoryName: 'Hospital Furnitures',
+    description: 'Advanced ICU and ward beds with multi-functional adjustments for patient comfort.',
+    images: ['/images/products/icu_bed.png'],
+    specs: { 'Functions': '5-Function / 3-Function', 'Operation': 'Manual / Electric' },
+    certifications: ['ISO 13485'],
+    features: ['ABS side rails', 'Central locking', 'CPR function']
   },
   {
-    id: 'p-6',
-    sku: 'IC-INC-200',
-    name: 'Infant Incubators',
+    id: 'hf-2',
+    sku: 'HF-FUR-002',
+    name: 'Patient Shifting Structures',
+    categoryId: 'hospital-furnitures',
+    categoryName: 'Hospital Furnitures',
+    description: 'Reliable stretchers and shifting trolleys for safe and efficient patient transport.',
+    images: ['/images/products/stretcher_trolley.png'],
+    specs: { 'Type': 'Hydraulic / Manual', 'Load Capacity': '200kg' },
+    certifications: ['CE Certified'],
+    features: ['Trendelenburg position', 'Oxygen cylinder holder', 'IV pole']
+  },
+
+  // Global Products
+  {
+    id: 'gp-1',
+    sku: 'GP-DIA-001',
+    name: 'ECG, EEG, EMG Systems',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Precision diagnostic equipment for cardiovascular and neurological monitoring.',
+    images: ['/images/products/ecg_machine.png'],
+    specs: { 'Channels': '3/6/12 Channel ECG', 'Type': 'Digital' },
+    certifications: ['FDA Approved', 'CE'],
+    features: ['Interpretation software', 'High resolution', 'Portable design']
+  },
+  {
+    id: 'gp-2',
+    sku: 'GP-DIA-002',
+    name: 'Patient Monitors',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Multi-para patient monitors for continuous tracking of vital signs in ICU and OT.',
+    images: ['/images/products/patient_monitor.png'],
+    specs: { 'Parameters': 'ECG, SpO2, NIBP, Resp, Temp', 'Display': '12.1" TFT' },
+    certifications: ['CE Certified'],
+    features: ['Arrhythmia analysis', 'Networkable', 'Battery backup']
+  },
+  {
+    id: 'gp-3',
+    sku: 'GP-RES-001',
+    name: 'Ventilators & Anesthesia Workstations',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Critical care ventilation systems and advanced anesthesia delivery units.',
+    images: ['/images/products/ventilator.png'],
+    specs: { 'Modes': 'Invasive / Non-Invasive', 'Gas Control': 'Electronic' },
+    certifications: ['CE Certified'],
+    features: ['Tidal volume control', 'Integrated monitoring', 'Safety alarms']
+  },
+  {
+    id: 'gp-4',
+    sku: 'GP-RES-002',
+    name: 'Oxygen Concentrator & CPAP/BPAP',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Home care and hospital-grade respiratory support devices.',
+    images: ['/images/products/oxygen_concentrator.png'],
+    specs: { 'O2 Flow': '5L/10L PM', 'Pressure': 'Fixed / Auto' },
+    certifications: ['ISO 13485'],
+    features: ['High purity O2', 'Quiet operation', 'User-friendly interface']
+  },
+  {
+    id: 'gp-5',
+    sku: 'GP-CAR-001',
+    name: 'Cardiac Workstation - TMT',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Complete cardiac stress test system with advanced treadmill and monitoring software.',
+    images: ['/images/products/cardiac_workstation.png'],
+    specs: { 'System': 'Digital TMT', 'Treadmill': 'Heavy Duty' },
+    certifications: ['CE Certified'],
+    features: ['Real-time ST analysis', 'Wireless ECG', 'Detailed reporting']
+  },
+  {
+    id: 'gp-6',
+    sku: 'GP-EMER-001',
+    name: 'Defibrillator & Nebulizer',
+    categoryId: 'global-products',
+    categoryName: 'Global Products',
+    description: 'Life-saving emergency defibrillators and high-efficiency medical nebulizers.',
+    images: ['/images/products/defibrillator.png'],
+    specs: { 'Defib Type': 'Biphasic', 'Neb Rate': '0.2ml/min' },
+    certifications: ['FDA Approved', 'CE'],
+    features: ['Voice prompts', 'Fast charging', 'Compact and portable']
+  },
+
+  // Infant Care
+  {
+    id: 'ic-1',
+    sku: 'IC-INF-001',
+    name: 'Baby Incubators',
     categoryId: 'infant-care',
-    categoryName: 'Infant Care Equipment',
-    description: 'Advanced infant incubator providing a controlled microenvironment for premature or ill newborns.',
-    material: 'Acrylic / ABS',
-    images: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Control Mode': 'Air & Skin mode controlled by micro-computer',
-      'Display': 'LED / Touch screen',
-      'Humidity Control': 'Passive or Active adjustable'
-    },
-    certifications: ['CE Certified', 'ISO 13485:2016'],
-    features: ['Double wall hood', 'X-Ray cassette tray', 'Alarms for safety']
+    categoryName: 'Infant Care',
+    description: 'Controlled micro-environment systems for the care of premature and ill newborns.',
+    images: ['/images/products/baby_incubator.png'],
+    specs: { 'Control': 'Air / Skin Mode', 'Hood': 'Double Wall' },
+    certifications: ['CE Certified'],
+    features: ['Humidity control', 'Oxygen therapy port', 'Low noise']
   },
   {
-    id: 'p-7',
-    sku: 'IC-RES-300',
-    name: 'Resuscitation Unit',
+    id: 'ic-2',
+    sku: 'IC-INF-002',
+    name: 'Infant Warmer & Resuscilator',
     categoryId: 'infant-care',
-    categoryName: 'Infant Care Equipment',
-    description: 'Neonatal resuscitation unit designed for critical care emergencies, ensuring clear airways and optimal oxygenation.',
-    material: 'Stainless Steel',
-    images: [
-      'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Suction Source': 'Built-in or pipeline',
-      'Oxygen Delivery': 'T-piece with manometer',
-      'Apgar Timer': 'Built-in'
-    },
-    certifications: ['CE Certified', 'ISO 9001:2015'],
-    features: ['Adjustable PIP and PEEP', 'Heated mattress options', 'Integrated suction']
+    categoryName: 'Infant Care',
+    description: 'Open care thermal support and emergency resuscitation units for neonates.',
+    images: ['https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop'],
+    specs: { 'Heater': 'Ceramic / Quartz', 'Control': 'Servo Mode' },
+    certifications: ['ISO 9001'],
+    features: ['APGAR timer', 'Observation lamp', 'Tilting bed']
   },
   {
-    id: 'p-8',
-    sku: 'IC-OX-400',
-    name: 'Oxygen Hoods & Accessories',
+    id: 'ic-3',
+    sku: 'IC-INF-003',
+    name: 'Photo Therapy Units',
     categoryId: 'infant-care',
-    categoryName: 'Infant Care Equipment',
-    description: 'Clear, continuous monitoring oxygen hoods designed to provide accurate oxygen therapy for infants.',
-    material: 'Medical Grade Polycarbonate',
-    images: [
-      'https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Sizes': 'S, M, L available',
-      'Adjustment': 'Neck adjustment flap',
-      'Portability': 'Lightweight and durable'
-    },
-    certifications: ['ISO 13485:2016'],
-    features: ['High transparency for easy observation', 'Silicone neck pad', 'Compatible with standard tubing']
+    categoryName: 'Infant Care',
+    description: 'High-intensity LED phototherapy systems for neonatal jaundice treatment.',
+    images: ['https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'],
+    specs: { 'Light Source': 'Blue LEDs', 'Wavelength': '450-470 nm' },
+    certifications: ['CE Certified'],
+    features: ['Adjustable height', 'Treatment timer', 'Compact design']
+  },
+
+  // OT Tables
+  {
+    id: 'ott-1',
+    sku: 'OTT-TBL-001',
+    name: 'Electrical OT Table',
+    categoryId: 'ot-tables',
+    categoryName: 'OT Tables',
+    description: 'Fully motorized operating table with versatile positions for all surgical needs.',
+    images: ['/images/products/ot_table.png'],
+    specs: { 'Length': '2000mm', 'Width': '520mm', 'Positions': 'Trendelenburg, Lateral, Kidney Bridge' },
+    certifications: ['CE Certified', 'ISO 13485'],
+    features: ['Radio-translucent top', 'Stainless steel base', 'Remote control operation']
   },
   {
-    id: 'p-9',
-    sku: 'IC-PHO-500',
-    name: 'Phototherapy Unit',
-    categoryId: 'infant-care',
-    categoryName: 'Infant Care Equipment',
-    description: 'High-efficacy LED phototherapy unit for the treatment of neonatal hyperbilirubinemia.',
-    material: 'Aluminum / ABS',
-    images: [
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'
-    ],
-    specs: {
-      'Light Source': 'Blue LEDs',
-      'Wavelength': '450-470 nm',
-      'Timer': 'Integrated treatment timer'
-    },
-    certifications: ['CE Certified', 'FDA Approved'],
-    features: ['Adjustable height and angle', 'Cool operation with low heat output', 'Long LED lifespan']
+    id: 'ott-2',
+    sku: 'OTT-TBL-002',
+    name: 'Manual Hydraulic OT Table',
+    categoryId: 'ot-tables',
+    categoryName: 'OT Tables',
+    description: 'Durable hydraulic operating table providing reliable performance and ease of use.',
+    images: ['https://images.unsplash.com/photo-1551076805-e1869043e560?q=80&w=800&auto=format&fit=crop'],
+    specs: { 'Mechanism': 'Hydraulic Pump', 'Base': 'T-Shaped' },
+    certifications: ['ISO 9001'],
+    features: ['C-Arm compatible', 'Floor locking mechanism', 'Smooth adjustments']
   }
 ];

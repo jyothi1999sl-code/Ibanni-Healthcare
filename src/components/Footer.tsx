@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ShieldCheck, Award, Globe } from 'lucide-react';
+import logo from '@/logo/Ibanni.png';
 
 export default function Footer() {
   return (
@@ -9,11 +10,8 @@ export default function Footer() {
           
           {/* Brand Col */}
           <div className="col-span-1 md:col-span-1">
-            <div className="text-2xl font-bold tracking-tight mb-6 text-blue-800 flex items-center gap-2">
-               <span className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center flex-shrink-0">
-                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-               </span>
-               Ibanni <span className="font-light text-slate-500 justify-center">Healthcare</span>
+            <div className="mb-6 flex items-center">
+              <img src={logo} alt="Ibanni Healthcare" className="h-12 w-auto object-contain" />
             </div>
             <p className="text-sm text-slate-500 mb-8 leading-relaxed">
               Leading manufacturer and supplier of premium medical equipment. Supplying to over 10,000+ hospitals in 50+ countries.
@@ -40,16 +38,16 @@ export default function Footer() {
           <div>
             <h3 className="text-base font-semibold text-slate-900 mb-6">Quick Links</h3>
             <ul className="space-y-4 text-sm text-slate-500">
-              <li><Link to="#" className="hover:text-teal-600 transition-colors">ISO Certifications</Link></li>
-              <li><Link to="#" className="hover:text-teal-600 transition-colors">CE Declarations</Link></li>
-              <li><Link to="#" className="hover:text-teal-600 transition-colors">Export & Shipping</Link></li>
-              <li><Link to="#" className="hover:text-teal-600 transition-colors">Warranty Terms</Link></li>
+              <li><Link to="/about" className="hover:text-teal-600 transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="hover:text-teal-600 transition-colors">Services</Link></li>
+              <li><Link to="/brands" className="hover:text-teal-600 transition-colors">Trusted Brands</Link></li>
+              <li><Link to="/customer-care" className="hover:text-teal-600 transition-colors">Customer Care</Link></li>
             </ul>
           </div>
 
           {/* Contact Col */}
           <div>
-            <h3 className="text-base font-semibold text-slate-900 mb-6">Corporate Office</h3>
+            <h3 className="text-base font-semibold text-slate-900 mb-6">Registered Office</h3>
             <ul className="space-y-4 text-sm text-slate-500">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-teal-600 mt-0.5 flex-shrink-0" />

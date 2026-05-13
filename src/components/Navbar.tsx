@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, FileText, ChevronDown, Menu as MenuIcon, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { categories } from '../data/products';
+import logo from '@/logo/Ibanni.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,7 @@ export default function Navbar() {
       {/* Top Bar for B2B Utility */}
       <div className="bg-teal-900 text-teal-50 px-4 sm:px-8 py-2 flex items-center justify-between text-xs font-medium">
         <div className="hidden sm:flex gap-4">
-          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span> ISO 9001:2015</span>
-          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span> CE CERTIFIED</span>
+          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span> PREMIUM HEALTHCARE SOLUTIONS</span>
         </div>
         <div className="hidden md:flex gap-4">
           <span className="opacity-80">Global Export to 45+ Countries</span>
@@ -22,51 +22,51 @@ export default function Navbar() {
       </div>
 
       {/* Main Nav */}
-      <nav className="px-4 sm:px-8 py-4 flex justify-between items-center max-w-7xl mx-auto">
-        <div className="flex items-center gap-10">
-          <Link to="/" className="text-2xl font-bold tracking-tight text-blue-800 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-            </span>
-            Ibanni <span className="font-light text-slate-500">Healthcare</span>
+      <nav className="px-4 xl:px-12 py-5 flex justify-between items-center max-w-[1600px] mx-auto gap-8">
+        {/* Logo Section */}
+        <div className="flex-shrink-0">
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Ibanni Healthcare" className="h-10 md:h-14 w-auto object-contain" />
           </Link>
-          
-          <ul className="hidden md:flex gap-1 items-center">
-            <li>
-              <Link to="/" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-full transition-all">Home</Link>
-            </li>
+        </div>
+        
+        {/* Navigation Section - Centered and Spaced */}
+        <div className="hidden xl:flex flex-grow justify-center">
+          <ul className="flex items-center gap-2 2xl:gap-4">
+            <li><Link to="/" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all">Home</Link></li>
+            <li><Link to="/about" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all whitespace-nowrap">About Us</Link></li>
             
             <li 
-              className="py-2 text-sm font-medium text-slate-600 cursor-pointer relative group"
+              className="relative group"
               onMouseEnter={() => setIsMegaMenuOpen(true)}
               onMouseLeave={() => setIsMegaMenuOpen(false)}
             >
-              <Link to="/catalog" className="px-4 py-2 flex items-center gap-1 hover:text-teal-600 hover:bg-teal-50 rounded-full transition-all">
-                Catalog <ChevronDown size={14} className={`transition-transform duration-200 ${isMegaMenuOpen ? 'rotate-180' : ''}`} />
+              <Link to="/categories" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 flex items-center gap-1 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all whitespace-nowrap">
+                Equipment Categories <ChevronDown size={16} className={`transition-transform duration-200 ${isMegaMenuOpen ? 'rotate-180' : ''}`} />
               </Link>
               
               {/* Mega Menu Dropdown */}
               {isMegaMenuOpen && (
-                <div className="absolute top-full left-0 w-[600px] mt-2 pt-2 z-50">
-                  <div className="bg-white shadow-xl rounded-2xl border border-slate-100 p-6 flex gap-6 ring-1 ring-slate-900/5">
-                    <div className="w-1/3 bg-slate-50 p-5 rounded-xl border border-slate-100">
-                      <h3 className="font-semibold text-slate-900 mb-2">Our Catalog</h3>
-                      <p className="text-xs text-slate-500 mb-4 leading-relaxed">
-                        Trusted by 10,000+ hospitals worldwide. Browse our CE certified medical equipment.
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[700px] mt-2 pt-4 z-50">
+                  <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-3xl border border-slate-100 p-8 flex gap-8 ring-1 ring-slate-900/5">
+                    <div className="w-1/3 bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col justify-center text-center md:text-left">
+                      <h3 className="font-bold text-slate-900 mb-2">Our Solutions</h3>
+                      <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+                        Trusted by 10,000+ hospitals worldwide. Discover our CE certified imaging range.
                       </p>
-                      <Link to="/catalog" className="inline-flex text-sm text-teal-600 font-medium hover:text-teal-700 items-center gap-1 group/link">
-                        View All <ChevronDown size={14} className="rotate-[-90deg] group-hover/link:translate-x-1 transition-transform" />
+                      <Link to="/catalog" className="inline-flex text-sm text-teal-600 font-bold hover:text-teal-700 items-center justify-center md:justify-start gap-1 group/link">
+                        Full Catalog <ChevronDown size={14} className="rotate-[-90deg] group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                     </div>
-                    <div className="w-2/3 grid grid-cols-2 gap-x-4 gap-y-3">
+                    <div className="w-2/3 grid grid-cols-2 gap-x-6 gap-y-4">
                       {categories.filter(cat => !(cat as any).hidden).map((cat) => (
                         <Link 
                           key={cat.id} 
                           to={`/catalog?category=${cat.id}`}
-                          className="group p-2 -mx-2 rounded-lg hover:bg-slate-50 transition-colors block"
+                          className="group p-3 rounded-xl hover:bg-slate-50 transition-colors block border border-transparent hover:border-slate-100"
                         >
-                          <h4 className="text-sm font-medium text-slate-900 group-hover:text-teal-600 transition-colors">{cat.name}</h4>
-                          <p className="text-xs text-slate-500 line-clamp-1">{cat.description}</p>
+                          <h4 className="text-[14px] font-bold text-slate-900 group-hover:text-teal-600 transition-colors">{cat.name}</h4>
+
                         </Link>
                       ))}
                     </div>
@@ -74,23 +74,24 @@ export default function Navbar() {
                 </div>
               )}
             </li>
-            <li>
-              <Link to="#" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-full transition-all">Certifications</Link>
-            </li>
+            <li><Link to="/services" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all">Services</Link></li>
+            <li><Link to="/contact" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all whitespace-nowrap">Get In Touch</Link></li>
+            <li><Link to="/brands" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all whitespace-nowrap">Trusted Brands</Link></li>
+            <li><Link to="/customer-care" className="px-3 py-2 text-[15px] 2xl:text-base font-bold text-slate-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg transition-all whitespace-nowrap">Customer Care</Link></li>
           </ul>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center relative">
-            <Search size={16} className="absolute left-3.5 text-slate-400" />
-            <input type="text" placeholder="Search products..." className="bg-slate-100 border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-teal-500/20 focus:bg-white transition-all shadow-inner" />
-          </div>
-          <Link to="/catalog" className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2.5 rounded-full font-medium text-sm transition-colors shadow-sm hidden md:block">
+        {/* Action Section */}
+        <div className="flex items-center gap-2 2xl:gap-4 flex-shrink-0">
+          <button className="p-2.5 text-slate-500 hover:bg-slate-100 rounded-full transition-colors hidden sm:block">
+            <Search size={20} />
+          </button>
+          <Link to="/contact" className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full font-bold text-[13px] uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95 hidden lg:block">
             Send Enquiry
           </Link>
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-slate-600 hover:bg-slate-100 p-2 rounded-full focus:outline-none transition-colors"
+            className="xl:hidden text-slate-600 hover:bg-slate-100 p-2.5 rounded-full focus:outline-none transition-colors border border-slate-200"
           >
             <MenuIcon size={24} />
           </button>
@@ -99,12 +100,20 @@ export default function Navbar() {
       
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white">
-          <div className="px-4 py-4 space-y-1">
-            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-sm font-medium text-slate-900 bg-slate-50 rounded-xl">Home</Link>
-            <Link to="/catalog" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-xl">Products Catalog</Link>
-            <Link to="#" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-xl">Certifications</Link>
-            <Link to="/catalog" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-sm font-medium text-teal-600 hover:bg-teal-50 rounded-xl mt-2 text-center">Send Enquiry</Link>
+        <div className="xl:hidden border-t border-slate-100 bg-white max-h-[85vh] overflow-y-auto shadow-2xl animate-in slide-in-from-top duration-300">
+          <div className="px-6 py-8 space-y-2">
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors">Home</Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">About Us</Link>
+            <Link to="/categories" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Equipment Categories</Link>
+            <Link to="/services" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Services</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Get In Touch</Link>
+            <Link to="/brands" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Trusted Brands</Link>
+            <Link to="/customer-care" onClick={() => setIsMenuOpen(false)} className="block px-5 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Customer Care</Link>
+            <div className="pt-6">
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-6 py-5 text-center text-lg font-bold text-white bg-teal-600 rounded-2xl shadow-lg active:scale-95 transition-all">
+                Send Enquiry
+              </Link>
+            </div>
           </div>
         </div>
       )}
